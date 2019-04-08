@@ -42,8 +42,6 @@ Things you may want to cover:
 |size|string|
 
 ## Association
-|column|Type|options|
-|------|----|-------|
 - belongs_to :user
 - has_many :images
 
@@ -70,17 +68,13 @@ Things you may want to cover:
 |token_id|integer|
 
 ## Association
-|column|Type|options|
-|------|----|-------|
 - has_many :items
 
 ## imagesテーブル
 |column|Type|options|
 |------|----|-------|
 |items_id|integer|foreign_key: true|
-|item_image|integer|null:v false|
+|item_image|integer|null: false|
 
 ## Association
-|column|Type|options|
-|------|----|-------|
 - belongs_to :item
