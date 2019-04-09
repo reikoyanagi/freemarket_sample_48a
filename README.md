@@ -45,7 +45,7 @@ Things you may want to cover:
 ## imagesテーブル
 |column|Type|options|
 |------|----|-------|
-|items_id|integer|foreign_key: true|
+|item_id|integer|foreign_key: true|
 |item_image|integer|null: false|
 
 ## Association
@@ -58,6 +58,7 @@ Things you may want to cover:
 |shipping|string|null: false|
 |region|string|null: false|
 |shipping_date|string|null: false|
+|item_id|integer|foreign_key: true|
 
 ## Association
 - belongs_to :item
@@ -89,6 +90,7 @@ Things you may want to cover:
 |city|string|null: false|
 |block|string|null: false|
 |building|string|
+|user_id|integer|foreign_key: true|
 
 ## Association
 - belongs_to :user
@@ -97,6 +99,7 @@ Things you may want to cover:
 |column|Type|options|
 |------|----|-------|
 |token_id|integer|
+|user_id|integer|foreign_key: true|
 
 ## Association
 - belongs_to :user
