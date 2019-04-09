@@ -31,10 +31,6 @@ Things you may want to cover:
 |condition|text|null: false|
 |price|integer|null: false|
 |detail|text|null: false|
-|postage|integer|null: false|
-|shipping|string|null: false|
-|region|string|null: false|
-|shipping_date|string|null: false|
 |saler_id|integer|null: false|
 |buyer_id|integer|
 |status_id|integer|
@@ -44,6 +40,27 @@ Things you may want to cover:
 ## Association
 - belongs_to :user
 - has_many :images
+- has_one :delivery
+
+## imagesテーブル
+|column|Type|options|
+|------|----|-------|
+|items_id|integer|foreign_key: true|
+|item_image|integer|null: false|
+
+## Association
+- belongs_to :item
+
+## deliveryテーブル
+|column|Type|options|
+|------|----|-------|
+|postage|string|null: false|
+|shipping|string|null: false|
+|region|string|null: false|
+|shipping_date|string|null: false|
+
+## Association
+- belongs_to :item
 
 ## usersテーブル
 |column|Type|options|
@@ -58,23 +75,31 @@ Things you may want to cover:
 |birth_year|integer|null: false|
 |birth_month|integer|null: false|
 |birth_day|integer|null: false|
-|phone_number|integer|null: false, unique: true|
-|post_code|integer|null: false|
-|prefecture_id|integer|
-|city|string|
-|block|string|
-|building|string|
 |avator|text|
-|token_id|integer|
 
 ## Association
 - has_many :items
+- has_one :address
+- has_one :credit_card
 
-## imagesテーブル
+## addressテーブル
 |column|Type|options|
 |------|----|-------|
-|items_id|integer|foreign_key: true|
-|item_image|integer|null: false|
+|phone_number|integer|null: false, unique: true|
+|post_code|integer|null: false|
+|prefecture_id|integer|null: false|
+|city|string|null: false|
+|block|string|null: false|
+|building|string|
 
 ## Association
-- belongs_to :item
+- belongs_to :user
+
+## credit_cardsテーブル
+|column|Type|options|
+|------|----|-------|
+|token_id|integer|
+
+## Association
+- belongs_to :user
+
