@@ -73,4 +73,14 @@ group :development, :test do
   gem 'capistrano3-unicorn'
 end
 
+gem 'haml-rails'
+gem 'erb2haml'
+gem "font-awesome-rails"
+gem 'compass-rails','3.1.0'
+gem 'kaminari'
+
+gem 'jquery-rails'
+
+gem 'devise'
+
 
