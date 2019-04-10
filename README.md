@@ -39,11 +39,11 @@ Things you may want to cover:
 
 ## Association
 - belongs_to :user
-- has_many :images
-- has_one :delivery
-- has_many :categories
-- has_many :like
-- has_many :comment
+- has_many :images, dependent: :destroy
+- has_one :delivery, dependent: :destroy
+- has_many :categories, dependent: :destroy
+- has_many :likes, dependent: :destroy
+- has_many :comments, dependent: :destroy
 
 ## imagesテーブル
 |column|Type|options|
@@ -91,12 +91,12 @@ Things you may want to cover:
 |avator|text|
 
 ## Association
-- has_many :items
-- has_one :address
-- has_one :credit_card
-- has_many :sns_credentials
-- has_many :like
-- has_many :comment
+- has_many :items, dependent: :destroy
+- has_one :address, dependent: :destroy
+- has_one :credit_card, dependent: :destroy
+- has_many :sns_credentials, dependent: :destroy
+- has_many :likes, dependent: :destroy
+- has_many :comments, dependent: :destroy
 
 ## addressテーブル
 |column|Type|options|
@@ -152,11 +152,4 @@ Things you may want to cover:
 ## Association
 - belongs_to :item
 - belongs_to :user
-
-
-
-
-
-
-
 
