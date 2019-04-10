@@ -41,6 +41,9 @@ Things you may want to cover:
 - belongs_to :user
 - has_many :images
 - has_one :delivery
+- has_many :categories
+- has_many :like
+- has_many :comment
 
 ## imagesテーブル
 |column|Type|options|
@@ -91,6 +94,9 @@ Things you may want to cover:
 - has_many :items
 - has_one :address
 - has_one :credit_card
+- has_many :sns_credentials
+- has_many :like
+- has_many :comment
 
 ## addressテーブル
 |column|Type|options|
