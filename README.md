@@ -49,7 +49,7 @@ Things you may want to cover:
 |column|Type|options|
 |------|----|-------|
 |item_id|references|foreign_key: true|
-|item_image|integer|null: false|
+|item_image|string|null: false|
 
 ## Association
 - belongs_to :item
@@ -69,7 +69,7 @@ Things you may want to cover:
 ## categoriesテーブル
 |column|Type|options|
 |------|----|-------|
-|name|integer|null: false|
+|name|string|null: false|
 |item_id|references|null: false, foreign_key: true|
 
 ## Association
