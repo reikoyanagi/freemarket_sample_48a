@@ -42,7 +42,6 @@ Things you may want to cover:
 - has_many :categories, dependent: :destroy
 - has_many :likes, dependent: :destroy
 - has_many :comments, dependent: :destroy
-- has_many :transactions, depentent: :destroy
 
 ## imagesテーブル
 |column|Type|options|
@@ -75,15 +74,6 @@ Things you may want to cover:
 - belongs_to :item
 - has_ancestry
 
-## transactionテーブル
-|column|Type|options|
-|------|----|-------|
-|seller_id|references|null: false, foreign_key: true|
-|buyer_id|references|null: false, foreign_key: true|
-
-- belongs_to :item
-
-
 ## usersテーブル
 |column|Type|options|
 |------|----|-------|
@@ -104,6 +94,7 @@ Things you may want to cover:
 - has_many :sns_credentials, dependent: :destroy
 - has_many :likes, dependent: :destroy
 - has_many :comments, dependent: :destroy
+- has_one :transaction, dependent: :destroy
 
 ## addressテーブル
 |column|Type|options|
@@ -128,7 +119,7 @@ Things you may want to cover:
 ## Association
 - belongs_to :user
 
-## Sns_credentialsテーブル
+## sns_credentialsテーブル
 |column|Type|options|
 |------|----|-------|
 |provider|string|null: false, unique: true|
@@ -138,6 +129,13 @@ Things you may want to cover:
 ## Association
 - belongs_to :user
 
+## transactionテーブル
+|column|Type|options|
+|------|----|-------|
+|seller_id|references|null: false, foreign_key: true|
+|buyer_id|references|null: false, foreign_key: true|
+
+- belongs_to :user
 
 ## Likesテーブル
 |column|Type|options|
