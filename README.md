@@ -27,7 +27,7 @@ Things you may want to cover:
 |column|Type|options|
 |------|----|-------|
 |name|string|null: false, index:true|
-|user_id|integer|foreign_key: true|
+|user_id|references|foreign_key: true|
 |condition|text|null: false|
 |price|integer|null: false|
 |detail|text|null: false|
@@ -48,7 +48,7 @@ Things you may want to cover:
 ## imagesテーブル
 |column|Type|options|
 |------|----|-------|
-|item_id|integer|foreign_key: true|
+|item_id|references|foreign_key: true|
 |item_image|integer|null: false|
 
 ## Association
@@ -61,7 +61,7 @@ Things you may want to cover:
 |shipping|string|null: false|
 |region|string|null: false|
 |shipping_date|string|null: false|
-|item_id|integer|foreign_key: true|
+|item_id|references|foreign_key: true|
 
 ## Association
 - belongs_to :item
@@ -70,7 +70,7 @@ Things you may want to cover:
 |column|Type|options|
 |------|----|-------|
 |name|integer|null: false|
-|item_id|integer|null: false, foreign_key: true|
+|item_id|references|null: false, foreign_key: true|
 
 ## Association
 - belongs_to :item
@@ -107,7 +107,7 @@ Things you may want to cover:
 |city|string|null: false|
 |block|string|null: false|
 |building|string|
-|user_id|integer|foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
 
 ## Association
 - belongs_to :user
@@ -116,7 +116,7 @@ Things you may want to cover:
 |column|Type|options|
 |------|----|-------|
 |token_id|integer|
-|user_id|integer|foreign_key: true|
+|user_id|references|foreign_key: true|
 
 ## Association
 - belongs_to :user
@@ -126,7 +126,7 @@ Things you may want to cover:
 |------|----|-------|
 |provider|string|null: false, unique: true|
 |uid|string|null: false|
-|user_id|integer|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
 
 ## Association
 - belongs_to :user
@@ -135,8 +135,8 @@ Things you may want to cover:
 ## Likesテーブル
 |column|Type|options|
 |------|----|-------|
-|item_id|integer|foreign_key: true|
-|user_id|integer|foreign_key: true|
+|item_id|references|foreign_key: true|
+|user_id|references|foreign_key: true|
 
 ## Association
 - belongs_to :item
@@ -146,8 +146,8 @@ Things you may want to cover:
 |column|Type|options|
 |------|----|-------|
 |text|text|null: false|
-|item_id|integer|null: false, foreign_key: true|
-|user_id|integer|null: false, foreign_key: true|
+|item_id|references|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
 
 ## Association
 - belongs_to :item
