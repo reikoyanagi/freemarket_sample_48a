@@ -63,6 +63,17 @@ Things you may want to cover:
 ## Association
 - belongs_to :item
 
+## categoriesテーブル
+|column|Type|options|
+|------|----|-------|
+|name|integer|null: false|
+|item_id|integer|null: false, foreign_key: true|
+
+## Association
+- belongs_to :item
+- has_ancestry
+
+
 ## usersテーブル
 |column|Type|options|
 |------|----|-------|
@@ -103,4 +114,43 @@ Things you may want to cover:
 
 ## Association
 - belongs_to :user
+
+## Sns_credentialsテーブル
+|column|Type|options|
+|------|----|-------|
+|provider|string|null: false, unique: true|
+|uid|string|null: false|
+|user_id|integer|null: false, foreign_key: true|
+
+## Association
+- belongs_to :user
+
+
+## Likesテーブル
+|column|Type|options|
+|------|----|-------|
+|item_id|integer|foreign_key: true|
+|user_id|integer|foreign_key: true|
+
+## Association
+- belongs_to :item
+- belongs_to :user
+
+## Commentsテーブル
+|column|Type|options|
+|------|----|-------|
+|text|text|null: false|
+|item_id|integer|null: false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
+
+## Association
+- belongs_to :item
+- belongs_to :user
+
+
+
+
+
+
+
 
