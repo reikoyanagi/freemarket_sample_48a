@@ -1,0 +1,202 @@
+.overall
+  .header
+    .header__header-margin
+      .header__header-margin--clearfix
+        %img.logo{alt: "logo", height: "36",src: "assets/mercarilogo.svg" }
+        %input.header-input{:type => "text", :placeholder => "何かお探しですか？"}
+        %i.fa.fa-search
+      .header-nav-box
+        %nav.list-left
+          %ul.header-nav
+            %li
+              %h2
+                %a.header-nav
+                  %i.fa.fa-list-ul
+                  %span カテゴリーから探す
+            %li
+              %h2
+                %a.header-nav
+                  %i.fa.fa-tag
+                  %span ブランドから探す
+        .list-right
+          %ul.header-user-nav
+            %li
+              %a.tag1
+                %i.fa.fa-bell
+                %span お知らせ
+            %li
+              %a.tag1
+                %i.fa.fa-check
+                %span やることリスト
+            .mypage
+              %a.tag
+                %img.avatar{alt: "logo", height: "30",src: "assets/avatar.png" }
+                  .my マイページ
+
+  .main-contents
+    %img.top-info{:alt => "sinseikatu", :src => "assets/sinseikatu.png"}
+  .pickup-container
+    %h2 ピックアップカテゴリー
+    .pickup-container__items-container
+      %h3.category
+        %a.index{:href => ""}レディース 新着アイテム
+      .items-content
+        .items-content__items-box
+          .items-content__items-box__photo
+            %img.tops{:alt => "item", :src => "assets/item1.jpg"}
+          .items-content__items-box__body
+            %h3.items-name 新品未使用　スタニングルアーワンピース
+            .items-num
+              .items-num__price ¥1,800
+              .items-num__likes
+                %span.like 12
+                %i.fa.fa-heart
+              %p (税込)
+
+        .items-content__items-box
+          .items-content__items-box__photo
+            %img.tops{:alt => "item", :src => "assets/item1.jpg"}
+          .items-content__items-box__body
+            %h3.items-box-name 新品未使用　スタニングルアーワンピース
+            .items-num
+              .items-num__price ¥1,800
+              .items-num__likes
+                %span.like 12
+                %i.fa.fa-heart
+              %p (税込)
+
+        .items-content__items-box
+          .items-content__items-box__photo
+            %img.tops{:alt => "item", :src => "assets/item1.jpg"}
+          .items-content__items-box__body
+            %h3.items-name 新品未使用　スタニングルアーワンピース
+            .items-num
+              .items-num__price ¥1,800
+              .items-num__likes
+                %span.like 12
+                %i.fa.fa-heart
+              %p (税込)
+
+        .items-content__items-box
+          .items-content__items-box__photo
+            %img.tops{:alt => "item", :src => "assets/item1.jpg"}
+          .items-content__items-box__body
+            %h3.items-name 新品未使用　スタニングルアーワンピース
+            .items-num
+              .items-num__price ¥1,800
+              .items-num__likes
+                %span.like 12
+                %i.fa.fa-heart
+              %p (税込)
+      .items-all
+        %a.items-all{:href => ""}全ての商品を見る
+  .pickup-container
+    %h2 ピックアップブランド
+    .pickup-container__items-container
+      %h3.category
+        %a.index{:href => ""}シャネル 新着アイテム
+      .items-content
+        .items-content__items-box
+          .items-content__items-box__photo
+            %img.tops{:alt => "item", :src => "assets/item1.jpg"}
+          .items-content__items-box__body
+            %h3.items-name 新品未使用　スタニングルアーワンピース
+            .items-num
+              .items-num__price ¥1,800
+              .items-num__likes
+                %span.like 12
+                %i.fa.fa-heart
+              %p (税込)
+
+        .items-content__items-box
+          .items-content__items-box__photo
+            %img.tops{:alt => "item", :src => "assets/item1.jpg"}
+          .items-content__items-box__body
+            %h3.items-box-name 新品未使用　スタニングルアーワンピース
+            .items-num
+              .items-num__price ¥1,800
+              .items-num__likes
+                %span.like 12
+                %i.fa.fa-heart
+              %p (税込)
+
+        .items-content__items-box
+          .items-content__items-box__photo
+            %img.tops{:alt => "item", :src => "assets/item1.jpg"}
+          .items-content__items-box__body
+            %h3.items-name 新品未使用　スタニングルアーワンピース
+            .items-num
+              .items-num__price ¥1,800
+              .items-num__likes
+                %span.like 12
+                %i.fa.fa-heart
+              %p (税込)
+
+        .items-content__items-box
+          .items-content__items-box__photo
+            %img.tops{:alt => "item", :src => "assets/item1.jpg"}
+          .items-content__items-box__body
+            %h3.items-name 新品未使用　スタニングルアーワンピース
+            .items-num
+              .items-num__price ¥1,800
+              .items-num__likes
+                %span.like 12
+                %i.fa.fa-heart
+              %p (税込)
+      .items-all
+        %a.items-all{:href => ""}全ての商品を見る
+
+  .app-info
+    %img.app-banner-pc{:alt => "mercari", :src => "assets/kantan.png"}
+
+  .footer
+    .footer__fix
+      .footer__fix--left
+        .footer__fix--left-top メルカリについて
+        %ul
+          %li 会社概要（運営会社）
+          %li 採用情報
+          %li プレスリリース
+          %li 公式ブログ
+          %li メルカリロゴ利用ガイドライン
+          %i.fa.fa-twitter
+          %i.fa.fa-facebook-square
+      .footer__fix--left
+        .footer__fix--left-top ヘルプ＆ガイド
+        %ul
+          %li メルカリガイド
+          %li らくらくメルカリ便
+          %li ゆうゆうメルカリ便
+          %li 大型メルカリ便
+          %li 車体取引ガイド
+          %li メルカリあんしん・あんぜん宣言！
+          %li 偽ブランド品撲滅への取り組み
+          %li メルカリボックス
+      .footer__fix--center
+        .footer__fix--center-top プライバシーと利用規約
+        .footer__fix--center-top--inner
+          %ul
+            %li プライバシーポリシー
+            %li メルカリ利用規約
+            %li あんしんスマホサポート制度に関する利用規約
+            %li コンプライアンスポリシー
+        .footer__fix--center-top--inner2
+          %ul
+            %li 個人データの安全管理に係る基本方針
+            %li 特定商取引に関する表記
+            %li 資金決済法に基づく表示
+            %li 法令順守と犯罪抑止のために
+            %li 返品・返金ポリシー
+      .footer__fix--right
+        .footer__fix--right-top
+          国
+          %ul
+            %li 日本
+            %li United States
+    .footer-bottom
+      %img.mercarilogo-white{:alt => "mercari", :src => "assets/mercarilogo-white.svg"}
+      %span.copyright ©︎ 2019 Mercari
+
+  %button.fixed-btn{:name => "aaa", :type => "button", :value => "aaa"}
+    %div 出品
+    %i.fa.fa-camera
