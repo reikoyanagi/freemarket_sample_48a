@@ -2,8 +2,8 @@
   .header
     .header__header-margin
       .header__header-margin--clearfix
-        %img.logo{alt: "logo", height: "36",src: "assets/mercarilogo.svg" }
-        %input.header-input{:type => "text", :placeholder => "何かお探しですか？"}
+        =image_tag("https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3801675580", class: "logo")
+        %input.header-input{type: "text", placeholder: "何かお探しですか？"}
         %i.fa.fa-search
       .header-nav-box
         %nav.list-left
@@ -11,7 +11,7 @@
             %li
               %h2
                 %a.header-nav
-                  %i.fa.fa-list-ul
+                  = icon 'fa', 'list-ul'
                   %span カテゴリーから探す
             %li
               %h2
@@ -22,7 +22,7 @@
           %ul.header-user-nav
             %li
               %a.tag1
-                %i.fa.fa-bell
+                %i.far.fa-bell
                 %span お知らせ
             %li
               %a.tag1
@@ -30,124 +30,124 @@
                 %span やることリスト
             .mypage
               %a.tag
-                %img.avatar{alt: "logo", height: "30",src: "assets/avatar.png" }
-                  .my マイページ
+                =image_tag("https://askul.c.yimg.jp/img/product/3L1/3571406_3L1.jpg",alt: "logo", height: "30", )
+                .my マイページ
 
   .main-contents
-    %img.top-info{:alt => "sinseikatu", :src => "assets/sinseikatu.png"}
+    =image_tag("https://www.mercari.com/jp/assets/img/common/jp/top/banner-bokurano-heisei.jpg", alt: "sinseikatu", class: "top")
   .pickup-container
     %h2 ピックアップカテゴリー
     .pickup-container__items-container
       %h3.category
-        %a.index{:href => ""}レディース 新着アイテム
+        %a.index{href: ""}レディース 新着アイテム
       .items-content
         .items-content__items-box
           .items-content__items-box__photo
-            %img.tops{:alt => "item", :src => "assets/item1.jpg"}
+            =image_tag("https://static.mercdn.net/thumb/photos/m93272183120_1.jpg?1554111127",alt: "item", height: "220",class: "tops")
           .items-content__items-box__body
             %h3.items-name 新品未使用　スタニングルアーワンピース
             .items-num
               .items-num__price ¥1,800
               .items-num__likes
                 %span.like 12
-                %i.fa.fa-heart
+                %i.far.fa-heart
               %p (税込)
 
         .items-content__items-box
           .items-content__items-box__photo
-            %img.tops{:alt => "item", :src => "assets/item1.jpg"}
+            =image_tag("https://static.mercdn.net/thumb/photos/m93272183120_1.jpg?1554111127",alt: "item", height: "220",class: "tops")
           .items-content__items-box__body
             %h3.items-box-name 新品未使用　スタニングルアーワンピース
             .items-num
               .items-num__price ¥1,800
               .items-num__likes
                 %span.like 12
-                %i.fa.fa-heart
+                %i.far.fa-heart
               %p (税込)
 
         .items-content__items-box
           .items-content__items-box__photo
-            %img.tops{:alt => "item", :src => "assets/item1.jpg"}
+            =image_tag("https://static.mercdn.net/thumb/photos/m93272183120_1.jpg?1554111127",alt: "item", height: "220",class: "tops")
           .items-content__items-box__body
             %h3.items-name 新品未使用　スタニングルアーワンピース
             .items-num
               .items-num__price ¥1,800
               .items-num__likes
                 %span.like 12
-                %i.fa.fa-heart
+                %i.far.fa-heart
               %p (税込)
 
         .items-content__items-box
           .items-content__items-box__photo
-            %img.tops{:alt => "item", :src => "assets/item1.jpg"}
+            =image_tag("https://static.mercdn.net/thumb/photos/m93272183120_1.jpg?1554111127",alt: "item", height: "220",class: "tops")
           .items-content__items-box__body
             %h3.items-name 新品未使用　スタニングルアーワンピース
             .items-num
               .items-num__price ¥1,800
               .items-num__likes
                 %span.like 12
-                %i.fa.fa-heart
+                %i.far.fa-heart
               %p (税込)
       .items-all
-        %a.items-all{:href => ""}全ての商品を見る
+        %a.items-all{href: ""}全ての商品を見る
   .pickup-container
     %h2 ピックアップブランド
     .pickup-container__items-container
       %h3.category
-        %a.index{:href => ""}シャネル 新着アイテム
+        %a.index{href: ""}シャネル 新着アイテム
       .items-content
         .items-content__items-box
           .items-content__items-box__photo
-            %img.tops{:alt => "item", :src => "assets/item1.jpg"}
+            =image_tag("https://static.mercdn.net/thumb/photos/m93272183120_1.jpg?1554111127",alt: "item", height: "220",class: "tops")
           .items-content__items-box__body
             %h3.items-name 新品未使用　スタニングルアーワンピース
             .items-num
               .items-num__price ¥1,800
               .items-num__likes
                 %span.like 12
-                %i.fa.fa-heart
+                %i.far.fa-heart
               %p (税込)
 
         .items-content__items-box
           .items-content__items-box__photo
-            %img.tops{:alt => "item", :src => "assets/item1.jpg"}
+            =image_tag("https://static.mercdn.net/thumb/photos/m93272183120_1.jpg?1554111127",alt: "item", height: "220",class: "tops")
           .items-content__items-box__body
             %h3.items-box-name 新品未使用　スタニングルアーワンピース
             .items-num
               .items-num__price ¥1,800
               .items-num__likes
                 %span.like 12
-                %i.fa.fa-heart
+                %i.far.fa-heart
               %p (税込)
 
         .items-content__items-box
           .items-content__items-box__photo
-            %img.tops{:alt => "item", :src => "assets/item1.jpg"}
+            =image_tag("https://static.mercdn.net/thumb/photos/m93272183120_1.jpg?1554111127",alt: "item", height: "220",class: "tops")
           .items-content__items-box__body
             %h3.items-name 新品未使用　スタニングルアーワンピース
             .items-num
               .items-num__price ¥1,800
               .items-num__likes
                 %span.like 12
-                %i.fa.fa-heart
+                %i.far.fa-heart
               %p (税込)
 
         .items-content__items-box
           .items-content__items-box__photo
-            %img.tops{:alt => "item", :src => "assets/item1.jpg"}
+            =image_tag("https://static.mercdn.net/thumb/photos/m93272183120_1.jpg?1554111127",alt: "item", height: "220",class: "tops")
           .items-content__items-box__body
             %h3.items-name 新品未使用　スタニングルアーワンピース
             .items-num
               .items-num__price ¥1,800
               .items-num__likes
                 %span.like 12
-                %i.fa.fa-heart
+                %i.far.fa-heart
               %p (税込)
       .items-all
-        %a.items-all{:href => ""}全ての商品を見る
+        %a.items-all{href: ""}全ての商品を見る
 
   .app-info
-    %img.app-banner-pc{:alt => "mercari", :src => "assets/kantan.png"}
+    =image_tag("https://www.mercari.com/jp/assets/img/common/jp/top/main_bg_pc.jpg",alt: "mercari",class: "app-banner-pc")
 
   .footer
     .footer__fix
@@ -159,8 +159,8 @@
           %li プレスリリース
           %li 公式ブログ
           %li メルカリロゴ利用ガイドライン
-          %i.fa.fa-twitter
-          %i.fa.fa-facebook-square
+          = icon 'fab', 'twitter'
+          = icon 'fab', 'facebook-square'
       .footer__fix--left
         .footer__fix--left-top ヘルプ＆ガイド
         %ul
@@ -194,9 +194,9 @@
             %li 日本
             %li United States
     .footer-bottom
-      %img.mercarilogo-white{:alt => "mercari", :src => "assets/mercarilogo-white.svg"}
+      =image_tag("https://www-mercari-jp.akamaized.net/assets/img/common/common/logo-white.svg?3801675580",alt: "mercari", class: "mercarilogo-white")
       %span.copyright ©︎ 2019 Mercari
 
-  %button.fixed-btn{:name => "aaa", :type => "button", :value => "aaa"}
+  %button.fixed-btn{name: "aaa", type: "button", value: "aaa"}
     %div 出品
     %i.fa.fa-camera
