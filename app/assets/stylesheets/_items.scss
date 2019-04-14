@@ -1,4 +1,3 @@
-// @import "./colors";
 html, body {
 font-family: "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
   height: 100%;
@@ -272,6 +271,18 @@ font-family: "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
           li:hover{
             text-decoration: underline;
           }
+          .fa-facebook-square{
+            padding-top: 30px;
+            padding-left: 20px;
+            font-size: 35px;
+            cursor: pointer;
+          }
+          .fa-twitter{
+            padding-top: 30px;
+            font-size: 35px;
+            cursor: pointer;
+          }
+
         }
       }
 
@@ -398,7 +409,6 @@ font-family: "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
 
 
 
-
 // --------------------------------商品詳細画面はここから
   .pankuzu{
     background-color: white;
@@ -413,10 +423,16 @@ font-family: "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
         font-size: 14px;
         float:left;
         line-height:50px;
+        span:hover{
+          color: gray;
+          border-bottom: 1px solid gray;
+          cursor: pointer;
+        }
       }
       li:last-child{
         font-weight: bold;
         padding-left:10px;
+
       }
     }
   }
@@ -434,7 +450,7 @@ font-family: "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
     .item-main-content{
       overflow:hidden;
       width:620px;
-      height:auto;
+      height:420px;
       margin-top:16px;
       &__item-photo{
         float:left;
@@ -463,29 +479,78 @@ font-family: "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
             opacity: 1;
           }
         }
-      table.item-detail-table{
-        font-size: 14px;
-        float:right;
-        width:300px;
-        height:420px;
-        border: solid 1px $base-color
-        ;
-      }
-      tbody{
-        width:300px;
-        height:420px;
-      }
-          tr{
-            display: inline-block;
-            border: 1px solid $base-color;
-            width:299px;
-            height:65px;
-            th{
-              background-color: #fafafa;;
+        table.item-detail-table{
+          font-size: 14px;
+          float:right;
+          width:300px;
+          height:420px;
+          border: solid 1px $base-color;
+        }
+        tbody{
+          width:300px;
+          border: 1px solid $base-color;
+
+        tr{
+          border: 1px solid $base-color;
+          width:299px;
+          height:auto;
+        }
+        th{
+          background-color: #fafafa;
+          width:99px;
+          padding:8px;
+        }
+        td{
+          width:164px;
+          padding:8px;
+        }
+        a{
+          color:$blue;
+          p:hover{
+              border-bottom: 1px solid;
+              display: inline;
+          }
+          .item-detail-table-sub-category,.item-detail-table-sub-sub-category{
+            p{
+              float: right;
+              font-family: "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
+              font-size:14px
+            }
+            p:hover{
+                        border-bottom: 1px solid;
             }
           }
         }
+        a:hover{
+          color:$thin-blue;
+          border-bottom: 1px solid;
+          cursor: pointer;
+        }
+        a.brand{
+          div:hover{
+          color:$thin-blue;
+          border-bottom: 1px solid;
+          cursor: pointer;
+          display: inline;
+          }
+        }
+        .review{
+          .item-user-ratings{
+            float:left;
+          }
+        }
+        .fa-laugh{
+          color: #e64595;
+        }
+        .fa-meh{
+          color: #f4a460;
+        }
+        .fa-frown{
+          color: skyblue;
+        }
+      }
     }
+  }
     .item-price-box{
       width: 620px;
       height: 60px;
@@ -519,12 +584,11 @@ font-family: "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
     .item-description{
       width:620px;
       height:auto;
-      margin-top:24px;
       padding-top: 32px;
       word-break : break-all;
       p.item-description-inner{
         font-size: 20px;
-
+        white-space:pre-wrap;
       }
 
     }
@@ -569,17 +633,18 @@ font-family: "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
         }
       }
       &__item-button-right{
-
         float:right;
-        width: 225px;
+        width: 230px;
         height:33px;
         color:$blue;
         a{
           line-height: 33px;
           text-align: left;
-          span{
-            font-size:14px;
-          }
+          font-size:14px;
+        }
+        a:hover{
+            color:$thin-blue;
+            cursor: pointer;
         }
       }
     }
@@ -633,6 +698,17 @@ font-family: "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
     margin:0 auto;
     .page-back{
       float:left;
+      p{
+        float: right;
+        font-family: "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
+        font-size:14px;
+        padding-left:3px;
+      }
+      i:hover{
+        color:$thin-blue;
+        border-bottom: 1px solid;
+        cursor: pointer;
+      }
       a{
       font-size: 14px;
       color:$blue;
@@ -646,16 +722,26 @@ font-family: "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
       font-size: 14px;
       color:$blue;
       }
+      a:hover{
+        color:$thin-blue;
+        border-bottom: 1px solid;
+        cursor: pointer;
+      }
 
     }
   }
   .item-social-media-box{
     width: 700px;
-    height:82px;
-    padding-top: 32px;
+    height:54px;
+    padding-top: 60px;
     padding-bottom: 24px;
     margin: 24px auto;
     background-color: white;
+    text-align: center;
+    .facebook-icon:hover,.twitter-icon:hover,.pinterest-icon:hover{
+      opacity: .7;
+      cursor: pointer;
+    }
 
   }
 
@@ -675,6 +761,11 @@ font-family: "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
         font-size:22px;
         font-weight: bold;
         }
+        a:hover{
+          color:$thin-blue;
+          border-bottom: 2px solid;
+          cursor: pointer;
+        }
       }
       .items-box-content{
         height:700px;
@@ -690,7 +781,8 @@ font-family: "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
             position: relative;
             img.tops{
             width: 213px;
-            height: auto;
+            height: 213px;
+            object-fit: cover;
             position: absolute;
             bottom: 0;
             }
@@ -740,7 +832,7 @@ font-family: "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
             }
           }
         }
-// -------------------------ここからくり帰り処理
+// -------------------------ここからくり返し処理
         &__items-box2{
           margin-left:20px;
           margin-bottom:20px;
@@ -754,7 +846,8 @@ font-family: "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
             position: relative;
             img.tops{
             width: 213px;
-            height: auto;
+            height: 213px;
+            object-fit: cover;
             position: absolute;
             bottom: 0;
             }
@@ -814,7 +907,7 @@ font-family: "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
 }
 // --------------------------------画像の表示はここから
   .fa-list-ul,.fa-tag{
-    color: $red;
+    color: #ea352d;
     font-size: 15px;
   }
   .fa-bell,.fa-check{
@@ -832,12 +925,20 @@ font-family: "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
       width:100vw;
     }
   }
-  .fa-twitter{
-    padding-top: 30px;
-    font-size: 35px !important;
+.facebook-icon{
+  padding-right:5px;
 }
-.fa-facebook-square{
-  padding-top: 30px;
-  padding-left: 20px;
-  font-size: 35px !important;
+.twitter-icon{
+  padding-right:5px;
+}
+.fa-laugh{
+  margin-top: 8px;
+}
+.fa-meh{
+  margin-top: 8px;
+  margin-left: 16px;
+}
+.fa-frown{
+  margin-top: 8px;
+  margin-left: 16px;
 }

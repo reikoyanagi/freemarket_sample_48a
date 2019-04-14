@@ -1,0 +1,357 @@
+.overall
+  .header
+    .header__header-margin
+      .header__header-margin--clearfix
+        =image_tag("https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3801675580", class: "logo")
+        %input.header-input{type: "text", placeholder: "何かお探しですか？"}
+        %i.fa.fa-search
+      .header-nav-box
+        %nav.list-left
+          %ul.header-nav
+            %li
+              %h2
+                %a.header-nav
+                  = icon 'fa', 'list-ul'
+                  %span カテゴリーから探す
+            %li
+              %h2
+                %a.header-nav
+                  %i.fa.fa-tag
+                  %span ブランドから探す
+        .list-right
+          %ul.header-user-nav
+            %li
+              %a.tag1
+                %i.far.fa-bell
+                %span お知らせ
+            %li
+              %a.tag1
+                %i.fa.fa-check
+                %span やることリスト
+            .mypage
+              %a.tag
+                =image_tag("https://askul.c.yimg.jp/img/product/3L1/3571406_3L1.jpg",alt: "logo", height: "30", )
+                .my マイページ
+
+  .pankuzu
+    %ul
+      %li
+        %a
+          %span メルカリ
+        %i.fa.fa-chevron-right
+      %li
+        %span 新品未使用 スカート
+  .item-box-margin
+    %h1 新品未使用 スカート
+    .item-main-content
+      .item-main-content__item-photo
+        .item-main-content__top-item
+          =image_tag("https://static.mercdn.net/item/detail/orig/photos/m91267337558_1.jpg?1555231295",alt: "top-item", height: "300px",class: "top-item")
+        .item-main-content__items__cell
+          =image_tag("https://static.mercdn.net/item/detail/orig/photos/m91267337558_1.jpg?1555231295",alt: "top-item", height: "50%",width:"20%",class: "items-mini")
+          =image_tag("https://static.mercdn.net/item/detail/orig/photos/m91267337558_1.jpg?1555231295",alt: "top-item", height: "50%",width:"20%",class: "items-mini")
+          =image_tag("https://static.mercdn.net/item/detail/orig/photos/m91267337558_1.jpg?1555231295",alt: "top-item", height: "50%",width:"20%",class: "items-mini")
+          =image_tag("https://static.mercdn.net/item/detail/orig/photos/m91267337558_1.jpg?1555231295",alt: "top-item", height: "50%",width:"20%",class: "items-mini")
+          =image_tag("https://static.mercdn.net/item/detail/orig/photos/m91267337558_1.jpg?1555231295",alt: "top-item", height: "50%",width:"20%",class: "items-mini")
+          =image_tag("https://static.mercdn.net/item/detail/orig/photos/m91267337558_1.jpg?1555231295",alt: "top-item", height: "50%",width:"20%",class: "items-mini")
+      %table.item-detail-table
+        %tbody
+          %tr
+            %th 出品者
+            %td
+              %a ケイ
+              .review
+                .item-user-ratings
+                  %i.fa.fa-laugh
+                  %span 573
+                .item-user-ratings
+                  %i.fa.fa-meh
+                  %span 1
+                .item-user-ratings
+                  %i.fa.fa-frown
+                  %span 0
+          %tr
+            %th カテゴリー
+            %td
+              %a
+                %p レディース
+              %a
+                .item-detail-table-sub-category
+                  %i.fa.fa-chevron-right
+                    %p スカート
+              %a
+                .item-detail-table-sub-sub-category
+                  %i.fa.fa-chevron-right
+                    %p ロング丈
+          %tr
+            %th ブランド
+            %td
+              %a.brand
+                %div ナチュラルビューティ
+
+          %tr
+            %th 商品のサイズ
+            %td M
+          %tr
+            %th 商品の状態
+            %td 目立った傷や汚れなし
+          %tr
+            %th 配送料の負担
+            %td 送料込み（出品者負担）
+          %tr
+            %th 配送の方法
+            %td 未定
+          %tr
+            %th 配送元地域
+            %td
+              %a 東京都
+          %tr
+            %th 発送日の目安
+            %td 2~3日で発送
+    .item-price-box
+      %span.item-price ¥ 2,600
+      %span.item-tax (税込)
+      %span.item-shipping-fee 送料込み
+    %a.item-buy-btn 購入画面に進む
+    .item-description
+      %p.item-description-inner
+        URBAN RESEARCH の スプリングコート 、アイボリー ( M サイズ )になります。何年か前のお品になります。
+        クリーニングに出して保管しておりました。多少の誤差があるかもしれませんが、平置きでの寸法です。
+    .item-button-container
+      .item-button-container__item-button-left
+        %button.item-button-like{name: "like", type: "button", value:  "like"}
+          %i.far.fa-heart
+          %span.item-like いいね！
+          %span.item-like-num 3
+        %a.item-button-report{name: "like", type: "button", value: "like"}
+          %i.fa.fa-flag
+          %span.item-report 不適切な商品の報告
+      .item-button-container__item-button-right
+        %a
+          %i.fa.fa-lock
+          %span あんしん・あんぜんへの取り組み
+  .item-comment-margin
+    .item-comment-margin__comment-container
+      %form
+        %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        %textarea.text-margin
+        %button.comment-submit
+          %span コメントする
+  .page-move
+    .page-back
+      %a
+        %i.fa.fa-chevron-left
+          %p ニット セーター、ショコラフィネローブ
+    .page-next
+      %a
+        嵐Tシャツ ARASHI AROUND ASIA 2008 in TOKYO
+        %i.fa.fa-chevron-right
+  .item-social-media-box
+    = image_tag("facebook-icon.png",height: "44",class: "facebook-icon")
+    =image_tag("twitter-icon.png",height: "44",class: "twitter-icon")
+    =image_tag("pinterest-icon.png",height: "44",class: "pinterest-icon")
+  .items-in-user-profile
+    .items-in-user-profile__items-box-container
+      %h2
+        %a ケイさんのその他の出品
+      .items-box-content
+        .items-box-content__items-box
+          .items-box-content__items-box__photo
+            =image_tag("https://static.mercdn.net/thumb/photos/m93272183120_1.jpg?1554111127",alt: "item", height: "220",class: "tops")
+          .items-box-content__items-box__body
+            %h3.items-name 新品未使用　スタニングルアーワンピース
+            .items-num
+              .items-num__price ¥1,800
+              .items-num__likes
+                %span.like 12
+                %i.far.fa-heart
+              %p (税込)
+
+        .items-box-content__items-box2
+          .items-box-content__items-box2__photo
+            =image_tag("https://static.mercdn.net/thumb/photos/m93272183120_1.jpg?1554111127",alt: "item", height: "220",class: "tops")
+          .items-box-content__items-box2__body
+            %h3.items-name 新品未使用　スタニングルアーワンピース
+            .items-num
+              .items-num__price ¥1,800
+              .items-num__likes
+                %span.like 12
+                %i.far.fa-heart
+              %p (税込)
+
+        .items-box-content__items-box2
+          .items-box-content__items-box2__photo
+            =image_tag("https://static.mercdn.net/thumb/photos/m93272183120_1.jpg?1554111127",alt: "item", height: "220",class: "tops")
+          .items-box-content__items-box2__body
+            %h3.items-name 新品未使用　スタニングルアーワンピース
+            .items-num
+              .items-num__price ¥1,800
+              .items-num__likes
+                %span.like 12
+                %i.far.fa-heart
+              %p (税込)
+
+        .items-box-content__items-box
+          .items-box-content__items-box__photo
+            =image_tag("https://static.mercdn.net/thumb/photos/m93272183120_1.jpg?1554111127",alt: "item", height: "220",class: "tops")
+          .items-box-content__items-box__body
+            %h3.items-name 新品未使用　スタニングルアーワンピース
+            .items-num
+              .items-num__price ¥1,800
+              .items-num__likes
+                %span.like 12
+                %i.far.fa-heart
+              %p (税込)
+
+        .items-box-content__items-box2
+          .items-box-content__items-box2__photo
+            =image_tag("https://static.mercdn.net/thumb/photos/m93272183120_1.jpg?1554111127",alt: "item", height: "220",class: "tops")
+          .items-box-content__items-box2__body
+            %h3.items-name 新品未使用　スタニングルアーワンピース
+            .items-num
+              .items-num__price ¥1,800
+              .items-num__likes
+                %span.like 12
+                %i.far.fa-heart
+              %p (税込)
+
+        .items-box-content__items-box2
+          .items-box-content__items-box2__photo
+            =image_tag("https://static.mercdn.net/thumb/photos/m93272183120_1.jpg?1554111127",alt: "item", height: "220",class: "tops")
+          .items-box-content__items-box2__body
+            %h3.items-name 新品未使用　スタニングルアーワンピース
+            .items-num
+              .items-num__price ¥1,800
+              .items-num__likes
+                %span.like 12
+                %i.far.fa-heart
+              %p (税込)
+
+    .items-in-user-profile__items-box-container
+      %h2
+        %a アーバンリサーチその他の商品
+      .items-box-content
+        .items-box-content__items-box
+          .items-box-content__items-box__photo
+            =image_tag("https://static.mercdn.net/thumb/photos/m93272183120_1.jpg?1554111127",alt: "item", height: "220",class: "tops")
+          .items-box-content__items-box__body
+            %h3.items-name 新品未使用　スタニングルアーワンピース
+            .items-num
+              .items-num__price ¥1,800
+              .items-num__likes
+                %span.like 12
+                %i.far.fa-heart
+              %p (税込)
+
+        .items-box-content__items-box2
+          .items-box-content__items-box2__photo
+            =image_tag("https://static.mercdn.net/thumb/photos/m93272183120_1.jpg?1554111127",alt: "item", height: "220",class: "tops")
+          .items-box-content__items-box2__body
+            %h3.items-name 新品未使用　スタニングルアーワンピース
+            .items-num
+              .items-num__price ¥1,800
+              .items-num__likes
+                %span.like 12
+                %i.far.fa-heart
+              %p (税込)
+
+        .items-box-content__items-box2
+          .items-box-content__items-box2__photo
+            =image_tag("https://static.mercdn.net/thumb/photos/m93272183120_1.jpg?1554111127",alt: "item", height: "220",class: "tops")
+          .items-box-content__items-box2__body
+            %h3.items-name 新品未使用　スタニングルアーワンピース
+            .items-num
+              .items-num__price ¥1,800
+              .items-num__likes
+                %span.like 12
+                %i.far.fa-heart
+              %p (税込)
+
+        .items-box-content__items-box
+          .items-box-content__items-box__photo
+            =image_tag("https://static.mercdn.net/thumb/photos/m93272183120_1.jpg?1554111127",alt: "item", height: "220",class: "tops")
+          .items-box-content__items-box__body
+            %h3.items-name 新品未使用　スタニングルアーワンピース
+            .items-num
+              .items-num__price ¥1,800
+              .items-num__likes
+                %span.like 12
+                %i.far.fa-heart
+              %p (税込)
+
+        .items-box-content__items-box2
+          .items-box-content__items-box2__photo
+            =image_tag("https://static.mercdn.net/thumb/photos/m93272183120_1.jpg?1554111127",alt: "item", height: "220",class: "tops")
+          .items-box-content__items-box2__body
+            %h3.items-name 新品未使用　スタニングルアーワンピース
+            .items-num
+              .items-num__price ¥1,800
+              .items-num__likes
+                %span.like 12
+                %i.far.fa-heart
+              %p (税込)
+
+        .items-box-content__items-box2
+          .items-box-content__items-box2__photo
+            =image_tag("https://static.mercdn.net/thumb/photos/m93272183120_1.jpg?1554111127",alt: "item", height: "220",class: "tops")
+          .items-box-content__items-box2__body
+            %h3.items-name 新品未使用　スタニングルアーワンピース
+            .items-num
+              .items-num__price ¥1,800
+              .items-num__likes
+                %span.like 12
+                %i.far.fa-heart
+              %p (税込)
+  .over-margin
+
+  .app-info
+    =image_tag("https://www.mercari.com/jp/assets/img/common/jp/top/main_bg_pc.jpg",alt: "mercari",class: "app-banner-pc")
+
+  .footer
+    .footer__fix
+      .footer__fix--left
+        .footer__fix--left-top メルカリについて
+        %ul
+          %li 会社概要（運営会社）
+          %li 採用情報
+          %li プレスリリース
+          %li 公式ブログ
+          %li メルカリロゴ利用ガイドライン
+          = icon 'fab', 'twitter'
+          = icon 'fab', 'facebook-square'
+      .footer__fix--left
+        .footer__fix--left-top ヘルプ＆ガイド
+        %ul
+          %li メルカリガイド
+          %li らくらくメルカリ便
+          %li ゆうゆうメルカリ便
+          %li 大型メルカリ便
+          %li 車体取引ガイド
+          %li メルカリあんしん・あんぜん宣言！
+          %li 偽ブランド品撲滅への取り組み
+          %li メルカリボックス
+      .footer__fix--center
+        .footer__fix--center-top プライバシーと利用規約
+        .footer__fix--center-top--inner
+          %ul
+            %li プライバシーポリシー
+            %li メルカリ利用規約
+            %li あんしんスマホサポート制度に関する利用規約
+            %li コンプライアンスポリシー
+        .footer__fix--center-top--inner2
+          %ul
+            %li 個人データの安全管理に係る基本方針
+            %li 特定商取引に関する表記
+            %li 資金決済法に基づく表示
+            %li 法令順守と犯罪抑止のために
+            %li 返品・返金ポリシー
+      .footer__fix--right
+        .footer__fix--right-top
+          国
+          %ul
+            %li 日本
+            %li United States
+    .footer-bottom
+      =image_tag("https://www-mercari-jp.akamaized.net/assets/img/common/common/logo-white.svg?3801675580",alt: "mercari", class: "mercarilogo-white")
+      %span.copyright ©︎ 2019 Mercari
+
