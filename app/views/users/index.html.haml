@@ -1,0 +1,119 @@
+//マイページトップ
+
+.wrapper
+  .header
+    %p
+      HEADER
+  .container.clearfix
+
+    = render "mypage_side_nav"
+
+    .main-content
+      .main-content__user-icon-topbox
+        %a.detail-link{ href: '#'}
+          .detail-link__avatar
+            =image_tag("https://static.mercdn.net/images/member_photo_noimage_thumb.png")
+          .detail-link__nickname
+            仮なまえ
+          .detail-link__numbers
+            .value
+              評価
+              .num
+                10
+            .items
+              出品数
+              .num
+                3
+      .main-content__info-n-todo
+        %ul.main-content__info-n-todo__tabs
+          %li
+            %h3
+              %a.active{ href: '#'}
+                お知らせ
+          %li
+            %h3
+              %a.non-active{ href: '#'}
+                やることリスト
+        .main-content__info-n-todo__contents
+          %ul
+            %li
+              %a.contents-link{ href: '#'}
+                %figure
+                  =image_tag("https://static-mercari-jp.akamaized.net/images/mercari_profile.png")
+                .contents-body
+                  .contents-body__text
+                    事務局から個別メッセージ「【今だけ８％キャッシュバック】お得なチケットプレゼントしました」
+                  %time
+                    %i.fa.fa-clock-o.fa-lg
+                    .past-time 1時間前
+                %i.fa.fa-angle-right.fa-2x
+            %li
+              %a.contents-link{ href: '#'}
+                %figure
+                  =image_tag("https://static-mercari-jp.akamaized.net/images/mercari_profile.png")
+                .contents-body
+                  .contents-body__text
+                    事務局から個別メッセージ「【今だけ８％キャッシュバック】お得なチケットプレゼントしました」
+                  %time
+                    %i.fa.fa-clock-o.fa-lg
+                    .past-time 1時間前
+                %i.fa.fa-angle-right.fa-2x
+            %li
+              %a.contents-link{ href: '#'}
+                %figure
+                  =image_tag("https://static-mercari-jp.akamaized.net/images/mercari_profile.png")
+                .contents-body
+                  .contents-body__text
+                    事務局から個別メッセージ「【今だけ８％キャッシュバック】お得なチケットプレゼントしました」
+                  %time
+                    %i.fa.fa-clock-o.fa-lg
+                    .past-time 1時間前
+                %i.fa.fa-angle-right.fa-2x
+            %li
+              %a.contents-link{ href: '#'}
+                %figure
+                  =image_tag("https://static-mercari-jp.akamaized.net/images/mercari_profile.png")
+                .contents-body
+                  .contents-body__text
+                    事務局から個別メッセージ「【今だけ８％キャッシュバック】お得なチケットプレゼントしました」
+                  %time
+                    %i.fa.fa-clock-o.fa-lg
+                    .past-time 1時間前
+                %i.fa.fa-angle-right.fa-2x
+            %li
+              %a.contents-link{ href: '#'}
+                %figure
+                  =image_tag("https://static-mercari-jp.akamaized.net/images/mercari_profile.png")
+                .contents-body
+                  .contents-body__text
+                    事務局から個別メッセージ「【今だけ８％キャッシュバック】お得なチケットプレゼントしました」
+                  %time
+                    %i.fa.fa-clock-o.fa-lg
+                    .past-time 1時間前
+                %i.fa.fa-angle-right.fa-2x
+            %li
+              %a.mypage-go-list{ href: '#'}
+                一覧を見る
+      .main-content__bought-items-list
+        .tab-head
+          購入した商品
+        %ul.tabs
+          %li
+            %h3
+              %a.active{ href: '#'}
+                取引中
+          %li
+            %h3
+              %a.non-active{ href: '#'}
+                過去の取引
+        .tab-content
+          %ul.tab-transaction-now
+            %li.item
+              / =image_tag("assets/no-transaction.png") /後で画像撮る必要あり
+          %ul.tab-transaction-old.mypage-item-list.tab-pane
+            %li.item-transaction
+
+
+  .footer
+    %p
+      FOOTER

@@ -1,0 +1,44 @@
+.mypage-side-nav{
+  float: left;
+  width: 280px;
+  margin-right: 40px;
+  .mypage-nav{
+    &__head{
+      font-size: 16px;
+      font-weight: bold;
+      margin: 40px 0 8px 0;
+    }
+    &__list
+      li{
+        border-top: 1px solid #eee;
+        box-sizing: border-box;
+        .contents-link{
+          position: relative;
+          display: block;
+          min-height: 48px;
+          padding: 16px;
+          background: #fff;
+          color:#333;
+          box-sizing: border-box;
+          i{
+            position: absolute;
+            top: 50%;
+            right: 16px;
+            transform: translate(0, -50%);
+            color: #ccc;
+            font-size: 25px;
+          }
+        }
+        .contents-link:hover{
+          background: #fafafa;
+          text-decoration: none;
+          opacity: 1;
+        }
+        .contents-link:hover > i{
+            transform: translate(4px, -50%);
+            transition: transform 0.2s;
+            color: #333
+      }
+    }
+  }
+}
