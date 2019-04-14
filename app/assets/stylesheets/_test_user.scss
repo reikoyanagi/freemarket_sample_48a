@@ -4,29 +4,6 @@
     clear: both;
 }
 
-//ボタン初期化 & サイズ調整
-button {
-  border-radius: 0;
-  -webkit-box-sizing: content-box;
-  -webkit-appearance: button;
-  appearance: button;
-  border: none;
-  box-sizing: border-box;
-  padding: 0;
-  display: block;
-  width: 100%;
-  line-height: 48px;
-  font-size: 14px;
-  cursor: pointer;
-  text-align: center;
-  &::-webkit-search-decoration {
-    display: none;
-  }
-  &::focus {
-    outline-offset: -2px;
-  }
-}
-
 //ヘッダー
 .single_header{
   text-align: center;
@@ -41,7 +18,7 @@ button {
       opacity: 0.7 ;
     }
   }
-  ol{
+  &__nav-bar {
     display: inline-block;
     padding: 40px 0 0 44px;
     vertical-align: top;
@@ -63,6 +40,26 @@ button {
       &:last-child {
           margin: 0;
       }
+      .progress-status{
+        width: 12px;
+        height: 12px;
+        margin: 8px auto 0;
+        background: #ccc;
+        border-radius: 50%;
+        &:before{
+          right: 50%;
+        }
+        &:after,&:before{
+          position: absolute;
+          bottom: 5px;
+          z-index: -1;
+          display: block;
+          content: '';
+          width: 100%;
+          height: 2px;
+          background: #ccc;
+        }
+      }
     }
     li.active {
       font-weight: 600;
@@ -71,28 +68,6 @@ button {
         background-color: #ea352d;
       }
     }
-  }
-}
-
-//header__nav-barの線の部分
-.progress-status{
-  width: 12px;
-  height: 12px;
-  margin: 8px auto 0;
-  background: #ccc;
-  border-radius: 50%;
-  &:before{
-    right: 50%;
-  }
-  &:after,&:before{
-    position: absolute;
-    bottom: 5px;
-    z-index: -1;
-    display: block;
-    content: '';
-    width: 100%;
-    height: 2px;
-    background: #ccc;
   }
 }
 
@@ -133,6 +108,9 @@ button {
         label {
           font-weight: 600;
         }
+        input {
+          @include defolt_input;
+        }
         .sub-title {
         font-size: 16px;
         }
@@ -160,6 +138,64 @@ button {
           font-size: 16px;
           line-height: 30px;
         }
+        .red_btn {
+          @include button;
+          @include red_btn;
+        }
+        .facebook_btn {
+          @include button;
+          @include facebook_btn;
+        }
+        .google_btn {
+          @include button;
+          @include google_btn;
+        }
+        .required_form {
+          @include required_form;
+        }
+        .any_form {
+          @include any_form;
+        }
+        .select-default {
+          @include select-default;
+        }
+        //誕生日選択プル
+        .birthday {
+          .select-wrap{
+            width: 140px;
+            display: inline-block;
+            margin-top: 8px;
+            position: relative;
+          }
+          span {
+            margin: 8px
+          }
+        }
+        //都道府県選択プル
+        .prefecture_id {
+          .select-wrap{
+            width: 100%;
+            display: inline-block;
+            margin-top: 8px;
+            position: relative;
+          }
+          span {
+            margin: 8px
+          }
+        }
+        //クレジット有効期限選択プル
+        .expiration {
+          display: inline-block;
+          .select-wrap{
+            width: 120px;
+            display: inline-block;
+            margin-top: 8px;
+            position: relative;
+          }
+          span {
+            margin: 8px
+          }
+        }
       }
       .sell_content {
         padding: 40px;
@@ -182,7 +218,7 @@ button {
 }
 
 //フッター
-footer {
+.single_footer {
   width: 456px;
   margin: 0 auto;
   text-align: center;
@@ -201,7 +237,7 @@ footer {
       }
     }
   }
-  .footer__logo {
+  &__logo {
     margin: 40px 0 8px;
     img {
       width: 80px;
@@ -213,201 +249,6 @@ footer {
   }
   small {
     font-size: 13px;
-  }
-}
-
-//選択プルのベーススタイル
-.select-default{
-  position: relative;
-  select{
-    width: 100%;
-    z-index: 2;
-    height: 48px;
-    padding: 0 16px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    background: 0;
-    outline: 0;
-    font-size: 16px;
-    line-height: 1.5;
-    cursor: pointer;
-    -webkit-appearance: none;
-    appearance: none;
-    background: transparent;
-    &::-ms-expand {
-      display: none;
-    }
-    &:focus {
-      border: 1px solid #0099e8;
-    }
-  }
-  .fa-chevron-down{
-    position: absolute;
-    right: 16px;
-    top: 50%;
-    z-index: 1;
-    color: #888;
-    font-size: 18px;
-    transform: translate(0, -50%);
-  }
-}
-
-//誕生日の選択プル
-.birthday {
-  .select-wrap{
-    width: 140px;
-    display: inline-block;
-    margin-top: 8px;
-    position: relative;
-  }
-  span {
-    margin: 8px
-  }
-}
-
-
-//都道府県の選択プル
-.prefecture_id {
-  .select-wrap{
-    width: 100%;
-    display: inline-block;
-    margin-top: 8px;
-    position: relative;
-  }
-  span {
-    margin: 8px
-  }
-}
-
-//カード有効期限の選択プル
-.expiration {
-  display: inline-block;
-  .select-wrap{
-    width: 120px;
-    display: inline-block;
-    margin-top: 8px;
-    position: relative;
-  }
-  span {
-    margin: 8px
-  }
-}
-
-//カテゴリーの選択プル
-.category {
-  .select-wrap {
-
-  }
-}
-
-//sign_inのボタン間隔調整
-.sign_in_btn{
-  li {
-    margin-top: 16px;
-  }
-  li:first-child{
-    margin-top: 0;
-  }
-}
-
-//出品の画面用CSS
-.sell_content {
-  li {
-    padding: 40px;
-    border-bottom: 1px solid #eee;
-    margin-top: 0 !important;
-    .form-group {
-      margin-top: 40px;
-      &:first-child {
-        margin-top: 0;
-      }
-    }
-  }
-  .image_input{
-    margin-top: 0;
-    p {
-      margin-top: 8px;
-      line-height: 1.5;
-    }
-    .input_area {
-      position: relative;
-      min-height: 162px;
-      background: #f5f5f5;
-      border: 1px dashed #ccc;
-      font-size: 0;
-      text-align: center;
-      margin-top: 16px;
-      p {
-        font-weight: bold;
-        position: absolute;
-        top: 50%;
-        left: 16px;
-        right: 16px;
-        text-align: center;
-        font-size: 14px;
-        line-height: 1.5;
-        transform: translate(0, -50%);
-      }
-    }
-  }
-  h3 {
-    float: left;
-  }
-  .price ,.profit_price{
-    float: right;
-  }
-  .sell_form {
-    float: right;
-    width: 400px;
-  }
-  .price_form {
-    width: 400px;
-    float: right;
-    .price_input_area {
-      margin-bottom: 24px;
-      .price_label {
-        width: 50%;
-        float: left;
-        line-height: 48px;
-      }
-      .price_input{
-        width: 50%;
-        text-align: right;
-        input {
-          display: inline-block;
-          width: 80%;
-          margin: 0 0 0 5px;
-          text-align: right;
-        }
-      }
-    }
-    .commission {
-      margin: 24px 0;
-      p{
-        float: left;
-      }
-    }
-    .profit {
-      margin: 24px 0;
-      font-weight: bold;
-      font-size: 16px;
-      p {
-        float: left;
-      }
-      .profit_price {
-        font-size: 34px;
-      }
-    }
-  }
-  .consent {
-    p {
-      a{
-        display: inline;
-      }
-    }
-    .red_btn {
-      margin-top: 40px;
-    }
   }
 }
 
@@ -426,6 +267,9 @@ footer {
       font-size: 14px;
       font-weight: normal;
     }
+    .sign_up_btn {
+      @include sign_up_btn;
+    }
   }
   &__button {
     padding: 32px 64px;
@@ -435,6 +279,14 @@ footer {
     }
     li:first-child{
       margin-top: 0;
+    }
+    .facebook_btn {
+      @include button;
+      @include facebook_btn;
+    }
+    .google_btn {
+      @include button;
+      @include google_btn;
     }
   }
   &__form {
@@ -452,199 +304,15 @@ footer {
           text-decoration: underline;
         }
       }
-    }
-  }
-}
-
-//購入画面のCSS
-.buy_content {
-  padding: 24px 88px 0;
-  border-top: 1px solid #eee;
-  margin-top: 40px;
-  &:first-child{
-    border: none;
-    margin-top: 0;
-  }
-  &:last-child {
-    padding: 40px 88px;
-  }
-  .buy_item {
-    width: 320px;
-    margin: 0 auto;
-    text-align: center;
-    img {
-      width: 148px;
-    }
-    .buy_item_name {
-      margin: 8px 0 0;
-      font-size: 16px;
-      line-height: 1.5;
-      font-weight: 600;
-    }
-    form {
-      .buy_price {
-        margin: 8px 0 0;
-        line-height: 1.5;
-        font-size: 28px;
-        font-weight: 600;
-        span {
-          margin: 0 0 0 8px;
-          font-size: 14px;
-          font-weight: 300;
-        }
+      input {
+        @include defolt_input;
       }
-      .buy_price_check {
-        font-size: 28px;
-        font-weight: 600;
-        p {
-          padding: 16px 0;
-          float: right;
-          &:first-child {
-            float: left;
-          }
-        }
+      .red_btn {
+        @include button;
+        @include red_btn;
       }
     }
   }
-  .user_info ,.credit_info{
-    max-width: 320px;
-    margin: 0 auto;
-    label {
-      font-weight: bold;
-      font-size: 14px;
-    }
-    address,p {
-      margin: 8px 0 0;
-      font-size: 14px;
-      line-height: 1.4;
-    }
-    img {
-      width: 49px;
-      height: 15px;
-    }
-    a {
-      margin-top: 8px;
-      color: #0099e8;
-      text-decoration: none;
-      display: block;
-      text-align: right;
-      &:hover {
-        opacity: 0.8;
-        text-decoration: underline;
-      }
-    }
-  }
-}
-
-//赤のボタン
-.red_btn{
-  background: #ea352d;
-  border: 1px solid #ea352d;
-  color: #fff;
-  cursor: pointer;
-}
-
-//メールアドレスのボタン
-.email_btn {
-  background-color: #eee;
-  color: #000;
-  position: relative;
-  transition: 0.8s ;
-  .fa-envelope{
-    position: absolute;
-    top: 50%;
-    left: 16px;
-    transform: translate(0, -50%);
-    font-size: 20px;
-    color: #ccc;
-  }
-  &:hover {
-    opacity: 0.7 ;
-  }
-}
-
-//facebookのボタン
-.facebook_btn{
-  position: relative;
-  background-color: #385185;
-  color: #fff;
-  .fa-facebook-square{
-    position: absolute;
-    top: 50%;
-    left: 16px;
-    transform: translate(0, -50%);
-    font-size: 20px;
-  }
-}
-
-//グーグルのボタン
-.google_btn{
-  position: relative;
-  background-color: #fff;
-  color: #333;
-  border: #979797 solid 1px;
-  .fa-google{
-    position: absolute;
-    top: 50%;
-    left: 16px;
-    transform: translate(0, -50%);
-    font-size: 20px;
-  }
-}
-
-//新規登録ボタン
-.sign_up_btn{
-  background: #0099e8;
-  color: #fff;
-  width: 320px;
-  line-height: 40px;
-  display: block;
-  border: 1px solid #0099e8;
-  margin-top: 8px;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 400;
-}
-
-//もどるボタン
-.return_btn {
-  background: #aaa;
-  color: #fff;
-  width: 45%;
-  line-height: 40px;
-  display: block;
-  border: 1px solid #aaa;
-  margin: 24px auto 0;
-}
-
-.btn_list {
-  li {
-    margin-top: 16px;
-    &:first-child {
-      margin-top: 0;
-    }
-  }
-}
-
-//入力部分のベース
-input,textarea {
-  box-sizing: border-box;
-  width: 100%;
-  padding: 10px 16px 8px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  background: #fff;
-  line-height: 1.8;
-  font-size: 16px;
-  margin-top: 8px;
-  outline: 0;
-  &:focus {
-    border: 1px solid #0099e8;
-  }
-}
-textarea {
-  max-width: 100%;
-  min-height: 104px;
 }
 
 //仮置きreCAPTCHA
@@ -653,25 +321,3 @@ textarea {
   width: 320px;
   border: 1px solid #000;
 }
-
-//必須アイコン
-.required_form {
-  background: #ea352d;
-  margin: 0 0 0 8px;
-  padding: 2px 4px;
-  border-radius: 2px;
-  color: #fff;
-  font-size: 12px;
-  line-height: 18px;
-}
-//任意アイコン
-.any_form {
-  background: #c0c0c0;
-  margin: 0 0 0 8px;
-  padding: 2px 4px;
-  border-radius: 2px;
-  color: #fff;
-  font-size: 12px;
-  line-height: 18px;
-}
-

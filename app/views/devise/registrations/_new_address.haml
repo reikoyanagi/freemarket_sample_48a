@@ -1,7 +1,7 @@
 .single_header
   %h1.single_header__logo
     = link_to image_tag("https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?228111635")
-  %ol{class: "header__nav-bar signup-bar"}
+  %ol{class: "single_header__nav-bar signup-bar"}
     %li
       会員登録
       .progress-status
@@ -41,7 +41,12 @@
           %label 都道府県
           %span.required_form 必須
           %br
-          = render "devise/registrations/select/prefecture_id"
+          //active_hashを使用
+          .prefecture_id
+            .select-wrap.select-default
+              %select{:name => "prefecture_id"}
+                %option{:value => "1"} 北海道
+              = icon "fas" ,"chevron-down"
         %li
           %label 市区町村
           %span.required_form 必須
@@ -60,17 +65,17 @@
           %input{placeholder: "例) 09012345678"}
 
         %li
-          %button.red_btn 次へ進む
+          %button.red_btn
+            次へ進む
 
-%footer
-  %ul.footer__nav
+.single_footer
+  %ul.single_footer__nav
     %li
       = link_to "プライバシーポリシー"
     %li
       = link_to "メルカリ利用規約"
     %li
       = link_to "特定商取引に関する表記"
-  .footer__logo
+  .single_footer__logo
     = link_to image_tag("https://www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3403318254")
   %small © 2019 Mercari
-

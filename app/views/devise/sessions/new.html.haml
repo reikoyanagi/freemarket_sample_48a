@@ -1,13 +1,15 @@
-= render "devise/shared/header"
+.single_header
+  %h1.single_header__logo
+    = link_to image_tag("https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?228111635")
 
 = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
   .main
     .main__sign_in
       .main__sign_in__title
         %p アカウントをお持ちでない方はこちら
-        = link_to "新規会員登録", new_user_registration_path(resource_name), class: "sign_up_btn"
+        = link_to "新規会員登録", new_user_registration_path(resource_name),class: "sign_up_btn"
       .main__sign_in__button
-        %ul.btn_list
+        %ul
           %li
             %button.facebook_btn
               = icon 'fab', 'facebook-square'
@@ -27,10 +29,21 @@
               %input{type: "checkbox"} 私はロボットではありません
               //Google APIを使って認証設定を埋め込む必要あり
           %li
-            = f.submit "ログイン" ,class: "red_btn"
+            = f.button "ログイン",class: 'red_btn'
           %li
             = link_to "パスワードをお忘れの方", new_password_path(resource_name)
 
-= render "devise/shared/footer"
+.single_footer
+  %ul.single_footer__nav
+    %li
+      = link_to "プライバシーポリシー"
+    %li
+      = link_to "メルカリ利用規約"
+    %li
+      = link_to "特定商取引に関する表記"
+  .single_footer__logo
+    = link_to image_tag("https://www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3403318254")
+  %small © 2019 Mercari
+
 
 

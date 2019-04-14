@@ -1,0 +1,172 @@
+//ボタン初期化 & サイズ調整
+@mixin button {
+  border-radius: 0;
+  -webkit-box-sizing: content-box;
+  -webkit-appearance: button;
+  appearance: button;
+  box-sizing: border-box;
+  padding: 0;
+  display: block;
+  width: 100%;
+  line-height: 48px;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: center;
+}
+
+//必須タグ
+@mixin required_form {
+  background: #ea352d;
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+//任意タグ
+@mixin any_form {
+  background: #c0c0c0;
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+
+//選択プルのベーススタイル
+@mixin select-default{
+  position: relative;
+  select{
+    width: 100%;
+    z-index: 2;
+    height: 48px;
+    padding: 0 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: 0;
+    outline: 0;
+    font-size: 16px;
+    line-height: 1.5;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    &::-ms-expand {
+      display: none;
+    }
+    &:focus {
+      border: 1px solid #0099e8;
+    }
+  }
+  .fa-chevron-down{
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    z-index: 1;
+    color: #888;
+    font-size: 18px;
+    transform: translate(0, -50%);
+  }
+}
+
+//赤ボタン
+@mixin red_btn{
+  background: #ea352d;
+  border: 1px solid #ea352d;
+  color: #fff;
+  cursor: pointer;
+}
+
+//新規登録ボタン
+@mixin sign_up_btn{
+  background: #0099e8;
+  color: #fff;
+  width: 320px;
+  line-height: 40px;
+  display: block;
+  border: 1px solid #0099e8;
+  margin-top: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+//Googleボタン
+@mixin google_btn{
+  position: relative;
+  background-color: #fff;
+  color: #333;
+  border: #979797 solid 1px;
+  .fa-google{
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    transform: translate(0, -50%);
+    font-size: 20px;
+  }
+}
+
+
+//もどるボタン
+@mixin return_btn {
+  background: #aaa;
+  color: #fff;
+  width: 45%;
+  line-height: 40px;
+  display: block;
+  border: 1px solid #aaa;
+  margin: 24px auto 0;
+}
+
+//facebookのボタン
+@mixin facebook_btn{
+  position: relative;
+  background-color: #385185;
+  color: #fff;
+  .fa-facebook-square{
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    transform: translate(0, -50%);
+    font-size: 20px;
+  }
+}
+
+//メールアドレスのボタン
+@mixin email_btn {
+  background-color: #eee;
+  color: #000;
+  position: relative;
+  transition: 0.8s ;
+  .fa-envelope{
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    transform: translate(0, -50%);
+    font-size: 20px;
+    color: #ccc;
+  }
+  &:hover {
+    opacity: 0.7 ;
+  }
+}
+
+@mixin defolt_input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  line-height: 1.8;
+  font-size: 16px;
+  margin-top: 8px;
+  outline: 0;
+  &:focus {
+    border: 1px solid #0099e8;
+  }
+}
