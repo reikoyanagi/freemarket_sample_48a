@@ -1,3 +1,12 @@
+html, body {
+font-family: "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  color:#333333;
+  background-color: $base-color;
+}
+
 .clearfix:after {
     content: '';
     display: block;
@@ -63,9 +72,9 @@
     }
     li.active {
       font-weight: 600;
-      color: #ea352d;
+      color: $red;
       .progress-status {
-        background-color: #ea352d;
+        background-color: $red;
       }
     }
   }
@@ -89,7 +98,7 @@
       width: 320px;
       margin: 0 auto;
     }
-    .default_list,.sell_content{
+    .default_list{
       li {
         margin-top: 40px;
         &:first-child {
@@ -97,7 +106,7 @@
         }
         a , .fa-chevron-right{
           margin-top: 8px;
-          color: #0099e8;
+          color: $blue;
           text-decoration: none;
           display: block;
           &:hover {
@@ -141,6 +150,10 @@
         .red_btn {
           @include button;
           @include red_btn;
+        }
+        .email_btn {
+          @include button;
+          @include email_btn;
         }
         .facebook_btn {
           @include button;
@@ -212,6 +225,9 @@
         a , i{
           display: inline-block;
         }
+      }
+      .btn_list {
+        margin-top: 14px;
       }
     }
   }
@@ -297,7 +313,7 @@
       a {
         display: block;
         margin-top: 40px;
-        color: #0099e8;
+        color: $blue;
         text-decoration: none;
         &:hover {
           opacity: 0.8;

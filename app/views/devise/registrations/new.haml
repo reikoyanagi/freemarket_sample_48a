@@ -6,28 +6,18 @@
   .main__container
     %h2.main__container__title 新規会員登録
     .main__container__form
-      %ul.btn_list
-        %li
+      %ul.default_list
+        %li.btn_list
           %button.email_btn
             = icon 'far' , "envelope"
             メールアドレスで登録
-        %li
+        %li.btn_list
           %button.facebook_btn
             = icon 'fab','facebook-square'
             Facebookで登録
-        %li
+        %li.btn_list
           %button.google_btn
             = icon 'fab','google'
             Googleで登録
 
-.single_footer
-  %ul.single_footer__nav
-    %li
-      = link_to "プライバシーポリシー"
-    %li
-      = link_to "メルカリ利用規約"
-    %li
-      = link_to "特定商取引に関する表記"
-  .single_footer__logo
-    = link_to image_tag("https://www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3403318254")
-  %small © 2019 Mercari
+= render "footer"

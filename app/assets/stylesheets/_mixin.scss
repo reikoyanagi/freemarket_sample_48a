@@ -16,7 +16,7 @@
 
 //必須タグ
 @mixin required_form {
-  background: #ea352d;
+  background: $red;
   margin: 0 0 0 8px;
   padding: 2px 4px;
   border-radius: 2px;
@@ -59,7 +59,7 @@
       display: none;
     }
     &:focus {
-      border: 1px solid #0099e8;
+      border: 1px solid $blue;
     }
   }
   .fa-chevron-down{
@@ -75,20 +75,20 @@
 
 //赤ボタン
 @mixin red_btn{
-  background: #ea352d;
-  border: 1px solid #ea352d;
+  background: $red;
+  border: 1px solid $red;
   color: #fff;
   cursor: pointer;
 }
 
 //新規登録ボタン
 @mixin sign_up_btn{
-  background: #0099e8;
+  background: $blue;
   color: #fff;
   width: 320px;
   line-height: 40px;
   display: block;
-  border: 1px solid #0099e8;
+  border: 1px solid $blue;
   margin-top: 8px;
   text-decoration: none;
   font-size: 14px;
@@ -167,6 +167,6 @@
   margin-top: 8px;
   outline: 0;
   &:focus {
-    border: 1px solid #0099e8;
+    border: 1px solid $blue;
   }
 }
