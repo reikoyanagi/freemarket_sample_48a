@@ -1,15 +1,15 @@
 .mypage-identification{
   background-color: #fff;
-  .chapter-head{
+  &__chapter-head{
     font-weight: bold;
     font-size: 24px;
     padding: 8px 24px;
     text-align: center;
     border-bottom: 1px solid $base-color;
   }
-  .identification_form{
+  &__form{
     padding: 64px;
-    .need-upload{
+    &__need-upload{
       .inner-ptag{
         padding-top: 8px;
         line-height: 1.5;
@@ -23,7 +23,7 @@
     .text-right{
       text-align: right;
     }
-    .form-group{
+    &__form-group{
       margin-top: 40px;
       .inner-label{
         font-weight: 600;
@@ -88,7 +88,7 @@
         text-align: right;
       }
     }
-    .register-button{
+    &__register-button{
       display: block;
       width: 100%;
       line-height: 48px;

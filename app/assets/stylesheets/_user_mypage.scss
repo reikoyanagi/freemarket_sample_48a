@@ -1,8 +1,4 @@
 
-html{
-  font-family: "游ゴシック体", YuGothic, "YoGothic M", sans-serif;
-  color: #333;
-}
 body {
   position: relative;
   min-height: 100%;
@@ -49,7 +45,7 @@ a:hover{
         background-size: cover;
         text-align: center;
         background-color: #888;
-        background-image: url(test_p.png);
+        background-image: url(https://www.mercari.com/jp/assets/img/mypage/user-bg.jpg?78152110);
         .detail-link:hover{
           text-decoration: underline;
           opacity: .7;
@@ -258,16 +254,16 @@ a:hover{
         }
         .tab-content{
           .tab-transaction-now{
-            .mypage-item{
+            .item{
+              padding: 160px 0 60px;
               background-repeat: no-repeat;
+              background-image: url(https://www.mercari.com/jp/assets/img/common/common/logo-gray-icon.svg?78152110);
               background-position: center 40px;
+              background-color: #fff;
               background-size: 78px 85px;
               text-align: center;
               font-size: 16px;
-              background-color: #fff;
-              img{
-                top: 50%;
-              }
+              color: #ccc;
             }
           }
         }
