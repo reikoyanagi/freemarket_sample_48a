@@ -1,0 +1,94 @@
+.single_header
+  %h1.single_header__logo
+    = link_to image_tag("https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?228111635")
+  %ol{class: "header__nav-bar signup-bar"}
+    %li.active
+      会員登録
+      .progress-status
+    %li
+      電話番号認証
+      .progress-status
+    %li
+      お届け先住所入力
+      .progress-status
+    %li
+      支払い方法
+      .progress-status
+    %li
+      完了
+      .progress-status
+
+.main
+  .main__container
+    %h2.main__container__title 会員情報入力
+    .main__container__form
+      %ul.default_list
+        %li
+          %label ニックネーム
+          %span.required_form 必須
+          %input{placeholder: "例) メルカリ太郎"}
+        %li
+          %label メールアドレス
+          %span.required_form 必須
+          %input{placeholder: "PC・携帯どちらでも可"}
+        %li
+          %label パスワード
+          %span.required_form 必須
+          %input{placeholder: "6文字以上"}
+        %li
+          %label パスワード (確認)
+          %span.required_form 必須
+          %input{placeholder: "６文字以上"}
+        %li
+          %label.sub-title 本人確認
+          %p.notes 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+        %li
+          %label 姓 (全角)
+          %span.required_form 必須
+          %input{placeholder: "例) 山田"}
+        %li
+          %label 名 (全角)
+          %span.required_form 必須
+          %input{placeholder: "例) 彩"}
+        %li
+          %label 姓カナ (全角)
+          %span.required_form 必須
+          %input{placeholder: "例) ヤマダ"}
+        %li
+          %label 名カナ (全角)
+          %span.required_form 必須
+          %input{placeholder: "例) アヤ"}
+        %li
+          %label 生年月日
+          %span.required_form 必須
+          %br
+          = render "devise/registrations/select/birthday-select"
+          %p.info ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+          //年・月までは入力できるが日が年数と月を入力する事で表示できるように定義が必要
+        %li.sample
+          .reCAPTCHA
+            %input{type: "checkbox"} 私はロボットではありません
+            //Google APIを使って認証設定を埋め込む必要あり
+        %li
+          %p.consent
+            「次へ進む」のボタンを押すことにより、
+            %a{ href: "/"} 利用規約
+            に同意したものとみなします
+        %li
+          %button.red_btn 次へ進む
+        %li.text-right
+          %a{href: "/"}
+            本人情報の登録について
+            = icon 'fas', 'chevron-right'
+
+%footer
+  %ul.footer__nav
+    %li
+      = link_to "プライバシーポリシー"
+    %li
+      = link_to "メルカリ利用規約"
+    %li
+      = link_to "特定商取引に関する表記"
+  .footer__logo
+    = link_to image_tag("https://www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3403318254")
+  %small © 2019 Mercari

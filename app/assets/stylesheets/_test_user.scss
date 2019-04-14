@@ -1,0 +1,677 @@
+.clearfix:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+//ボタン初期化 & サイズ調整
+button {
+  border-radius: 0;
+  -webkit-box-sizing: content-box;
+  -webkit-appearance: button;
+  appearance: button;
+  border: none;
+  box-sizing: border-box;
+  padding: 0;
+  display: block;
+  width: 100%;
+  line-height: 48px;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: center;
+  &::-webkit-search-decoration {
+    display: none;
+  }
+  &::focus {
+    outline-offset: -2px;
+  }
+}
+
+//ヘッダー
+.single_header{
+  text-align: center;
+  height: 128px;
+  &__logo{
+    width: 185px;
+    height: 49px;
+    margin-top: 40px;
+    line-height: 49px;
+    display: inline-block;
+    &:hover {
+      opacity: 0.7 ;
+    }
+  }
+  ol{
+    display: inline-block;
+    padding: 40px 0 0 44px;
+    vertical-align: top;
+    li{
+      display: inline-block;
+      position: relative;
+      z-index: 1;
+      display: inline-block;
+      min-width: 60px;
+      margin: 0 40px 0 0;
+      font-size: 12px;
+      color: #888;
+      &:first-child
+      .progress-status:before,
+      &:last-child
+      .progress-status:after {
+        display: none;
+      }
+      &:last-child {
+          margin: 0;
+      }
+    }
+    li.active {
+      font-weight: 600;
+      color: #ea352d;
+      .progress-status {
+        background-color: #ea352d;
+      }
+    }
+  }
+}
+
+//header__nav-barの線の部分
+.progress-status{
+  width: 12px;
+  height: 12px;
+  margin: 8px auto 0;
+  background: #ccc;
+  border-radius: 50%;
+  &:before{
+    right: 50%;
+  }
+  &:after,&:before{
+    position: absolute;
+    bottom: 5px;
+    z-index: -1;
+    display: block;
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: #ccc;
+  }
+}
+
+//メイン
+.main {
+  &__container {
+    width: 700px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    &__title {
+      padding: 32px 16px;
+      font-size: 22px;
+      text-align: center;
+      font-weight: bold;
+      border-bottom: 1px solid #f5f5f5;
+    }
+    &__form{
+      padding: 64px;
+      width: 320px;
+      margin: 0 auto;
+    }
+    .default_list,.sell_content{
+      li {
+        margin-top: 40px;
+        &:first-child {
+          margin-top: 0;
+        }
+        a , .fa-chevron-right{
+          margin-top: 8px;
+          color: #0099e8;
+          text-decoration: none;
+          display: block;
+          &:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+          }
+        }
+        label {
+          font-weight: 600;
+        }
+        .sub-title {
+        font-size: 16px;
+        }
+        .notes {
+          margin-top: 8px;
+          letter-spacing: 1px;
+          line-height: 1.5;
+        }
+        .sample {
+          text-align: center;
+        }
+        .info {
+          margin: 8px 0 0;
+          line-height: 1.5;
+          color: #888;
+        }
+        .consent {
+          text-align: center;
+          a {
+            display: inline;
+          }
+        }
+        .thanks_text {
+          text-align: center;
+          font-size: 16px;
+          line-height: 30px;
+        }
+      }
+      .sell_content {
+        padding: 40px;
+        h3 {
+          float: left;
+        }
+        .sell_form {
+          float: right;
+          width: 400px;
+        }
+      }
+      .text-right {
+        text-align: right;
+        a , i{
+          display: inline-block;
+        }
+      }
+    }
+  }
+}
+
+//フッター
+footer {
+  width: 456px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 40px 0;
+  li {
+    display: inline-block;
+    color: #333;
+    font-size: 12px;
+    margin-right: 13px;
+    a {
+      color: #333;
+      text-decoration: none;
+      &:hover {
+        opacity: 0.8;
+        text-decoration: underline;
+      }
+    }
+  }
+  .footer__logo {
+    margin: 40px 0 8px;
+    img {
+      width: 80px;
+      height:65px;
+      &:hover {
+        opacity: 0.7 ;
+      }
+    }
+  }
+  small {
+    font-size: 13px;
+  }
+}
+
+//選択プルのベーススタイル
+.select-default{
+  position: relative;
+  select{
+    width: 100%;
+    z-index: 2;
+    height: 48px;
+    padding: 0 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: 0;
+    outline: 0;
+    font-size: 16px;
+    line-height: 1.5;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    &::-ms-expand {
+      display: none;
+    }
+    &:focus {
+      border: 1px solid #0099e8;
+    }
+  }
+  .fa-chevron-down{
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    z-index: 1;
+    color: #888;
+    font-size: 18px;
+    transform: translate(0, -50%);
+  }
+}
+
+//誕生日の選択プル
+.birthday {
+  .select-wrap{
+    width: 140px;
+    display: inline-block;
+    margin-top: 8px;
+    position: relative;
+  }
+  span {
+    margin: 8px
+  }
+}
+
+
+//都道府県の選択プル
+.prefecture_id {
+  .select-wrap{
+    width: 100%;
+    display: inline-block;
+    margin-top: 8px;
+    position: relative;
+  }
+  span {
+    margin: 8px
+  }
+}
+
+//カード有効期限の選択プル
+.expiration {
+  display: inline-block;
+  .select-wrap{
+    width: 120px;
+    display: inline-block;
+    margin-top: 8px;
+    position: relative;
+  }
+  span {
+    margin: 8px
+  }
+}
+
+//カテゴリーの選択プル
+.category {
+  .select-wrap {
+
+  }
+}
+
+//sign_inのボタン間隔調整
+.sign_in_btn{
+  li {
+    margin-top: 16px;
+  }
+  li:first-child{
+    margin-top: 0;
+  }
+}
+
+//出品の画面用CSS
+.sell_content {
+  li {
+    padding: 40px;
+    border-bottom: 1px solid #eee;
+    margin-top: 0 !important;
+    .form-group {
+      margin-top: 40px;
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+  .image_input{
+    margin-top: 0;
+    p {
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+    .input_area {
+      position: relative;
+      min-height: 162px;
+      background: #f5f5f5;
+      border: 1px dashed #ccc;
+      font-size: 0;
+      text-align: center;
+      margin-top: 16px;
+      p {
+        font-weight: bold;
+        position: absolute;
+        top: 50%;
+        left: 16px;
+        right: 16px;
+        text-align: center;
+        font-size: 14px;
+        line-height: 1.5;
+        transform: translate(0, -50%);
+      }
+    }
+  }
+  h3 {
+    float: left;
+  }
+  .price ,.profit_price{
+    float: right;
+  }
+  .sell_form {
+    float: right;
+    width: 400px;
+  }
+  .price_form {
+    width: 400px;
+    float: right;
+    .price_input_area {
+      margin-bottom: 24px;
+      .price_label {
+        width: 50%;
+        float: left;
+        line-height: 48px;
+      }
+      .price_input{
+        width: 50%;
+        text-align: right;
+        input {
+          display: inline-block;
+          width: 80%;
+          margin: 0 0 0 5px;
+          text-align: right;
+        }
+      }
+    }
+    .commission {
+      margin: 24px 0;
+      p{
+        float: left;
+      }
+    }
+    .profit {
+      margin: 24px 0;
+      font-weight: bold;
+      font-size: 16px;
+      p {
+        float: left;
+      }
+      .profit_price {
+        font-size: 34px;
+      }
+    }
+  }
+  .consent {
+    p {
+      a{
+        display: inline;
+      }
+    }
+    .red_btn {
+      margin-top: 40px;
+    }
+  }
+}
+
+//サインインの画面用CSS
+.main__sign_in {
+  width: 456px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  &__title {
+    padding: 40px 64px;
+    font-size: 22px;
+    text-align: center;
+    font-weight: bold;
+    border-bottom: 1px solid #f5f5f5;
+    p {
+      font-size: 14px;
+      font-weight: normal;
+    }
+  }
+  &__button {
+    padding: 32px 64px;
+    margin: 0 auto;
+    li {
+      margin-top: 16px;
+    }
+    li:first-child{
+      margin-top: 0;
+    }
+  }
+  &__form {
+    padding: 24px 64px 32px;
+    margin: 0 auto;
+    li {
+      margin-top: 20px;
+      a {
+        display: block;
+        margin-top: 40px;
+        color: #0099e8;
+        text-decoration: none;
+        &:hover {
+          opacity: 0.8;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+//購入画面のCSS
+.buy_content {
+  padding: 24px 88px 0;
+  border-top: 1px solid #eee;
+  margin-top: 40px;
+  &:first-child{
+    border: none;
+    margin-top: 0;
+  }
+  &:last-child {
+    padding: 40px 88px;
+  }
+  .buy_item {
+    width: 320px;
+    margin: 0 auto;
+    text-align: center;
+    img {
+      width: 148px;
+    }
+    .buy_item_name {
+      margin: 8px 0 0;
+      font-size: 16px;
+      line-height: 1.5;
+      font-weight: 600;
+    }
+    form {
+      .buy_price {
+        margin: 8px 0 0;
+        line-height: 1.5;
+        font-size: 28px;
+        font-weight: 600;
+        span {
+          margin: 0 0 0 8px;
+          font-size: 14px;
+          font-weight: 300;
+        }
+      }
+      .buy_price_check {
+        font-size: 28px;
+        font-weight: 600;
+        p {
+          padding: 16px 0;
+          float: right;
+          &:first-child {
+            float: left;
+          }
+        }
+      }
+    }
+  }
+  .user_info ,.credit_info{
+    max-width: 320px;
+    margin: 0 auto;
+    label {
+      font-weight: bold;
+      font-size: 14px;
+    }
+    address,p {
+      margin: 8px 0 0;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+    img {
+      width: 49px;
+      height: 15px;
+    }
+    a {
+      margin-top: 8px;
+      color: #0099e8;
+      text-decoration: none;
+      display: block;
+      text-align: right;
+      &:hover {
+        opacity: 0.8;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+//赤のボタン
+.red_btn{
+  background: #ea352d;
+  border: 1px solid #ea352d;
+  color: #fff;
+  cursor: pointer;
+}
+
+//メールアドレスのボタン
+.email_btn {
+  background-color: #eee;
+  color: #000;
+  position: relative;
+  transition: 0.8s ;
+  .fa-envelope{
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    transform: translate(0, -50%);
+    font-size: 20px;
+    color: #ccc;
+  }
+  &:hover {
+    opacity: 0.7 ;
+  }
+}
+
+//facebookのボタン
+.facebook_btn{
+  position: relative;
+  background-color: #385185;
+  color: #fff;
+  .fa-facebook-square{
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    transform: translate(0, -50%);
+    font-size: 20px;
+  }
+}
+
+//グーグルのボタン
+.google_btn{
+  position: relative;
+  background-color: #fff;
+  color: #333;
+  border: #979797 solid 1px;
+  .fa-google{
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    transform: translate(0, -50%);
+    font-size: 20px;
+  }
+}
+
+//新規登録ボタン
+.sign_up_btn{
+  background: #0099e8;
+  color: #fff;
+  width: 320px;
+  line-height: 40px;
+  display: block;
+  border: 1px solid #0099e8;
+  margin-top: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+//もどるボタン
+.return_btn {
+  background: #aaa;
+  color: #fff;
+  width: 45%;
+  line-height: 40px;
+  display: block;
+  border: 1px solid #aaa;
+  margin: 24px auto 0;
+}
+
+.btn_list {
+  li {
+    margin-top: 16px;
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+//入力部分のベース
+input,textarea {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  line-height: 1.8;
+  font-size: 16px;
+  margin-top: 8px;
+  outline: 0;
+  &:focus {
+    border: 1px solid #0099e8;
+  }
+}
+textarea {
+  max-width: 100%;
+  min-height: 104px;
+}
+
+//仮置きreCAPTCHA
+.reCAPTCHA {
+  height: 78px;
+  width: 320px;
+  border: 1px solid #000;
+}
+
+//必須アイコン
+.required_form {
+  background: #ea352d;
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  line-height: 18px;
+}
+//任意アイコン
+.any_form {
+  background: #c0c0c0;
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  line-height: 18px;
+}
+
