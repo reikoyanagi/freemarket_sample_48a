@@ -10,7 +10,7 @@
 
     .main-content
       .main-content__user-icon-topbox
-        %a.detail-link{ href: '#'}
+        = link_to '#', class: 'detail-link' do
           .detail-link__avatar
             =image_tag("https://static.mercdn.net/images/member_photo_noimage_thumb.png")
           .detail-link__nickname
@@ -28,16 +28,16 @@
         %ul.main-content__info-n-todo__tabs
           %li
             %h3
-              %a.active{ href: '#'}
+              = link_to '#', class: 'active' do
                 お知らせ
           %li
             %h3
-              %a.non-active{ href: '#'}
+              = link_to '#', class: 'non-active' do
                 やることリスト
         .main-content__info-n-todo__contents
           %ul
             %li
-              %a.contents-link{ href: '#'}
+              = link_to '#', class: 'contents-link' do
                 %figure
                   =image_tag("https://static-mercari-jp.akamaized.net/images/mercari_profile.png")
                 .contents-body
@@ -48,7 +48,7 @@
                     .past-time 1時間前
                 %i.fa.fa-angle-right.fa-2x
             %li
-              %a.contents-link{ href: '#'}
+              = link_to '#', class: 'contents-link' do
                 %figure
                   =image_tag("https://static-mercari-jp.akamaized.net/images/mercari_profile.png")
                 .contents-body
@@ -59,7 +59,7 @@
                     .past-time 1時間前
                 %i.fa.fa-angle-right.fa-2x
             %li
-              %a.contents-link{ href: '#'}
+              = link_to '#', class: 'contents-link' do
                 %figure
                   =image_tag("https://static-mercari-jp.akamaized.net/images/mercari_profile.png")
                 .contents-body
@@ -70,7 +70,7 @@
                     .past-time 1時間前
                 %i.fa.fa-angle-right.fa-2x
             %li
-              %a.contents-link{ href: '#'}
+              = link_to '#', class: 'contents-link' do
                 %figure
                   =image_tag("https://static-mercari-jp.akamaized.net/images/mercari_profile.png")
                 .contents-body
@@ -81,7 +81,7 @@
                     .past-time 1時間前
                 %i.fa.fa-angle-right.fa-2x
             %li
-              %a.contents-link{ href: '#'}
+              = link_to '#', class: 'contents-link' do
                 %figure
                   =image_tag("https://static-mercari-jp.akamaized.net/images/mercari_profile.png")
                 .contents-body
@@ -92,7 +92,7 @@
                     .past-time 1時間前
                 %i.fa.fa-angle-right.fa-2x
             %li
-              %a.mypage-go-list{ href: '#'}
+              = link_to '#', class: 'mypage-go-list' do
                 一覧を見る
       .main-content__bought-items-list
         .tab-head
@@ -100,11 +100,11 @@
         %ul.tabs
           %li
             %h3
-              %a.active{ href: '#'}
+              = link_to '#', class: 'active' do
                 取引中
           %li
             %h3
-              %a.non-active{ href: '#'}
+              = link_to '#', class: 'non-active' do
                 過去の取引
         .tab-content
           %ul.tab-transaction-now

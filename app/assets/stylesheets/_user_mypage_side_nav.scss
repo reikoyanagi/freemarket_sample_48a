@@ -12,6 +12,14 @@
       li{
         border-top: 1px solid #eee;
         box-sizing: border-box;
+        i{
+          position: absolute;
+          top: 50%;
+          right: 16px;
+          transform: translate(0, -50%);
+          color: #ccc;
+          font-size: 25px;
+        }
         .contents-link{
           position: relative;
           display: block;
@@ -20,14 +28,6 @@
           background: #fff;
           color:#333;
           box-sizing: border-box;
-          i{
-            position: absolute;
-            top: 50%;
-            right: 16px;
-            transform: translate(0, -50%);
-            color: #ccc;
-            font-size: 25px;
-          }
         }
         .contents-link:hover{
           background: #fafafa;

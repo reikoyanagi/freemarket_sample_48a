@@ -15,7 +15,7 @@
               %br>/
               登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
             %p.upload_link
-              %a
+              = link_to '#' do
                 本人確認書類のアップロードについて
                 %i.fa.fa-angle-right
           .form-group
@@ -52,6 +52,6 @@
           %button.register-button 登録する
           .form-group.text-right
             %p.inner-ptag.upload_link
-              %a
+              = link_to '#' do
                 本人確認の登録について
                 %i.fa.fa-angle-right
