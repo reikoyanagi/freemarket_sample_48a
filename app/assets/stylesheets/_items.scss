@@ -1,10 +1,13 @@
 html, body {
-font-family: "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
+  font-family: "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
   height: 100%;
   margin: 0;
   padding: 0;
   color:#333333;
   background-color: $base-color;
+}
+a{
+text-decoration: none;
 }
 // --------------------------------全体選択（出品ボタンの固定に使う）はここから
 .overall{
@@ -16,13 +19,12 @@ font-family: "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
     width: 100vw;
     height: 108px;
     border-bottom:thin solid #f0f0f0;
-    &__header-margin{
+    &__inner{
       width: 1020px;
       height: 100%;
       margin: 0 auto;
       padding-top:8px;
-
-      &--clearfix{
+      &--top{
         width:1020px;
         height:50px;
         position: relative;
@@ -33,7 +35,6 @@ font-family: "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
           padding-top: 7px;
         }
         input.header-input{
-          font-family: "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
           font-size:16px;
           float:right;
           width:77%;
@@ -59,18 +60,20 @@ font-family: "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
             list-style:none;
             padding-left: 0;
             li:first-child{
-            list-style: none;
-            padding:0 0 0 2px;
+              cursor: pointer;
+              list-style: none;
+              padding:0 0 0 2px;
               h2{
                 font-size: 14px;
                 font-weight: bold;
               }
             }
             li{
+              cursor: pointer;
               float:left;
-            list-style: none;
-            padding:0 0 0 22px;
-            width:146px;
+              list-style: none;
+              padding:0 0 0 22px;
+              width:146px;
               h2{
                 font-size: 14px;
                 font-weight: bold;
@@ -151,7 +154,6 @@ font-family: "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
         a.index{
           font-size: 22px;
           color:$blue;
-          text-decoration: none;
           font-weight: bold;
         }
         a.index:hover{
@@ -159,10 +161,10 @@ font-family: "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
           border-bottom: 2px solid ;
         }
       }
-      .items-content{
+      .items-box-content{
         width:940px;
         height:330px;
-        &__items-box{
+        &__box{
           float:left;
           width:213px;
           height:330px;
@@ -172,11 +174,11 @@ font-family: "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
             height:220px;
             position: relative;
             img.tops{
-            width: 213px;
-            height: 213px;
-            position: absolute;
-            bottom: 0;
-            object-fit: cover;
+              width: 213px;
+              height: 213px;
+              position: absolute;
+              bottom: 0;
+              object-fit: cover;
             }
           }
           &__body{
@@ -285,20 +287,17 @@ font-family: "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
 
         }
       }
-
-
       &--center{
         float:left;
         width:450px;
         height:241px;
         padding-top:23px;
         color:white;
-
         &-top{
           font-size: 16px;
         }
         &-top--inner{
-            width:204px;
+          width:204px;
           ul{
             padding-top: 10px;
             float:left;
@@ -312,13 +311,12 @@ font-family: "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
               opacity: .7;
             }
             li:hover{
-            text-decoration: underline;
+              text-decoration: underline;
             }
           }
         }
         &-top--inner2{
-
-            float: right;
+          float: right;
           ul{
             padding-top: 10px;
             float:left;
@@ -333,7 +331,7 @@ font-family: "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
               opacity: .7;
             }
             li:hover{
-            text-decoration: underline;
+              text-decoration: underline;
             }
           }
         }
@@ -362,7 +360,7 @@ font-family: "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
             opacity: .7;
           }
           li:hover{
-          text-decoration: underline;
+            text-decoration: underline;
           }
         }
       }
@@ -374,7 +372,7 @@ font-family: "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
       text-align: center;
       margin: 0 auto 0 auto;
       .mercarilogo-white{
-      float:left;
+        float:left;
       }
       .copyright{
         display: inline-block;
@@ -386,15 +384,15 @@ font-family: "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
   }
 // --------------------------------出品ボタンはここから
     .fixed-btn{
-    background-color: $red;
-    width:160px;
-    height:160px;
-    border-radius: 80px;
-    position:fixed;
-    bottom:32px;
-    right:32px;
-    border: none;
-    outline:none;
+      background-color: $red;
+      width:160px;
+      height:160px;
+      border-radius: 80px;
+      position:fixed;
+      bottom:32px;
+      right:32px;
+      border: none;
+      outline:none;
     div{
       color:white;
       font-size: 22px;
@@ -423,16 +421,20 @@ font-family: "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
         font-size: 14px;
         float:left;
         line-height:50px;
-        span:hover{
+        a.large_cat{
+          color: #333333;
+          cursor: pointer;
+          text-decoration: none;
+        }
+        a.large_cat:hover{
           color: gray;
           border-bottom: 1px solid gray;
-          cursor: pointer;
+
         }
       }
       li:last-child{
         font-weight: bold;
         padding-left:10px;
-
       }
     }
   }
@@ -514,10 +516,10 @@ font-family: "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
             p{
               float: right;
               font-family: "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
-              font-size:14px
+              font-size:14px;
             }
             p:hover{
-                        border-bottom: 1px solid;
+              border-bottom: 1px solid;
             }
           }
         }
@@ -528,14 +530,14 @@ font-family: "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
         }
         a.brand{
           div:hover{
-          color:$thin-blue;
-          border-bottom: 1px solid;
-          cursor: pointer;
-          display: inline;
+            color:$thin-blue;
+            border-bottom: 1px solid;
+            cursor: pointer;
+            display: inline;
           }
         }
         .review{
-          .item-user-ratings{
+          &__item-user-ratings{
             float:left;
           }
         }
@@ -555,7 +557,6 @@ font-family: "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
       width: 620px;
       height: 60px;
       margin-top: 24px;
-      clear:both;
       text-align: center;
       span.item-price{
         font-weight: bold;
@@ -597,9 +598,9 @@ font-family: "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
       width:620px;
       height:33px;
       &__item-button-left{
-          float:left;
-          width:340px;
-          height:33px;
+        float:left;
+        width:340px;
+        height:33px;
         button.item-button-like{
           background-color: $base-color;
           border-radius: 80px;
@@ -619,6 +620,7 @@ font-family: "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
         }
 
         a.item-button-report{
+          color:#333;
           margin-left: 16px;
           background-color: $base-color;
           border-radius: 80px;
@@ -636,15 +638,15 @@ font-family: "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
         float:right;
         width: 230px;
         height:33px;
-        color:$blue;
         a{
+          color:$blue;
           line-height: 33px;
           text-align: left;
           font-size:14px;
         }
         a:hover{
-            color:$thin-blue;
-            cursor: pointer;
+          color:$thin-blue;
+          cursor: pointer;
         }
       }
     }
@@ -655,7 +657,7 @@ font-family: "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
     padding-top: 8px;
     padding-bottom: 8px;
     margin:0 auto;
-    &__comment-container{
+    &__container{
       width:652px;
       height:214px;
       background-color: white;
@@ -696,7 +698,7 @@ font-family: "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
     height:14px;
     padding-top:24px;
     margin:0 auto;
-    .page-back{
+    &__back{
       float:left;
       p{
         float: right;
@@ -710,17 +712,17 @@ font-family: "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
         cursor: pointer;
       }
       a{
-      font-size: 14px;
-      color:$blue;
+        font-size: 14px;
+        color:$blue;
       }
     }
-    .page-next{
+    &__next{
       float:right;
       a{
-      font-size: 14px;
-      color:$blue;
-      font-size: 14px;
-      color:$blue;
+        font-size: 14px;
+        color:$blue;
+        font-size: 14px;
+        color:$blue;
       }
       a:hover{
         color:$thin-blue;
@@ -750,16 +752,16 @@ font-family: "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
     width:700px;
     height:1524px;
     margin: 0 auto;
-    &__items-box-container{
+    &__box-container{
       h2{
         width:700px;
         height:30px;
         margin-top: 24px;
         margin-bottom:8px;
         a{
-        color:$blue;
-        font-size:22px;
-        font-weight: bold;
+          color:$blue;
+          font-size:22px;
+          font-weight: bold;
         }
         a:hover{
           color:$thin-blue;
@@ -769,7 +771,7 @@ font-family: "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
       }
       .items-box-content{
         height:700px;
-        &__items-box{
+        &__box:first-child{
           margin-bottom:20px;
           float:left;
           width:213px;
@@ -780,11 +782,11 @@ font-family: "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
             height:220px;
             position: relative;
             img.tops{
-            width: 213px;
-            height: 213px;
+              width: 213px;
+              height: 213px;
             object-fit: cover;
-            position: absolute;
-            bottom: 0;
+              position: absolute;
+              bottom: 0;
             }
           }
           &__body{
@@ -818,7 +820,7 @@ font-family: "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
                   padding-right:3px;
                   display: inline-block;
                   float: right;
-                  }
+                }
                 span.like{
                   display: inline-block;
                   float:right;
@@ -833,7 +835,7 @@ font-family: "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
           }
         }
 // -------------------------ここからくり返し処理
-        &__items-box2{
+        &__box{
           margin-left:20px;
           margin-bottom:20px;
           float:left;
@@ -845,11 +847,11 @@ font-family: "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
             height:220px;
             position: relative;
             img.tops{
-            width: 213px;
-            height: 213px;
+              width: 213px;
+              height: 213px;
             object-fit: cover;
-            position: absolute;
-            bottom: 0;
+              position: absolute;
+              bottom: 0;
             }
           }
           &__body{
@@ -902,8 +904,6 @@ font-family: "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
   }
   .over-margin{
     margin-top:40px;
-
-
 }
 // --------------------------------画像の表示はここから
   .fa-list-ul,.fa-tag{
@@ -923,6 +923,7 @@ font-family: "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
     .app-banner-pc{
       height:260px;
       width:100vw;
+      object-fit: cover;
     }
   }
 .facebook-icon{
@@ -941,4 +942,10 @@ font-family: "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
 .fa-frown{
   margin-top: 8px;
   margin-left: 16px;
+}
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
 }
