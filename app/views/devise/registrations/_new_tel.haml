@@ -33,8 +33,7 @@
           %p.info ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
           //SNS送信の仕組みを検証する必要あり
         %li.text-right
-          %a{href: "/"}
-            電話番号の確認が必要な理由
-            = icon 'fa', 'chevron-right'
+          = link_to "電話番号の確認が必要な理由"
+          = icon 'fa', 'chevron-right'
 
 = render "footer"

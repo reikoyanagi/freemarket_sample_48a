@@ -35,20 +35,20 @@
           //active_hashを使用
           .expiration
             .select-wrap.select-wrap__month.select-default
-              %select{:name => "month"}
-                %option{:value => ""} --
+              %select{name: "month"}
+                %option{value: ""} --
               = icon "fas" ,"chevron-down"
             %span 月
             .select-wrap.select-default
-              %select{:name => "year"}
-                %option{:value => ""} --
+              %select{name: "year"}
+                %option{value: ""} --
               = icon "fas" ,"chevron-down"
             %span 年
         %li
           %label セキュリティーコード
           %span.required_form 必須
           %input{placeholder: "カード背面4桁もしくは3桁の番号"}
-          %a{href: "/"} カード裏面の番号とは
+          =link_to "カード裏面の番号とは"
         %li
           %button.red_btn
             次へ進む

@@ -65,18 +65,18 @@
           //active_hashを使用
           .birthday
             .select-wrap.select-default
-              %select{:name => "year"}
-                %option{:value => ""} --
+              %select{name: "year"}
+                %option{value: ""} --
               = icon "fas" ,"chevron-down"
             %span 年
             .select-wrap.select-wrap__month.select-default
-              %select{:name => "month"}
-                %option{:value => ""} --
+              %select{name: "month"}
+                %option{value: ""} --
               = icon "fas" ,"chevron-down"
             %span 月
             .select-wrap.select-wrap__day.select-default
-              %select{:name => "day"}
-                %option{:value => ""} --
+              %select{name: "day"}
+                %option{value: ""} --
               = icon "fas" ,"chevron-down"
             %span 日
           %p.info ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
@@ -88,14 +88,13 @@
         %li
           %p.consent
             「次へ進む」のボタンを押すことにより、
-            %a{ href: "/"} 利用規約
+            = link_to "利用規約"
             に同意したものとみなします
         %li
           %button.red_btn
             次へ進む
         %li.text-right
-          %a{href: "/"}
-            本人情報の登録について
-            = icon 'fas', 'chevron-right'
+          = link_to "本人情報の登録について"
+          = icon 'fas', 'chevron-right'
 
 = render "footer"
