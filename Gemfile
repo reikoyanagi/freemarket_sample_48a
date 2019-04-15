@@ -87,3 +87,4 @@ gem 'carrierwave'
 gem 'fog-aws'
 
 gem 'sassc','>= 1.12.1'
+

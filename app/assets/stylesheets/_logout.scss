@@ -1,0 +1,24 @@
+.logout{
+  width: 700px;
+  height: 179px;
+  &__container{
+    background-color: #fff;
+  }
+  &__container-line{
+    width: 572px;
+    height: 50px;
+    padding: 64px;
+  }
+  &__container-button{
+    max-width: 320px;
+    margin: 0 auto;
+  }
+  .btn-red{
+    width: 318px;
+    height: 48px;
+    border: 1px solid red;
+    background-color: red;
+    color: #fff;
+    font-size: 14px;
+  }
+}
