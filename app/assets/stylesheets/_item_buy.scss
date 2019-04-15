@@ -12,7 +12,7 @@
       padding: 40px 88px;
     }
   }
-  &__buy_item {
+  &__item {
     width: 320px;
     margin: 0 auto;
     text-align: center;
@@ -20,13 +20,13 @@
       width: auto;
       max-height: 148px;
     }
-    .buy_item_name {
+    &__name {
       margin: 8px 0 0;
       font-size: 16px;
       line-height: 1.5;
       font-weight: 600;
     }
-    form {
+    &__price {
       .buy_price {
         margin: 8px 0 0;
         line-height: 1.5;
