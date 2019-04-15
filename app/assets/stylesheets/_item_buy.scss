@@ -1,0 +1,86 @@
+//購入画面のCSS
+.buy_content {
+  li {
+    padding: 24px 88px 0;
+    border-top: 1px solid #eee;
+    margin-top: 40px;
+    &:first-child{
+      border: none;
+      margin-top: 0;
+    }
+    &:last-child {
+      padding: 40px 88px;
+    }
+  }
+  &__item {
+    width: 320px;
+    margin: 0 auto;
+    text-align: center;
+    img {
+      width: auto;
+      max-height: 148px;
+    }
+    &__name {
+      margin: 8px 0 0;
+      font-size: 16px;
+      line-height: 1.5;
+      font-weight: 600;
+    }
+    &__price {
+      .buy_price {
+        margin: 8px 0 0;
+        line-height: 1.5;
+        font-size: 28px;
+        font-weight: 600;
+        span {
+          margin: 0 0 0 8px;
+          font-size: 14px;
+          font-weight: 300;
+        }
+      }
+      .buy_price_check {
+        font-size: 28px;
+        font-weight: 600;
+        p {
+          padding: 16px 0;
+          float: right;
+          &:first-child {
+            float: left;
+          }
+        }
+      }
+    }
+    .red_btn{
+      @include button;
+      @include red_btn;
+    }
+  }
+  &__user_info ,&__credit_info{
+    max-width: 320px;
+    margin: 0 auto;
+    label {
+      font-weight: bold;
+      font-size: 14px;
+    }
+    address,p {
+      margin: 8px 0 0;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+    img {
+      width: 49px;
+      height: 15px;
+    }
+    a {
+      margin-top: 8px;
+      color: #0099e8;
+      text-decoration: none;
+      display: block;
+      text-align: right;
+      &:hover {
+        opacity: 0.8;
+        text-decoration: underline;
+      }
+    }
+  }
+}
