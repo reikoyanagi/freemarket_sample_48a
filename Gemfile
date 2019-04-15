@@ -86,4 +86,4 @@ gem 'devise'
 gem 'carrierwave'
 gem 'fog'
 
-
+gem 'sassc'

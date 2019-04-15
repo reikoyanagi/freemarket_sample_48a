@@ -1,9 +1,11 @@
 @import "./reset";
 @import "./colors";
-@import "./items";
+@import "./mixin";
+// @import "./items";
+@import './test_user';
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 @import "./user_mypage";
 @import "./user_mypage_identify";
 @import "./user_mypage_side_nav";
-
+@import "./profile"
