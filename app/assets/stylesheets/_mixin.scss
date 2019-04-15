@@ -101,12 +101,14 @@
   background-color: #fff;
   color: #333;
   border: #979797 solid 1px;
-  .fa-google{
-    position: absolute;
-    top: 50%;
-    left: 16px;
-    transform: translate(0, -50%);
-    font-size: 20px;
+  .google_logo{
+    img {
+      position: absolute;
+      top: 50%;
+      left: 16px;
+      transform: translate(0, -50%);
+      height: 20px;
+    }
   }
 }
 

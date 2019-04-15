@@ -14,6 +14,7 @@
       }
       .select-default {
         @include select-default;
+        margin-top: 8px;
       }
       label {
         font-weight: 600;
