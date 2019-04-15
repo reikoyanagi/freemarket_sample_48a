@@ -1,0 +1,15 @@
+.container.clearfix
+  = render "mypage_side_nav"
+  .profile
+    %section.profile-container
+      %h2.profile-name
+        プロフィール
+      %form{action: "http://"}
+        .setting-profile
+          %figure
+            %img{height: "60", src: "//static-mercari-jp-imgtr2.akamaized.net/images/member_photo_noimage_thumb.png", width:"60"}
+          %input.input-default{name: "nickname", placeholder: "メルカリ", type:"text", value: "ニックネーム"}
+        .setting-profile-content
+          %textarea.textarea-default{name: "introduction", placeholder: "例）こんにちわ！ご覧いただきありがとうございます！"}
+          %button.btn-default.btn-red{type: "submit"}
+            変更する
