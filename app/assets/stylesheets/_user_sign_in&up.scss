@@ -1,18 +1,3 @@
-html, body {
-font-family: "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  color:#333333;
-  background-color: $base-color;
-}
-
-.clearfix:after {
-    content: '';
-    display: block;
-    clear: both;
-}
-
 //ヘッダー
 .single_header{
   text-align: center;

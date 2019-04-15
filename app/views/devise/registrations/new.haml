@@ -1,6 +1,6 @@
 .single_header
   %h1.single_header__logo
-    = link_to image_tag("https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?228111635")
+    = link_to image_tag("/assets/mercarilogo-f4c823301da0441f633837b7b207f4711269ff5c49e8d82f66df3324031a30cc.svg")
 
 .main
   .main__container
@@ -17,7 +17,8 @@
             Facebookで登録
         %li.btn_list
           %button.google_btn
-            = icon 'fab','google'
+            .google_logo
+              = image_tag("/assets/google-logo.svg")
             Googleで登録
 
 = render "footer"
