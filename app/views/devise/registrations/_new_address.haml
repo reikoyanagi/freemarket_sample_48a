@@ -1,0 +1,71 @@
+.single_header
+  %h1.single_header__logo
+    = link_to image_tag("https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?228111635")
+  %ol{class: "single_header__nav-bar signup-bar"}
+    %li
+      会員登録
+      .progress-status
+    %li
+      電話番号認証
+      .progress-status
+    %li.active
+      お届け先住所入力
+      .progress-status
+    %li
+      支払い方法
+      .progress-status
+    %li
+      完了
+      .progress-status
+
+.main
+  .main__container
+    %h2.main__container__title 住所入力
+    .main__container__form
+      %ul.default_list
+        %li
+          %label お名前
+          %span.required_form 必須
+          %input{placeholder: "例) 山田"}
+          %input{placeholder: "例) 彩"}
+        %li
+          %label お名前カナ
+          %span.required_form 必須
+          %input{placeholder: "例) ヤマダ"}
+          %input{placeholder: "例) アヤ"}
+        %li
+          %label 郵便番号
+          %span.required_form 必須
+          %input{placeholder: "例) 123-4567"}
+        %li
+          %label 都道府県
+          %span.required_form 必須
+          %br
+          //active_hashを使用
+          .prefecture_id
+            .select-wrap.select-default
+              %select{name: "prefecture_id"}
+                %option{value: "1"} 北海道
+              = icon "fas" ,"chevron-down"
+        %li
+          %label 市区町村
+          %span.required_form 必須
+          %input{placeholder: "例) 横浜市緑区"}
+        %li
+          %label 番地
+          %span.required_form 必須
+          %input{placeholder: "例) 青山1-1-1"}
+        %li
+          %label 建物
+          %span.any_form 任意
+          %input{placeholder: "例) 柳ビル103"}
+        %li
+          %label 電話番号
+          %span.any_form 任意
+          %input{placeholder: "例) 09012345678"}
+
+        %li
+          %button.red_btn
+            次へ進む
+
+= render "footer"
