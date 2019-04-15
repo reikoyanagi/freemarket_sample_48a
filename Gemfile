@@ -86,4 +86,4 @@ gem 'devise'
 gem 'carrierwave'
 gem 'fog-aws'
 
-gem 'sassc','>= 1.11'
+gem 'sassc','>= 1.12.1'
