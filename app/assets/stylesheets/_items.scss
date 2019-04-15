@@ -7,7 +7,7 @@ html, body {
   background-color: $base-color;
 }
 a{
-text-decoration: none;
+  text-decoration: none;
 }
 // --------------------------------全体選択（出品ボタンの固定に使う）はここから
 .overall{
@@ -509,8 +509,8 @@ text-decoration: none;
         a{
           color:$blue;
           p:hover{
-              border-bottom: 1px solid;
-              display: inline;
+            border-bottom: 1px solid;
+            display: inline;
           }
           .item-detail-table-sub-category,.item-detail-table-sub-sub-category{
             p{
