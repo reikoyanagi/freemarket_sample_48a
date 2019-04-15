@@ -1,0 +1,33 @@
+.header
+  .header__inner
+    .header__inner--top
+      =image_tag("mercarilogo.svg", class: "logo")
+      %input.header-input{type: "text", placeholder: "何かお探しですか？"}
+      %i.fa.fa-search
+    .header-nav-box
+      %nav.list-left
+        %ul.header-nav
+          %li
+            %h2
+              %a.header-nav
+                %i.fa.fa-list-ul
+                %span カテゴリーから探す
+          %li
+            %h2
+              %a.header-nav
+                %i.fa.fa-tag
+                %span ブランドから探す
+      .list-right
+        %ul.header-user-nav
+          %li
+            %a.tag1
+              %i.far.fa-bell
+              %span お知らせ
+          %li
+            %a.tag1
+              %i.fa.fa-check
+              %span やることリスト
+          .mypage
+            %a.tag
+              =image_tag("avatar.png",alt: "logo", height: "30", )
+              .my マイページ

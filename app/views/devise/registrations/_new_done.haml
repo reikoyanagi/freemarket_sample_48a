@@ -1,0 +1,35 @@
+.single_header
+  %h1.single_header__logo
+    = link_to image_tag("https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?228111635")
+  %ol{class: "single_header__nav-bar signup-bar"}
+    %li
+      会員登録
+      .progress-status
+    %li
+      電話番号認証
+      .progress-status
+    %li
+      お届け先住所入力
+      .progress-status
+    %li
+      支払い方法
+      .progress-status
+    %li.active
+      完了
+      .progress-status
+
+.main
+  .main__container
+    %h2.main__container__title 会員登録完了
+    .main__container__form
+      %ul.default_list
+        %li
+          %p.thanks_text
+            ありがとうございます。
+            %br
+            会員登録が完了しました。
+        %li
+          %button.red_btn
+            メルカリをはじめる
+
+= render "footer"

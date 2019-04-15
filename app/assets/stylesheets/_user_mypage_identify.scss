@@ -1,0 +1,102 @@
+.mypage-identification{
+  background-color: #fff;
+  &__chapter-head{
+    font-weight: bold;
+    font-size: 24px;
+    padding: 8px 24px;
+    text-align: center;
+    border-bottom: 1px solid $base-color;
+  }
+  &__form{
+    padding: 64px;
+    &__need-upload{
+      .inner-ptag{
+        padding-top: 8px;
+        line-height: 1.5;
+      }
+      .upload_link{
+        color: $blue;
+        margin-top: 8px;
+        text-align: right;
+      }
+    }
+    .text-right{
+      text-align: right;
+    }
+    &__form-group{
+      margin-top: 40px;
+      .inner-label{
+        font-weight: 600;
+      }
+      .free-input{
+        display: inline-block;
+        background-color: #ccc;
+        margin-left: 8px;
+        padding: 2px 4px;
+        border-radius: 2px;
+        color: #fff;
+        font-size: 12px;
+        vertical-align: top;
+      }
+      .input-default{
+        width: 100%;
+        height: 48px;
+        padding: 10px 16px 12px;
+        margin-top: 8px;
+        border-radius: 4px;
+        border: 1px solid #eee;
+        background-color: #fff;
+        line-height: 1.5;
+        font-size: 16px;
+        box-sizing: border-box;
+      }
+      .inner-ptag{
+        padding-top: 8px;
+        line-height: 1.5;
+      }
+      .select-prefecture{
+        margin-top: 8px;
+        position: relative;
+        .sel-pref{
+          width: 100%;
+          position: relative;
+          height: 48px;
+          padding: 0 16px;
+          border-radius: 4px;
+          border: 1px solid #eee;
+          background-color: #fff;
+          font-size: 16px;
+          line-height: 1.5;
+          cursor: pointer;
+          -webkit-appearance: none;
+        }
+        .fa-angle-down{
+          position: absolute;
+          right: 16px;
+          top: 50%;
+          color: #888;
+          transform: translate(0,-50%);
+        }
+      }
+      .inner-ptag{
+        padding-top: 8px;
+        line-height: 1.5;
+      }
+      .upload_link{
+        color: $blue;
+        margin-top: 8px;
+        text-align: right;
+      }
+    }
+    &__register-button{
+      display: block;
+      width: 100%;
+      line-height: 48px;
+      font-size: 14px;
+      margin-top: 40px;
+      background-color: $red;
+      border: 1px solid $red;
+      color: #fff;
+    }
+  }
+}
