@@ -83,4 +83,4 @@ gem 'jquery-rails'
 
 gem 'devise'
 
-
+gem 'sassc'
