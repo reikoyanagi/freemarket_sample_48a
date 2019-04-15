@@ -339,11 +339,7 @@ DEPENDENCIES
   mysql2
   puma (~> 3.11)
   rails (~> 5.2.2, >= 5.2.2.1)
-<<<<<<< HEAD
-  sassc (>= 1.11)
-=======
   sassc (>= 1.12.1)
->>>>>>> origin/master
   selenium-webdriver
   spring
   spring-watcher-listen (~> 2.0.0)
