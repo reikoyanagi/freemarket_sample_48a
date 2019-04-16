@@ -75,7 +75,7 @@ end
 
 gem 'haml-rails'
 gem 'erb2haml'
-gem "font-awesome-sass", '~> 5.4.1'
+
 gem 'compass-rails','3.1.0'
 gem 'kaminari'
 
@@ -86,5 +86,4 @@ gem 'devise'
 gem 'carrierwave'
 gem 'fog-aws'
 
-gem 'sassc','>= 1.12.1'
 
