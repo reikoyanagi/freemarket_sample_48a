@@ -1,9 +1,12 @@
 //本人情報
-.wrapper
-  .header
-    HEADER
+.overall
+
+  = render "/items/header"
+
   .container.clearfix
+
     = render "mypage_side_nav"
+
     .main-content
       .mypage-identification
         .mypage-identification__chapter-head
@@ -55,3 +58,11 @@
               = link_to '#', class: 'upload_link' do
                 本人確認の登録について
                 %i.fa.fa-angle-right
+
+  .footer
+
+    = render "items/footer"
+
+  .red-button
+
+    = render 'items/button'
