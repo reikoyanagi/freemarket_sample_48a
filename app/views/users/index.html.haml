@@ -1,9 +1,9 @@
 //マイページトップ
 
-.wrapper
-  .header
-    %p
-      HEADER
+.overall
+
+  = render "items/header"
+
   .container.clearfix
 
     = render "mypage_side_nav"
@@ -113,7 +113,8 @@
           %ul.tab-transaction-old.mypage-item-list.tab-pane
             %li.item-transaction
 
-
   .footer
-    %p
-      FOOTER
+    = render "/items/footer"
+
+  .red-button
+    = render '/items/button'
