@@ -330,7 +330,6 @@ DEPENDENCIES
   devise
   erb2haml
   fog-aws
-  font-awesome-sass (~> 5.4.1)
   haml-rails
   jbuilder (~> 2.5)
   jquery-rails
@@ -339,7 +338,6 @@ DEPENDENCIES
   mysql2
   puma (~> 3.11)
   rails (~> 5.2.2, >= 5.2.2.1)
-  sassc (>= 1.12.1)
   selenium-webdriver
   spring
   spring-watcher-listen (~> 2.0.0)
