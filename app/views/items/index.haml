@@ -2,7 +2,7 @@
   = render 'header'
 
   .main-contents
-    =image_tag("https://www.mercari.com/jp/assets/img/common/jp/top/banner-bokurano-heisei.jpg", alt: "sinseikatu", class: "top")
+    =image_tag("sinseikatu.png", class: "top-info")
   .pickup-container
     %h2 ピックアップカテゴリー
     .pickup-container__items-container
@@ -27,7 +27,7 @@
     .pickup-container__items-container
       %h3.category
         %a.index{href: ""}シャネル 新着アイテム
-      .items-content
+      .items-box-content
         .items-box-content__box
           = render "itembox"
 
@@ -41,12 +41,7 @@
           = render "itembox"
       .items-all
         %a.items-all{href: ""}全ての商品を見る
-
-  .app-info
-    =image_tag("https://www.mercari.com/jp/assets/img/common/jp/top/main_bg_pc.jpg",alt: "mercari",class: "app-banner-pc")
-
-  .footer
-    = render "footer"
+  = render "footer"
 
   .red-button
     = render "button"
