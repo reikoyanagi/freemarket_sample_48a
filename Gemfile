@@ -76,6 +76,7 @@ end
 gem 'haml-rails'
 gem 'erb2haml'
 
+
 gem 'compass-rails','3.1.0'
 gem 'kaminari'
 
