@@ -9,39 +9,19 @@
       %h3.category
         %a.index{href: ""}レディース 新着アイテム
       .items-box-content
-        .items-box-content__box
-          = render "itembox"
+        = render "itembox"
+      .items-all
+        %a.items-all{href: ""}全ての商品を見る
+  .pickup-container
+    %h2 ピックアップブランド
+    .pickup-container__items-container
+      %h3.category
+        %a.index{href: ""}シャネル 新着アイテム
+      .items-box-content
+        = render "itembox"
+      .items-all
+        %a.items-all{href: ""}全ての商品を見る
+  = render "footer"
 
-        / .items-box-content__box
-        /   = render "itembox"
-
-        / .items-box-content__box
-        /   = render "itembox"
-
-        / .items-box-content__box
-        /   = render "itembox"
-        .items-all
-          %a.items-all{href: ""}全ての商品を見る
-    .pickup-container
-      %h2 ピックアップブランド
-      .pickup-container__items-container
-        %h3.category
-          %a.index{href: ""}シャネル 新着アイテム
-        .items-box-content
-          .items-box-content__box
-            = render "itembox"
-
-          .items-box-content__box
-            = render "itembox"
-
-          .items-box-content__box
-            = render "itembox"
-
-          .items-box-content__box
-            = render "itembox"
-        .items-all
-          %a.items-all{href: ""}全ての商品を見る
-    = render "footer"
-
-    .red-button
-      = render "button"
+  .red-button
+    = render "button"
