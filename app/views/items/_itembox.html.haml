@@ -1,15 +1,14 @@
-.items-box-content__box
-  .items-box-content__box__photo
-    = image_tag("top-item.jpg",alt: "item", height: "220",class: "tops")
-  .items-box-content__box__body
-    %h3.items-name
-    - @items.each do|item|
-      = item.name
-    .items-num
-      .items-num__price
-        - @items.each do|item|
-          = item.price
-      .items-num__likes
-        %span.like 12
-        %i.far.fa-heart
-      %p (税込)
+- @items.each do|item|
+  .items-box-content__box
+    .items-box-content__box__photo
+      = image_tag("top-item.jpg",alt: "item", height: "220",class: "tops")
+    .items-box-content__box__body
+      %h3.items-name
+        = item.name
+      .items-num
+        .items-num__price
+          = "¥#{item.price}"
+        .items-num__likes
+          %span.like 12
+          %i.far.fa-heart
+        %p (税込)
