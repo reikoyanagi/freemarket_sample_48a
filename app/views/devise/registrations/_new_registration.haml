@@ -67,17 +67,17 @@
             .select-wrap.select-default
               %select{name: "year"}
                 %option{value: ""} --
-              = icon "fas" ,"chevron-down"
+              = fa_icon "chevron-down"
             %span 年
             .select-wrap.select-wrap__month.select-default
               %select{name: "month"}
                 %option{value: ""} --
-              = icon "fas" ,"chevron-down"
+              = fa_icon "chevron-down"
             %span 月
             .select-wrap.select-wrap__day.select-default
               %select{name: "day"}
                 %option{value: ""} --
-              = icon "fas" ,"chevron-down"
+              = fa_icon "chevron-down"
             %span 日
           %p.info ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
           //年・月までは入力できるが日が年数と月を入力する事で表示できるように定義が必要
@@ -95,6 +95,6 @@
             次へ進む
         %li.text-right
           = link_to "本人情報の登録について"
-          = icon 'fas', 'chevron-right'
+          = fa_icon 'chevron-right'
 
 = render "footer"
