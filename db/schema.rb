@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_16_045751) do
+ActiveRecord::Schema.define(version: 2019_04_17_050514) do
+
+  create_table "deliveries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "postage", null: false
+    t.string "shipping", null: false
+    t.string "region", null: false
+    t.string "shipping_date", null: false
+    t.bigint "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_deliveries_on_item_id"
+  end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "item_id"
@@ -56,6 +67,7 @@ ActiveRecord::Schema.define(version: 2019_04_16_045751) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "deliveries", "items"
   add_foreign_key "images", "items"
   add_foreign_key "items", "users"
   add_foreign_key "likes", "items"
