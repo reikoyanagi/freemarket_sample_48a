@@ -1,9 +1,13 @@
 .items-box-content__box__photo
-  =image_tag("top-item.jpg",alt: "item", height: "220",class: "tops")
+  = image_tag("top-item.jpg",alt: "item", height: "220",class: "tops")
 .items-box-content__box__body
-  %h3.items-name 新品未使用　スタニングルアーワンピース
+  %h3.items-name
+  - @items.each do|item|
+    = item.name
   .items-num
-    .items-num__price ¥1,800
+    .items-num__price
+      - @items.each do|item|
+        = item.price
     .items-num__likes
       %span.like 12
       %i.far.fa-heart
