@@ -11,12 +11,13 @@ class ItemsController < ApplicationController
   end
 
   def create
+    binding.pry
     Item.create(item_params)
   end
 
   private
 
   def item_params
-    params.require(:item).permit(:name, :user_id, :condition, :price, :detail, :status_id, :brand, :size, images_attributes: [:item_id, :item_image], delivery: [:postage, :shipping, :region, :shipping_date])
+    params.require(:item).permit(:name, :user_id, :condition, :price, :detail, :status_id, :brand, :size, images_attributes: [:item_id, :item_image], delivery_attributes: [:postage, :shipping, :region, :shipping_date])
   end
 end
