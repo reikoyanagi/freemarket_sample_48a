@@ -79,7 +79,6 @@ gem 'kaminari'
 gem 'pry-rails'
 gem 'jquery-rails'
 gem 'font-awesome-rails'
-
 gem 'devise'
 
 gem 'carrierwave'
