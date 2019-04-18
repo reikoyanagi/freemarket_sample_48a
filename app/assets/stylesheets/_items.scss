@@ -189,6 +189,9 @@ a{
             padding:16px;
             background-color: white;
             h3.items-name{
+              width: 181px;
+              height: 48px;
+              line-height: 24px;
               text-align: left;
               font-size: 16px;
               display: block;
@@ -216,6 +219,7 @@ a{
                   float: right;
                   }
                 span.like{
+                  padding-top:3px;
                   display: inline-block;
                   float:right;
                 }
