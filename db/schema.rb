@@ -25,6 +25,17 @@ ActiveRecord::Schema.define(version: 2019_04_17_061005) do
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
+  create_table "deliveries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "postage", null: false
+    t.string "shipping", null: false
+    t.string "region", null: false
+    t.string "shipping_date", null: false
+    t.bigint "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_deliveries_on_item_id"
+  end
+
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "item_id"
     t.string "item_image", null: false
@@ -77,6 +88,7 @@ ActiveRecord::Schema.define(version: 2019_04_17_061005) do
   end
 
   add_foreign_key "addresses", "users"
+  add_foreign_key "deliveries", "items"
   add_foreign_key "images", "items"
   add_foreign_key "items", "users"
   add_foreign_key "likes", "items"
