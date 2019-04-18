@@ -30,6 +30,9 @@ namespace :deploy do
   end
 end
 
+#tomino original
+set :branch, ENV['BRANCH'] || "master"
+
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
