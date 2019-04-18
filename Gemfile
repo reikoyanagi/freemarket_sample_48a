@@ -75,15 +75,15 @@ end
 
 gem 'haml-rails'
 gem 'erb2haml'
-gem "font-awesome-sass", '~> 5.4.1'
-gem 'compass-rails','3.1.0'
 gem 'kaminari'
 gem 'pry-rails'
 gem 'jquery-rails'
+gem 'font-awesome-rails'
 
 gem 'devise'
 
 gem 'carrierwave'
 gem 'fog-aws'
+gem 'payjp'
 
 
