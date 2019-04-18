@@ -19,7 +19,6 @@
               %span.required_form 必須
             %p 最大10枚までアップロードできます
             .input_area
-            / 出品機能 form
               = item.fields_for :images do |img|
                 = img.file_field :item_image, class: 'input_area__file-upload'
                 / style: 'display: none; を加える
@@ -60,7 +59,6 @@
         .sell_content__delivery
           %h3.head
             配送について
-          / 出品機能 form
           = item.fields_for :delivery do |del|
             .sell_form
               .form-group

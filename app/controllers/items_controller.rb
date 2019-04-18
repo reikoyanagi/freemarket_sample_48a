@@ -13,7 +13,12 @@ class ItemsController < ApplicationController
 
   def create
     # 出品機能
-    Item.create(item_params)
+    if @item = Item.create(item_params)
+      redirect_to root_path
+    else
+      render :new
+    end
+
   end
 
   private
