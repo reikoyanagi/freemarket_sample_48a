@@ -5,6 +5,7 @@
 .main
   .main__container
     %h2.main__container__title 商品の情報入力
+    / 出品機能 form
     = form_for @item, html: {class: 'sell_content'}do |item|
       //new_item がクラスとして付与されている
       //inputは入れているが枠全体に適応していない
@@ -58,7 +59,7 @@
         .sell_content__delivery
           %h3.head
             配送について
-          = item.fields_for :deliveries do |del|
+          = item.fields_for :delivery do |del|
             .sell_form
               .form-group
                 %label
