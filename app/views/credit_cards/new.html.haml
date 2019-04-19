@@ -12,6 +12,7 @@
           .card-form__box
             %label.card-form__box-label カード番号
             %span.card-form__box-require 必須
+            %br
             %input#payment_card_no.card-form__box-input{"data-input-type":"card", maxlength: "19", placeholder: "半角数字のみ", type: "text"}
             %ul#card-no-error-wrapper.card-form__box-error
             %ul.card-form__box-card
@@ -84,6 +85,7 @@
         %p#primary-error.has-error-text
         %button#submit-button.btn-default.btn-red{type: "button"}追加する
 
+    = render 'credit-footer'
 
 
 
