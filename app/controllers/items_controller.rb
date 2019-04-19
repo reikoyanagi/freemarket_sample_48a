@@ -12,6 +12,7 @@ class ItemsController < ApplicationController
   end
 
   def create
+
     # 出品機能
     if @item = Item.create(item_params)
       redirect_to root_path

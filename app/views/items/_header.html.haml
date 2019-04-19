@@ -1,7 +1,8 @@
 .header
   .header__inner
     .header__inner--top
-      =image_tag("mercarilogo.svg", class: "logo")
+      = link_to "/" do
+        = image_tag("mercarilogo.svg", class: "logo")
       %input.header-input{type: "text", placeholder: "何かお探しですか？"}
       %i.fa.fa-search
     .header-nav-box
@@ -21,7 +22,7 @@
         %ul.header-user-nav
           %li
             %a.tag1
-              %i.far.fa-bell
+              %i.fa.fa-bell
               %span お知らせ
           %li
             %a.tag1
