@@ -6,7 +6,7 @@
   .main__container
     %h2.main__container__title 商品の情報入力
     / 出品機能 form
-    = form_for @item, html: {class: 'sell_content'}do |item|
+    = form_for @item, html: {id: 'sell_items_form', class: 'sell_content'} do |item|
       //new_item がクラスとして付与されている
       //inputは入れているが枠全体に適応していない
       //参考サイト[https://qiita.com/QUANON/items/882b88b6b9bf3c509af8]
@@ -131,7 +131,7 @@
             また、出品をもちまして
             =link_to "加盟店規約"
             に同意したことになります。
-          = item.submit '出品する',class: 'red_btn'
+          = item.submit '出品する',class: 'red_btn sell_item_submit'
           //マイページに戻る
           %button.return_btn もどる
 
