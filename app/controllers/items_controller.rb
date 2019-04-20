@@ -14,7 +14,7 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     if @item.save
       respond_to do |format|
-        format.html { redirect_to :root}
+        format.html { redirect_to :root }
         format.json
       end
     else
