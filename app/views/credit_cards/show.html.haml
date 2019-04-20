@@ -1,0 +1,29 @@
+.overall
+
+  = render 'items/header'
+
+  .container.clearfix
+
+    = render "users/mypage_side_nav"
+
+    .credit
+      %section.credit__main
+        %h2.credit__main-header
+          支払い方法
+        .credit__main-inner
+          %section
+            .credit__content
+              %h3.credit__content-header
+                クレジットカード一覧
+            %ul.credit__list
+          %section.credit__add
+            .credit__add-main
+              = fa_icon 'credit-card', text: "クレジットカードを追加する", class: 'fa-fw card'
+          .credit__info
+            = fa_icon 'chevron-right', text: "支払い方法について", class: 'fa-fw', right: true
+
+  .footer
+    = render "items/footer"
+
+  .red-button
+    = render '/items/button'
