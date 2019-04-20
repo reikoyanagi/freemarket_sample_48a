@@ -1,12 +1,9 @@
-class Transactions::BuyController < ApplicationController
+class TransactionsController < ApplicationController
 
   def show
   end
 
   def create
-    if @item.status_id == 1
-
-    end
   end
 
   private
