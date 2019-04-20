@@ -8,8 +8,9 @@
     %ul.buy_content
       %li
         .buy_content__item
-          = image_tag(@item_image, size:"148*111")
-          %p.buy_content__item__name = @item.name
+          = image_tag(@item_image, size:"148*148")
+          %p.buy_content__item__name
+           = @item.name
           %form.buy_content__item__price
             .buy_price
               %p
