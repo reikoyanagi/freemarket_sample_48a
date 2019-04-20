@@ -1,15 +1,4 @@
 
-
-
-$(function(){
-  $('#sell_items_form').on('submit',function(){
-    var input = $(this).val();
-  });
-});
-
-
-
-
 // 商品購入後のモーダルアップ
 $(function(){
   $('#sell_items_form').on('submit',function(e){
@@ -98,5 +87,6 @@ $(function(){
     $('#after_sell').removeClass('show');
     $('.overlay').removeClass('show');
     $('html').removeClass('modal-open');
+    window.location.href = "/items/new";
   });
 });
