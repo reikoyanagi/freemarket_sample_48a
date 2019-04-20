@@ -62,6 +62,7 @@ a{
             font-size: 0px;
             list-style:none;
             padding-left: 0;
+            z-index:1001 !important;
             li.header-nav:first-child{
               cursor: pointer;
               list-style: none;
@@ -93,6 +94,7 @@ a{
           .pc-header-nav-parent-wrap {
             display: none;
             overflow: hidden;
+            z-index:1001 !important;
           }
           li.header-nav:hover .pc-header-nav-parent-wrap{
             background-color: white;
@@ -102,7 +104,7 @@ a{
             border-left:thin solid #f0f0f0;
             border-right:thin solid #f0f0f0;
             box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
-            z-index: 1000 !important;
+            z-index: 1001 !important;
             .pc-header-nav-parent{
               width:224px;
               height:auto;
@@ -163,13 +165,34 @@ a{
     }
   }
 // --------------------------------主要コンテンツはここから
-  .main-contents{
-    line-height: 0;
-    img.top-info{
-      height: 390px;
-      width: 1440pxpx;
-      object-fit: cover;
-      z-index: 0 !important;
+  .maincontents{
+    z-index:-1;
+    line-height: 20px;
+    .slider{
+      z-index: 100 !important;
+      img.top-info{
+        z-index:-1;
+        height: 390px;
+        width: 1440pxpx;
+        object-fit: cover;
+        position: relative;
+      }
+    }
+  .fa-angle-left{
+    position: absolute;
+    top:160px;
+    left:40px;
+    z-index: 1001;
+    font-size: 50px;
+    color:white;
+    }
+    .fa-angle-right{
+    position: absolute;
+    top:160px;
+    right:40px;
+    z-index: 1001;
+    font-size: 50px;
+    color:white;
     }
   }
   .pickup-container{

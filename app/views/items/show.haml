@@ -1,13 +1,6 @@
 .overall
   = render 'header'
-  .pankuzu
-    %ul
-      %li
-        = link_to '', class: 'large_cat' do
-          %span メルカリ
-        %i.fa.fa-chevron-right
-      %li
-        %span 新品未使用 スカート
+  = render 'pankuzu'
   .item-box-margin
     %h1 新品未使用 スカート
     .item-main-content
@@ -127,48 +120,47 @@
           ケイさんのその他の出品
       .items-box-content
         .items-box-content__box
-          = render "itembox"
+          / = render "itembox"
 
         .items-box-content__box
-          = render "itembox"
+          / = render "itembox"
 
         .items-box-content__box
-          = render "itembox"
+          / = render "itembox"
 
         .items-box-content__box
-          = render "itembox"
+          / = render "itembox"
 
         .items-box-content__box
-          = render "itembox"
+          / = render "itembox"
 
         .items-box-content__box
-          = render "itembox"
+          / = render "itembox"
 
     .items-in-user-profile__box-container
       %h2
         %a アーバンリサーチその他の商品
       .items-box-content
         .items-box-content__box
-          = render "itembox"
+          / = render "itembox"
 
         .items-box-content__box
-          = render "itembox"
+          / = render "itembox"
 
         .items-box-content__box
-          = render "itembox"
+          / = render "itembox"
 
         .items-box-content__box
-          = render "itembox"
+          / = render "itembox"
 
         .items-box-content__box
-          = render "itembox"
+          / = render "itembox"
 
         .items-box-content__box
-          = render "itembox"
+          / = render "itembox"
   .over-margin
 
-  .app-info
-    =image_tag("kantan.png", class: "app-banner-pc")
+
 
   .footer
     = render "footer"
