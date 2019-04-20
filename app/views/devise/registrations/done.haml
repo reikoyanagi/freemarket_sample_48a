@@ -29,7 +29,6 @@
             %br
             会員登録が完了しました。
         %li
-          %button.red_btn
-            メルカリをはじめる
+          = button_to "メルカリをはじめる" , root_path, {method: :get, class: "red_btn"}
 
 = render "footer"
