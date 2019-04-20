@@ -1,0 +1,136 @@
+// Place all the styles related to the credit_cards controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.single-container__header{
+  height: 128px;
+}
+
+h1.single-header__logo{
+  width: 185px;
+  height: 49px;
+  line-height: 49px;
+  text-align: center;
+  margin: 40px auto;
+}
+.credit-main{
+  width: 700px;
+  float: right;
+  display: block;
+  background: no-repeat;
+}
+
+.credit-content{
+  background-color: white;
+}
+
+h2.credit-content__header{
+  font-size: 24px;
+  text-align: center;
+  padding: 8px 24px;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.credit-content__form{
+  padding: 64px;
+}
+
+.card-form{
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.card-form__box-label{
+  font-weight: 600;
+}
+
+.card-form__box-require{
+  background-color: #ea352d;
+  color: white;
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  font-size: 12px;
+  vertical-align: top;
+}
+
+ul.card-form__box-card{
+  list-style: none;
+}
+
+li{
+  display: inline-block;
+}
+
+.card-form__term{
+  margin: 40px auto;
+  max-width: 320px;
+  height: 126px;
+}
+
+.card-form__box-label{
+  font-weight: 600;
+}
+
+.card-form__code{
+  margin: 0 auto;
+  max-width: 320px;
+}
+
+.card-form__box-input{
+  width: 100%;
+  margin: 8px 0 0;
+  height: 36px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+.card-form__box-seqcode{
+  position: relative;
+  margin: 8px 0 0;
+}
+
+.signup-seqcode-text{
+  text-align: right;
+  color: #0099e8;
+}
+
+.btn-red{
+  margin: 40px auto;
+  background-color: #ea352d;
+  border: 1px solid #ea352d;
+  color: #fff;
+}
+
+.btn-default{
+  display: block;
+  width: 320px;
+  line-height: 48px;
+  font-size: 14px;
+}
+
+.card-form__box-wrap{
+  display: inline-block;
+  width: 35%;
+  height: 48px;
+  margin-top: 8px;
+}
+
+.payment_card_expire{
+  width: 100%;
+  height: 48px;
+  padding: 0 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+ul.card-form__box-card{
+  display: inline-block;
+  margin: 8px 0 0;
+}
+
