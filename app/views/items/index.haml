@@ -1,7 +1,11 @@
 .overall
   = render 'header'
-  .main-contents
-    =image_tag("sinseikatu.png", class: "top-info")
+  .maincontents
+    .slider
+      = link_to image_tag("sinseikatu.jpg", class: "top-info"), "#"
+      = link_to image_tag("90nendai.jpg", class: "top-info"), "#"
+      = link_to image_tag("meisaku.jpg", class: "top-info"), "#"
+
   .pickup-container
     %h2 ピックアップカテゴリー
     .pickup-container__items-container
