@@ -368,7 +368,7 @@ html, body {
       margin: 0 auto 0 auto;
       &--left{
         float:left;
-        width:204px;
+        width:220px;
         height:241px;
         padding-top:23px;
         color:white;
@@ -403,7 +403,7 @@ html, body {
       }
       &--center{
         float:left;
-        width:450px;
+        width:430px;
         height:241px;
         padding-top:23px;
         color:white;
@@ -497,7 +497,9 @@ html, body {
     }
   }
 // --------------------------------出品ボタンはここから
-    .fixed-btn{
+  a.item-btn{
+    opacity: 1;
+    button.fixed-btn{
       background-color: $red;
       width:160px;
       height:160px;
@@ -507,16 +509,21 @@ html, body {
       right:32px;
       border: none;
       outline:none;
-    div{
-      color:white;
-      font-size: 22px;
-      padding-bottom: 3px;
-    }
-    .fa-camera{
-      color: white;
-      font-size:55px !important;
+      div{
+        color:white;
+        font-size: 22px;
+        padding-bottom: 3px;
+      }
+      .fa-camera{
+        color: white;
+        font-size:55px !important;
+      }
     }
   }
+  a.item-btn:hover{
+    opacity: 1px;
+  }
+
 
 
 
@@ -704,8 +711,41 @@ html, body {
       p.item-description-inner{
         font-size: 20px;
         white-space:pre-wrap;
+        line-height: 30px;
       }
 
+    }
+    .item-change-box{
+      width:668px;
+      height:auto;
+      background-color: white;
+      margin:24px auto;
+      padding:8px 16px;
+      a.item-edit-btn{
+        display: inline-block;
+        background-color: $red;
+        width:666px;
+        height:48px;
+        line-height: 48px;
+        color:white;
+        text-align: center;
+        margin-top:16px;
+        margin-bottom:16px;
+      }
+      p{
+        text-align: center;
+      }
+      a.item-destroy-btn{
+        display: inline-block;
+        background-color: #AAAAAA;
+        width:666px;
+        height:48px;
+        line-height: 48px;
+        color:white;
+        text-align: center;
+        margin-top:16px;
+        margin-bottom:16px;
+      }
     }
     .item-button-container{
       margin-top:16px;
