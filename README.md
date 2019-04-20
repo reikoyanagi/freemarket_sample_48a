@@ -42,6 +42,7 @@ Things you may want to cover:
 - has_many :categories, dependent: :destroy
 - has_many :likes, dependent: :destroy
 - has_many :comments, dependent: :destroy
+- has_many :transaction, dependent: :destroy
 
 ## imagesテーブル
 |column|Type|options|
@@ -94,7 +95,7 @@ Things you may want to cover:
 - has_many :sns_credentials, dependent: :destroy
 - has_many :likes, dependent: :destroy
 - has_many :comments, dependent: :destroy
-- has_one :transaction, dependent: :destroy
+- has_many :transaction, dependent: :destroy
 
 ## addressテーブル
 |column|Type|options|
@@ -136,6 +137,7 @@ Things you may want to cover:
 |item_id|references|null: false, foreign_key: true|
 
 - belongs_to :user
+- belongs_to :item
 
 ## Likesテーブル
 |column|Type|options|
