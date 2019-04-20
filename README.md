@@ -132,8 +132,8 @@ Things you may want to cover:
 ## transactionテーブル
 |column|Type|options|
 |------|----|-------|
-|seller_id|references|null: false, foreign_key: true|
-|buyer_id|references|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
+|item_id|references|null: false, foreign_key: true|
 
 - belongs_to :user
 
