@@ -17,7 +17,7 @@
                 クレジットカード一覧
             %ul.credit__list
           %section.credit__add
-            .credit__add-main
+            = link_to "/credit_cards/new", class: 'credit__add-main' do
               = fa_icon 'credit-card', text: "クレジットカードを追加する", class: 'fa-fw card'
           .credit__info
             = fa_icon 'chevron-right', text: "支払い方法について", class: 'fa-fw', right: true
