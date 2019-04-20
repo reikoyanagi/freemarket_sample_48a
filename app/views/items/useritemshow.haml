@@ -74,16 +74,25 @@
       %span.item-price ¥2600
       %span.item-tax (税込)
       %span.item-shipping-fee 送料込み
+    =link_to "",class: "item-buy-btn" do
+      購入画面に進む
     .item-description
       %p.item-description-inner
         URBAN RESEARCH の スプリングコート 、アイボリー ( M サイズ )になります。何年か前のお品になります。
         クリーニングに出して保管しておりました。多少の誤差があるかもしれませんが、平置きでの寸法です。
-  .item-change-box
-    =link_to "/",class: "item-edit-btn" do
-      商品の編集
-    %p or
-    =link_to "/",class: "item-destroy-btn" do
-      この商品を削除する
+    .item-button-container
+      .item-button-container__item-button-left
+        %button.item-button-like{name: "like", type: "button", value:  "like"}
+          %i.far.fa-heart
+          %span.item-like いいね！
+          %span.item-like-num 3
+        =link_to "", class: "item-button-report" do
+          %i.fa.fa-flag
+          %span.item-report 不適切な商品の報告
+      .item-button-container__item-button-right
+        =link_to "" do
+          %i.fa.fa-lock
+          %span あんしん・あんぜんへの取り組み
   .item-comment-margin
     .item-comment-margin__container
       %form
@@ -91,8 +100,64 @@
         %textarea.text-margin
         %button.comment-submit
           %span コメントする
+  .page-move
+    .page-move__back
+      =link_to "" do
+        %i.fa.fa-chevron-left
+          %p ニット セーター、ショコラフィネローブ
+    .page-move__next
+      =link_to "" do
+        嵐Tシャツ ARASHI AROUND ASIA 2008 in TOKYO
+        %i.fa.fa-chevron-right
+  .item-social-media-box
+    = image_tag("facebook-icon.png",height: "44",class: "facebook-icon")
+    =image_tag("twitter-icon.png",height: "44",class: "twitter-icon")
+    =image_tag("pinterest-icon.png",height: "44",class: "pinterest-icon")
+  .items-in-user-profile
+    .items-in-user-profile__box-container
+      %h2
+        =link_to "" do
+          ケイさんのその他の出品
+      .items-box-content
+        .items-box-content__box
+          / = render "itembox"
 
+        .items-box-content__box
+          / = render "itembox"
 
+        .items-box-content__box
+          / = render "itembox"
+
+        .items-box-content__box
+          / = render "itembox"
+
+        .items-box-content__box
+          / = render "itembox"
+
+        .items-box-content__box
+          / = render "itembox"
+
+    .items-in-user-profile__box-container
+      %h2
+        %a アーバンリサーチその他の商品
+      .items-box-content
+        .items-box-content__box
+          / = render "itembox"
+
+        .items-box-content__box
+          / = render "itembox"
+
+        .items-box-content__box
+          / = render "itembox"
+
+        .items-box-content__box
+          / = render "itembox"
+
+        .items-box-content__box
+          / = render "itembox"
+
+        .items-box-content__box
+          / = render "itembox"
   .over-margin
 
 
