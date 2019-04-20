@@ -29,6 +29,6 @@ class ItemsController < ApplicationController
 
   def item_params
     # 出品機能
-    params.require(:item).permit(:name, :user_id, :condition, :price, :detail, :status_id, :brand, :size, images_attributes: [:item_id, :item_image], delivery_attributes: [:postage, :shipping, :region, :shipping_date])
+    params.require(:item).permit(:name, :user_id, :condition, :price, :detail, :status_id, :brand, :size, images_attributes: [:item_id, :item_image], delivery_attributes: [:postage, :shipping, :region, :shipping_date]).merge(status_id: 1)
   end
 end

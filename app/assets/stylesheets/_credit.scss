@@ -1,16 +1,10 @@
 .credit{
   width: 700px;
+  margin: 0 auto;
   &__main{
+    background-color: white;
+    text-align: center;
   }
-    h2.credit__main-header{
-      font-weight: bold;
-      font-size: 24px;
-      padding: 8px 24px;
-      border-bottom: 1px solid #f5f5f5;
-      text-align: center;
-      line-height: 1.4;
-      background-color: white;
-    }
       &__main-inner{
         padding: 64px;
       }
@@ -18,10 +12,7 @@
           max-width: 320px;
           margin: 0 auto;
         }
-          h3.credit__content-header{
-            font-size: 16px;
-            font-weight: bold;
-          }
+
             ul.credit__list{
               list-style: none;
             }
@@ -54,5 +45,16 @@
                     color: #0099e8;
                   }
 }
-
-
+      h2.credit__main-header{
+            font-weight: bold;
+            font-size: 24px;
+            padding: 8px 24px;
+            border-bottom: 1px solid #f5f5f5;
+            text-align: center;
+            line-height: 1.4;
+            background-color: white;
+          }
+      h3.credit__content-header{
+                  font-size: 16px;
+                  font-weight: bold;
+                }
