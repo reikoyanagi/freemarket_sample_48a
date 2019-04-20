@@ -6,9 +6,7 @@ html, body {
   color:#333333;
   background-color: $base-color;
 }
-a{
-  text-decoration: none;
-}
+
 // --------------------------------全体選択（出品ボタンの固定に使う）はここから
 .overall{
   height:100%;
@@ -249,6 +247,7 @@ a{
             padding:16px;
             background-color: white;
             h3.items-name{
+              color:#333;
               width: 181px;
               height: 48px;
               line-height: 24px;
@@ -258,6 +257,7 @@ a{
               margin: 0;
             }
             .items-num{
+              color:#333;
               float:left;
               width:181px;
               height: 30px;
