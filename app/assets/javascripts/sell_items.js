@@ -1,4 +1,8 @@
 
+
+$(function())
+
+
 // 商品購入後のモーダルアップ
 $(function(){
   $('#sell_items_form').on('submit',function(e){
