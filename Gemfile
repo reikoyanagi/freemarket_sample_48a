@@ -85,4 +85,5 @@ gem 'carrierwave'
 gem 'fog-aws'
 gem 'payjp'
 gem 'dropzonejs-rails'
+gem 'gon'
 
