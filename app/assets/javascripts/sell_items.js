@@ -1,9 +1,15 @@
 
 // 配送料が入力されると配送方法を表示させる
 $(function(){
-  if ( $('#item_delivery_attributes_postage').val().length != 0){
-    $('.how_shipping').removeClass('hide')
-  }
+  $('#item_delivery_attributes_postage').change(function(){
+    var postage = $('#item_delivery_attributes_postage').val();
+    console.log(postage)
+    if ( postage.length != 0){
+      $('.how_shipping').removeClass('hide');
+    } else {
+      $('.how_shipping').addClass('hide');
+    }
+  })
 });
 
 // 手数料の計算
@@ -76,7 +82,7 @@ $(function(){
           $('.postage-fail').addClass('hide');
         }
 
-        if ( $('#item_delivery_attributes_shipping').val().length == 0){
+        if ( $('#item_delivery_attributes_shipping').val().length == 0 && $('#item_delivery_attributes_postage').val().length != 0){
           $('.shipping-fail').removeClass('hide');
         } else {
           $('.shipping-fail').addClass('hide');
