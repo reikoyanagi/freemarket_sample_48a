@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   get 'listings/completed' => 'listings#completed'
   resources :users
     resources :credit_cards
+    resources :transactions
 end

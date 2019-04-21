@@ -4,6 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  # 出品機能
+  # 出品後の購入機能
   has_many :transactions, dependent: :destroy
 end

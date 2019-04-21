@@ -1,6 +1,7 @@
 class TransactionsController < ApplicationController
 
-  def show
+  def new
+    @item = Item.find(1)
   end
 
   def create
