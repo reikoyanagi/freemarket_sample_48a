@@ -8,38 +8,40 @@
     %ul.buy_content
       %li
         .buy_content__item
-          = image_tag("https://i.gzn.jp/img/2016/12/16/irasutoya-on-the-street/jitensya_cycling_man.png")
-          %p.buy_content__item__name DIESEL ディーゼル 香水
+          = image_tag(@item_image, size:"148*111")
+          %p.buy_content__item__name = @item.name
           %form.buy_content__item__price
             .buy_price
               %p
-                ¥ 1,999
-                %span 送料込み
+                "¥#{@item.price}"
+                %span ここは配送料の条件分岐
             .buy_price_check.clearfix
               %p 支払い金額
-              %p ¥ 1,999
+              %p "¥#{@item.price}"
+            - if @credit_card.payjp_token.present?
+              = link_to '購入する',transaction
           %button.red_btn 購入する
       %li
         .buy_content__user_info
           %label 配送先
           %address
-            〒273-0042
+            = @user[:post_code]
             %br
-            千葉県 船橋市 前貝塚町316-57 サンモールA102号室
+            = @user[:prefecture_id, :city, :block, :building]
             %br
-            礒田 裕光
-          = link_to class: "text-right" do
+            = @user.name
+          = link_to class: "buy-user-info-fix" do
             変更する
             = icon 'fas','chevron-right'
       %li
         .buy_content__credit_info
           %label 支払方法
           %p
-            ************1915
+            ************下四桁
             %br
             11 / 21
           = image_tag("//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?3801675580")
-          = link_to class: "text-right" do
+          = link_to class: "buy-user-info-fix" do
             変更する
             = fa_icon 'chevron-right'
 

@@ -1,0 +1,102 @@
+/ 仮置きでマイページの商品詳細にしています。
+.overall
+  = render 'header'
+  = render 'pankuzu'
+  .item-box-margin
+    %h1 新品未使用 スカート
+    .item-main-content
+      .item-main-content__item-photo
+        .item-main-content__top-item
+          =image_tag("top-item.jpg",alt: "top-item", height: "300px",class: "top-item")
+        .item-main-content__items__cell
+          =image_tag("top-item.jpg",alt: "top-item", height: "50%",width:"20%",class: "items-mini")
+          =image_tag("top-item.jpg",alt: "top-item", height: "50%",width:"20%",class: "items-mini")
+          =image_tag("top-item.jpg",alt: "top-item", height: "50%",width:"20%",class: "items-mini")
+          =image_tag("top-item.jpg",alt: "top-item", height: "50%",width:"20%",class: "items-mini")
+          =image_tag("top-item.jpg",alt: "top-item", height: "50%",width:"20%",class: "items-mini")
+          =image_tag("top-item.jpg",alt: "top-item", height: "50%",width:"20%",class: "items-mini")
+      %table.item-detail-table
+        %tbody
+          %tr
+            %th 出品者
+            %td
+              = link_to '' do
+                ケイ
+              .review
+                .review__item-user-ratings
+                  %i.fa.fa-laugh
+                  %span 573
+                .review__item-user-ratings
+                  %i.fa.fa-meh
+                  %span 1
+                .review__item-user-ratings
+                  %i.fa.fa-frown
+                  %span 0
+          %tr
+            %th カテゴリー
+            %td
+              = link_to '' do
+                %p レディース
+              = link_to '' do
+                .item-detail-table-sub-category
+                  %i.fa.fa-chevron-right
+                    %p スカート
+              = link_to '' do
+                .item-detail-table-sub-sub-category
+                  %i.fa.fa-chevron-right
+                    %p ロング丈
+          %tr
+            %th ブランド
+            %td
+              = link_to '',class: "brand" do
+                %div ナチュラルビューティ
+
+          %tr
+            %th 商品のサイズ
+            %td M
+          %tr
+            %th 商品の状態
+            %td 目立った傷や汚れなし
+          %tr
+            %th 配送料の負担
+            %td 送料込み（出品者負担）
+          %tr
+            %th 配送の方法
+            %td 未定
+          %tr
+            %th 配送元地域
+            %td
+              =link_to "" do
+                東京都
+          %tr
+            %th 発送日の目安
+            %td 2~3日で発送
+    .item-price-box.clearfix
+      %span.item-price ¥2600
+      %span.item-tax (税込)
+      %span.item-shipping-fee 送料込み
+    .item-description
+      %p.item-description-inner
+        URBAN RESEARCH の スプリングコート 、アイボリー ( M サイズ )になります。何年か前のお品になります。
+        クリーニングに出して保管しておりました。多少の誤差があるかもしれませんが、平置きでの寸法です。
+  .item-change-box
+    =link_to "/",class: "item-edit-btn" do
+      商品の編集
+    %p or
+    =link_to "/",class: "item-destroy-btn" do
+      この商品を削除する
+  .item-comment-margin
+    .item-comment-margin__container
+      %form
+        %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        %textarea.text-margin
+        %button.comment-submit
+          %span コメントする
+
+
+  .over-margin
+
+
+
+  .footer
+    = render "footer"

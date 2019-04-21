@@ -87,4 +87,7 @@ gem 'payjp'
 
 gem 'jp_prefecture'
 
+gem 'dropzonejs-rails'
+gem 'gon'
+
 

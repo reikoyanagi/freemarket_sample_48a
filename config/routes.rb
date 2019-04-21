@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'items#index'
+
   as :user do
     get 'signin' => 'devise/sessions#new', as: :new_user_session
     post 'signin' => 'devise/sessions#create', as: :user_session
@@ -22,6 +23,8 @@ Rails.application.routes.draw do
     post "/signup/completed" => 'users/registrations#create'#DBに保存
     get "/signup/done" => 'users/registrations#done'#完了ページ
   end
+
   resources :items
   resources :users
+    resources :credit_cards
 end

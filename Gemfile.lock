@@ -105,6 +105,8 @@ GEM
       warden (~> 1.2.3)
     domain_name (0.5.20180417)
       unf (>= 0.0.5, < 1.0.0)
+    dropzonejs-rails (0.8.4)
+      rails (> 3.1)
     erb2haml (0.1.5)
       html2haml
     erubi (1.8.0)
@@ -132,6 +134,10 @@ GEM
     formatador (0.2.5)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    gon (6.2.1)
+      actionpack (>= 3.0)
+      multi_json
+      request_store (>= 1.0)
     haml (5.0.4)
       temple (>= 0.8.0)
       tilt
@@ -245,6 +251,8 @@ GEM
     rb-inotify (0.10.0)
       ffi (~> 1.0)
     regexp_parser (1.4.0)
+    request_store (1.4.1)
+      rack (>= 1.4)
     responders (2.4.1)
       actionpack (>= 4.2.0, < 6.0)
       railties (>= 4.2.0, < 6.0)
@@ -328,9 +336,11 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
+  dropzonejs-rails
   erb2haml
   fog-aws
   font-awesome-rails
+  gon
   haml-rails
   jbuilder (~> 2.5)
   jp_prefecture
