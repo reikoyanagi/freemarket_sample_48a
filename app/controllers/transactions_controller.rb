@@ -1,7 +1,7 @@
 class TransactionsController < ApplicationController
 
   def new
-    @item = Item.find(1)
+    @item = Item.find(params[:id])
   end
 
   def create

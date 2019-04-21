@@ -84,9 +84,9 @@
         = "¥#{@item.price}"
       %span.item-tax (税込)
       %span.item-shipping-fee 送料込み
-    =link_to "/transactions/new",class: "item-buy-btn" do
+    =link_to '#', class: "item-buy-btn" do
       購入画面に進む
-      
+
     .item-description
       %p.item-description-inner
         = @item.detail
