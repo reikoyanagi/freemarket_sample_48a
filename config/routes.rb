@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :items
   resources :users
     resources :credit_cards
+    resources :transactions
 end
