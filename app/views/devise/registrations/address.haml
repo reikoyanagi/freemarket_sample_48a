@@ -27,23 +27,23 @@
           %li
             %label 郵便番号
             %span.required_form 必須
-            = f.text_field :post_code, placeholder: "例) 1234567", id: "zip"
+            = f.text_field :post_code, placeholder: "例) 1234567", id: "zip",required:""
           %li
             %label 都道府県
             %span.required_form 必須
             %br
             .prefecture_id
               .select-wrap.select-default
-                = f.collection_select :prefecture_id, JpPrefecture::Prefecture.all, :code, :name
+                = f.collection_select :prefecture_id, JpPrefecture::Prefecture.all, :code, :name,required:""
                 -# = icon "fas" ,"chevron-down"
           %li
             %label 市区町村
             %span.required_form 必須
-            = f.text_field :city, placeholder: "例) 横浜市緑区",id: "address"
+            = f.text_field :city, placeholder: "例) 横浜市緑区",id: "address", required:""
           %li
             %label 番地
             %span.required_form 必須
-            = f.text_field :block, placeholder: "例) 青山1-1-1"
+            = f.text_field :block, placeholder: "例) 青山1-1-1", required:""
           %li
             %label 建物
             %span.any_form 任意

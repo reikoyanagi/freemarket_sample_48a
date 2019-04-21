@@ -8,16 +8,14 @@
     .main__container__form
       %ul.default_list
         %li.btn_list
-          %button.email_btn
-            -# = icon 'far' , "envelope"
-            メールアドレスで登録
+          = button_to "メールアドレスで登録" , "signup/registration", { method: :get, class: "email_btn" }
         %li.btn_list
           %button.facebook_btn
             -# = icon 'fab','facebook-square'
             Facebookで登録
         %li.btn_list
           %button.google_btn
-            .google_logo
+            .google-logo
               = image_tag("/assets/google-logo.svg")
             Googleで登録
 

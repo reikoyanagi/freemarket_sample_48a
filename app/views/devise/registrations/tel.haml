@@ -26,7 +26,7 @@
         = form_for(:session, url: signup_address_path) do |f|
           %li
             %label 携帯電話の番号
-            = f.telephone_field :phone_number ,placeholder: "携帯電話の番号の入力"
+            = f.telephone_field :phone_number ,placeholder: "携帯電話の番号の入力", required:""
             %p.notes 本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
           %li
             = f.submit 'SNSを送信する', class: 'red_btn'
