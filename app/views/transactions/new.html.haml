@@ -8,19 +8,19 @@
     %ul.buy_content
       %li
         .buy_content__item
-          ここは画像を引っ張ってくる
+          = image_tag @item.images[0].item_image.url, height:"148", width:"148", class:"image"
           %p.buy_content__item__name
             = @item.name
           %form.buy_content__item__price
             .buy_price
               %p
-                = @item.price
+                = "¥#{@item.price}"
                 %span
                   = @item.delivery.postage
             .buy_price_check.clearfix
               %p 支払い金額
               %p
-                = @item.price
+                = "¥#{@item.price}"
               = link_to ''
           %button.red_btn 購入する
       %li
