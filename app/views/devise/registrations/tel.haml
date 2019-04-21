@@ -23,7 +23,7 @@
     %h2.main__container__title 電話番号の確認
     .main__container__form
       %ul.default_list
-        = form_for(:session, url: signup_address_path) do |f|
+        = form_for(:session, url: sign_up_address_path) do |f|
           %li
             %label 携帯電話の番号
             = f.telephone_field :phone_number ,placeholder: "携帯電話の番号の入力", required:""

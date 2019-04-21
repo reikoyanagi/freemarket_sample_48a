@@ -24,7 +24,7 @@
     //pay.jpのデータを引用するため今回は簡易型
     .main__container__form
       %ul.default_list
-        = form_for(:session, url: signup_completed_path) do |f|
+        = form_for(:session, url: sign_up_create_path) do |f|
           %li
             %label カード番号
             %span.required_form 必須

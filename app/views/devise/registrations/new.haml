@@ -8,7 +8,7 @@
     .main__container__form
       %ul.default_list
         %li.btn_list
-          = button_to "メールアドレスで登録" , "signup/registration", { method: :get, class: "email_btn" }
+          = button_to "メールアドレスで登録" , sign_up_registration_path, { method: :get, class: "email_btn" }
         %li.btn_list
           %button.facebook_btn
             -# = icon 'fab','facebook-square'
