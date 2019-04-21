@@ -83,7 +83,7 @@
     =link_to "/",class: "item-edit-btn" do
       商品の編集
     %p or
-    =link_to "/",class: "item-destroy-btn" do
+    =link_to "/items/#{item.id}",class: "item-destroy-btn",method: :delete do
       この商品を削除する
   .item-comment-margin
     .item-comment-margin__container
