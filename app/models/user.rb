@@ -19,7 +19,8 @@ class User < ApplicationRecord
   has_one  :address, dependent: :destroy
   accepts_nested_attributes_for :address
 
-  # 出品機能
+  # 出品後の購入機能
+
   has_many :transactions, dependent: :destroy
 
 end
