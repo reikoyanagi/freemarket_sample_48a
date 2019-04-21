@@ -3,7 +3,7 @@
   = render 'pankuzu'
   .item-box-margin
     %h1
-      スカート
+      =@item.name
     .item-main-content
       .item-main-content__item-photo
         .item-main-content__top-item
@@ -21,7 +21,7 @@
             %th 出品者
             %td
               = link_to '' do
-                ケイ
+                @user.nickname
               .review
                 .review__item-user-ratings
                   %i.fa.fa-laugh
@@ -53,13 +53,14 @@
 
           %tr
             %th 商品のサイズ
-            %td M
+            %td
+            = @item.size
           %tr
             %th 商品の状態
             %td 目立った傷や汚れなし
           %tr
             %th 配送料の負担
-            %td 送料込み（出品者負担）
+            %td @delivery.postage
           %tr
             %th 配送の方法
             %td 未定
@@ -72,7 +73,8 @@
             %th 発送日の目安
             %td 2~3日で発送
     .item-price-box.clearfix
-      %span.item-price ¥2600
+      %span.item-price
+      = @item.price
       %span.item-tax (税込)
       %span.item-shipping-fee 送料込み
     =link_to "/transactions/new",class: "item-buy-btn" do
