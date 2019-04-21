@@ -60,6 +60,17 @@
       color: $red;
       .progress-status {
         background-color: $red;
+        &:before {
+          background-color: $red;
+        }
+      }
+    }
+    li.through {
+      .progress-status {
+        background-color: $red;
+        &:before,&:after {
+          background-color: $red;
+        }
       }
     }
   }
@@ -160,10 +171,12 @@
         //誕生日選択プル
         .birthday {
           .select-wrap{
-            width: 140px;
-            display: inline-block;
-            margin-top: 8px;
-            position: relative;
+            &__select {
+              width: 140px;
+              margin-top: 8px;
+              position: relative;
+              display: inline-block;
+            }
           }
           span {
             margin: 8px

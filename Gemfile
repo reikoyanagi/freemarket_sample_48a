@@ -85,4 +85,6 @@ gem 'carrierwave'
 gem 'fog-aws'
 gem 'payjp'
 
+gem 'jp_prefecture'
+
 

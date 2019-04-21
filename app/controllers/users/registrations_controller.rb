@@ -16,6 +16,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
     session[:first_name] = params[:session][:first_name]
     session[:last_name_kana] = params[:session][:last_name_kana]
     session[:first_name_kana] = params[:session][:first_name_kana]
+
+    # 誕生日
+    birth_year = params[:session][:birth_year].to_i
+    birth_month = params[:session][:birth_month].to_i
+    birth_day = params[:session][:birth_day].to_i
+    unless birth_year == 0 || birth_month == 0 || birth_day == 0
+      session[:birth_date] = Date.new(birth_year, birth_month , birth_day)
+    end
   end
 
   def address
@@ -49,8 +57,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
       last_name: session[:last_name],
       first_name: session[:first_name],
       last_name_kana: session[:last_name_kana],
-      first_name_kana: session[:first_name_kana]
+      first_name_kana: session[:first_name_kana],
+      birth_date: session[:birth_date]
       )
+
     @user.address = @user.build_address(
       post_code: session[:post_code],
       prefecture_id: session[:prefecture_id],
@@ -60,16 +70,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
       block: session[:block],
       building: session[:building]
       )
+
     @user.save
     @user.address.save
 
-    session[:user_id] = @user.id
+    #deviseで新規登録を行うと自動でアカウントが切り替わる問題解決
     yield resource if block_given?
     if resource.persisted?
       if resource.active_for_authentication?
         set_flash_message! :notice, :signed_up
-        # sign_up(resource_name, resource)
-        sign_up(resource_name, current_user)
+        sign_up(@user, current_user)
         respond_with resource, location: after_sign_up_path_for(resource)
       else
         set_flash_message! :notice, :"signed_up_but_#{resource.inactive_message}"
@@ -77,10 +87,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
         respond_with resource, location: after_inactive_sign_up_path_for(resource)
       end
     else
+      render action: :registration
       clean_up_passwords resource
       set_minimum_password_length
-      respond_with resource
     end
+
   end
 
   # GET /resource/edit
@@ -126,6 +137,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # The path used after sign up for inactive accounts.
   def after_inactive_sign_up_path_for(resource)
-    super(resource)
+    signup_done_path
   end
 end

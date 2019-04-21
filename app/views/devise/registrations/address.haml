@@ -2,10 +2,10 @@
   %h1.single_header__logo
     = link_to image_tag("/assets/mercarilogo-f4c823301da0441f633837b7b207f4711269ff5c49e8d82f66df3324031a30cc.svg")
   %ol{class: "single_header__nav-bar signup-bar"}
-    %li
+    %li.through
       会員登録
       .progress-status
-    %li
+    %li.through
       電話番号認証
       .progress-status
     %li.active
@@ -27,22 +27,19 @@
           %li
             %label 郵便番号
             %span.required_form 必須
-            = f.text_field :post_code, placeholder: "例) 123-4567"
+            = f.text_field :post_code, placeholder: "例) 1234567", id: "zip"
           %li
             %label 都道府県
             %span.required_form 必須
-            = f.text_field :prefecture_id
             %br
-            //active_hashを使用
             .prefecture_id
               .select-wrap.select-default
-                %select{name: "prefecture_id"}
-                  %option{value: "1"} 北海道
+                = f.collection_select :prefecture_id, JpPrefecture::Prefecture.all, :code, :name
                 -# = icon "fas" ,"chevron-down"
           %li
             %label 市区町村
             %span.required_form 必須
-            = f.text_field :city, placeholder: "例) 横浜市緑区"
+            = f.text_field :city, placeholder: "例) 横浜市緑区",id: "address"
           %li
             %label 番地
             %span.required_form 必須
