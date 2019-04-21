@@ -52,16 +52,16 @@
               %i.fa.fa-check
               %span やることリスト
           .mypage
-            =link_to "users",class: "tag" do
+            =link_to "/users/16",class: "tag" do
               =image_tag("avatar.png",alt: "logo", height: "30", )
               .my マイページ
         / - else
         %ul.header-login-nav
           %li
-            = link_to "", class: "login" do
+            = link_to "/signin", class: "login" do
               ログイン
           %li
-            = link_to "/users/new", class: "sign-up" do
+            = link_to "/signup", class: "sign-up" do
               新規会員登録
 
 
