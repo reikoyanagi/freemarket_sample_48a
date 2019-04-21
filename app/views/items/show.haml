@@ -3,7 +3,7 @@
   = render 'pankuzu'
   .item-box-margin
     %h1
-      =@item.name
+      = @item.name
     .item-main-content
       .item-main-content__item-photo
         .item-main-content__top-item
@@ -21,7 +21,8 @@
             %th 出品者
             %td
               = link_to '' do
-                @user.nickname
+                @item.user_id.nickname
+                -# ユーザーの表示ができるようになったら＝つける
               .review
                 .review__item-user-ratings
                   %i.fa.fa-laugh
@@ -49,32 +50,37 @@
             %th ブランド
             %td
               = link_to '',class: "brand" do
-                %div ナチュラルビューティ
+                = @item.brand
 
           %tr
             %th 商品のサイズ
             %td
-            = @item.size
+              = @item.size
           %tr
             %th 商品の状態
-            %td 目立った傷や汚れなし
+            %td
+              = @item.condition
           %tr
             %th 配送料の負担
-            %td @delivery.postage
+            %td
+              = @item.delivery.postage
           %tr
             %th 配送の方法
-            %td 未定
+            %td
+              = @item.delivery.shipping
           %tr
             %th 配送元地域
             %td
-              =link_to "" do
-                東京都
+              = @item.delivery.region
+              -# =link_to "" do
+              -# ここは都道府県毎の商品のリンクに飛ぶように設定  東京都
           %tr
             %th 発送日の目安
-            %td 2~3日で発送
+            %td
+              = @item.delivery.shipping_date
     .item-price-box.clearfix
       %span.item-price
-      = @item.price
+        = @item.price
       %span.item-tax (税込)
       %span.item-shipping-fee 送料込み
     =link_to "/transactions/new",class: "item-buy-btn" do
@@ -82,8 +88,7 @@
 
     .item-description
       %p.item-description-inner
-        URBAN RESEARCH の スプリングコート 、アイボリー ( M サイズ )になります。何年か前のお品になります。
-        クリーニングに出して保管しておりました。多少の誤差があるかもしれませんが、平置きでの寸法です。
+        = @item.detail
   .item-change-box
     =link_to "/",class: "item-edit-btn" do
       商品の編集
