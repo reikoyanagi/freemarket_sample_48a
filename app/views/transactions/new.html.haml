@@ -8,32 +8,32 @@
     %ul.buy_content
       %li
         .buy_content__item
-          = image_tag(@item_image, size:"148*148")
+          = @item
           %p.buy_content__item__name
-           = @item.name
+            item
           %form.buy_content__item__price
             .buy_price
               %p
-                "¥#{@item.price}"
+                = @item.price
                 %span ここは配送料の条件分岐
             .buy_price_check.clearfix
               %p 支払い金額
-              %p "¥#{@item.price}"
-            - if @credit_card.payjp_token.present?
-              = link_to '購入する',transaction
+              %p
+                = @item.price
+              = link_to '#'
           %button.red_btn 購入する
       %li
         .buy_content__user_info
           %label 配送先
           %address
-            = @user[:post_code]
+            = @user
             %br
-            = @user[:prefecture_id, :city, :block, :building]
+            = @user
             %br
-            = @user.name
+            = @user
           = link_to class: "buy-user-info-fix" do
             変更する
-            = icon 'fas','chevron-right'
+            = fa_icon 'chevron-right'
       %li
         .buy_content__credit_info
           %label 支払方法

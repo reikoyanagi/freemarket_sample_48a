@@ -2,7 +2,8 @@
   = render 'header'
   = render 'pankuzu'
   .item-box-margin
-    %h1 新品未使用 スカート
+    %h1
+      スカート
     .item-main-content
       .item-main-content__item-photo
         .item-main-content__top-item
@@ -74,9 +75,8 @@
       %span.item-price ¥2600
       %span.item-tax (税込)
       %span.item-shipping-fee 送料込み
-
-    =link_to "",class: "item-buy-btn" do
-
+    =link_to "/transactions/new",class: "item-buy-btn" do
+      購入画面に進む
 
     .item-description
       %p.item-description-inner
