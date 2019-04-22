@@ -9,18 +9,10 @@
       .item-main-content__item-photo
         .item-main-content__top-item
           %ul.slick
-            %li
-              =image_tag @item.images[0].item_image.url,class: "top-item"
-            %li
-              =image_tag @item.images[0].item_image.url,class: "top-item"
-            %li
-              =image_tag @item.images[0].item_image.url,class: "top-item"
-            %li
-              =image_tag @item.images[0].item_image.url,class: "top-item"
-            %li
-              =image_tag @item.images[0].item_image.url,class: "top-item"
-            %li
-              =image_tag @item.images[0].item_image.url,class: "top-item"
+            - @item.images.each do |image|
+              %li
+                =image_tag image.item_image.url,class: "top-item"
+
       %table.item-detail-table
         %tbody
           %tr
