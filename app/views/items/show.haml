@@ -8,14 +8,19 @@
     .item-main-content
       .item-main-content__item-photo
         .item-main-content__top-item
-          =image_tag @item.images[0].item_image.url,height: "300px",class: "top-item"
-        .item-main-content__items__cell
-          =image_tag("top-item.jpg",alt: "top-item", height: "50%",width:"20%",class: "items-mini")
-          =image_tag("top-item.jpg",alt: "top-item", height: "50%",width:"20%",class: "items-mini")
-          =image_tag("top-item.jpg",alt: "top-item", height: "50%",width:"20%",class: "items-mini")
-          =image_tag("top-item.jpg",alt: "top-item", height: "50%",width:"20%",class: "items-mini")
-          =image_tag("top-item.jpg",alt: "top-item", height: "50%",width:"20%",class: "items-mini")
-          =image_tag("top-item.jpg",alt: "top-item", height: "50%",width:"20%",class: "items-mini")
+          %ul.slick
+            %li
+              =image_tag @item.images[0].item_image.url,class: "top-item"
+            %li
+              =image_tag @item.images[0].item_image.url,class: "top-item"
+            %li
+              =image_tag @item.images[0].item_image.url,class: "top-item"
+            %li
+              =image_tag @item.images[0].item_image.url,class: "top-item"
+            %li
+              =image_tag @item.images[0].item_image.url,class: "top-item"
+            %li
+              =image_tag @item.images[0].item_image.url,class: "top-item"
       %table.item-detail-table
         %tbody
           %tr
