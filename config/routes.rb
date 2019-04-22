@@ -16,11 +16,12 @@ Rails.application.routes.draw do
     get "/sign_up/done" => 'users/registrations#done'#完了ページ
   end
 
-  resources :items
+  resources :items do
+    resources :transactions
+  end
   get 'listings/list' => 'listings#list'
   get 'listings/in_progress' => 'listings#in_progress'
   get 'listings/completed' => 'listings#completed'
   resources :users
   resources :credit_cards
-  resources :transactions
 end
