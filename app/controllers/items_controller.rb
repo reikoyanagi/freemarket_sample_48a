@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
   def index
-    @items = Item.order('id ASC').limit(4)
+    @items = Item.order('created_at DESC').limit(4)
   end
 
   def new
@@ -24,7 +24,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(1)
+    @item = Item.find(params[:id])
   end
 
   private

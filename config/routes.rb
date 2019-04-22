@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   end
 
   resources :items
+  get 'listings/list' => 'listings#list'
+  get 'listings/in_progress' => 'listings#in_progress'
+  get 'listings/completed' => 'listings#completed'
   resources :users
   resources :credit_cards
   resources :transactions

@@ -1,0 +1,60 @@
+/ 出品中一覧
+
+.overall
+
+  = render "items/header"
+
+  .container.clearfix
+
+    = render "/users/mypage_side_nav"
+
+    .main-content
+
+      / 右側のメインの箱
+      .main-content__listing-items
+        .tab-head
+          出品した商品
+        %ul.tabs
+          %li
+            %h3
+              = link_to '/listings/list', class: 'active' do
+                出品中
+          %li
+            %h3
+              = link_to '/listings/in_progress', class: 'non-active' do
+                取引中
+          %li
+            %h3
+              = link_to '/listings/completed', class: 'non-active' do
+                売却済
+
+        / タブ以下。出品中の商品を一覧で表示する
+        .tab-content.clearfix
+          - @items.each do |item|
+            %ul.tab-transaction-now
+
+
+              %li.mypage-item-list
+                = link_to '#' ,class: 'mypage-item-link' do
+                  %figure
+                    =image_tag item.images[0].item_image.url
+                  .mypage-item-link__body
+                    .mypage-item-link__body__text
+                    = item.name
+                    .mypage-item-link__body__status
+                      .mypage-item-link__body__status__count
+                        %i.fa.fa-heart-o
+                        .num 0
+                      .mypage-item-link__body__status__count
+                        %i.fa.fa-comment-o
+                        .num 0
+                      .mypage-item-link__body__status__status
+                        出品中
+                  %i.fa.fa-angle-right.fa-2x
+
+
+  .footer
+    = render "/items/footer"
+
+  .red-button
+    = render '/items/button'
