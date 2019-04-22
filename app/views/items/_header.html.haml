@@ -52,7 +52,7 @@
               %i.fa.fa-check
               %span やることリスト
           .mypage
-            =link_to "users",class: "tag" do
+            =link_to "/users",class: "tag" do
               =image_tag("avatar.png",alt: "logo", height: "30", )
               .my マイページ
         / - else
@@ -63,5 +63,4 @@
           %li
             = link_to "/users/new", class: "sign-up" do
               新規会員登録
-
 

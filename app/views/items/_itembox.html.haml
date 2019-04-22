@@ -1,6 +1,6 @@
 - @items.each do|item|
   .items-box-content__box
-    = link_to "/items/show", class: "content-box" do
+    = link_to "/items/#{item.id}", class: "content-box" do
       .items-box-content__box__photo
         = image_tag item.images[0].item_image.url, height: "220",class: "tops"
       .items-box-content__box__body
