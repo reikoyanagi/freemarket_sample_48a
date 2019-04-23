@@ -30,31 +30,37 @@
       margin-top: 8px;
       line-height: 1.5;
     }
-    .input_area {
-      display: block;
-      position: relative;
-      min-height: 162px;
-      background: #f5f5f5;
-      border: 1px dashed #ccc;
-      font-size: 0;
-      text-align: center;
+    .sell_upload{
       margin-top: 16px;
-      &__file-upload{
-        border: 0;
-        outline: 0;
-        font-family: inherit;
-        -webkit-appearance: none;
-      }
-      p {
-        font-weight: bold;
-        position: absolute;
-        top: 50%;
-        left: 16px;
-        right: 16px;
+      width: 620px;
+      .input_area {
+        margin-left: 10px;
+        float: right;
+        width: 491px;
+        display: block;
+        position: relative;
+        min-height: 162px;
+        background: #f5f5f5;
+        border: 1px dashed #ccc;
+        font-size: 0;
         text-align: center;
-        font-size: 14px;
-        line-height: 1.5;
-        transform: translate(0, -50%);
+        &__file-upload{
+          border: 0;
+          outline: 0;
+          font-family: inherit;
+          -webkit-appearance: none;
+        }
+        p {
+          font-weight: bold;
+          position: absolute;
+          top: 50%;
+          left: 16px;
+          right: 16px;
+          text-align: center;
+          font-size: 14px;
+          line-height: 1.5;
+          transform: translate(0, -50%);
+        }
       }
     }
   }
@@ -208,5 +214,48 @@
   font-size: 14px;
   li{
     margin-top: 8px;
+  }
+}
+
+// 画像が追加された時のcss
+.sell_upload_items_container{
+  display: inline;
+  .form-group__sell_upload_items{
+    float: left;
+    display: inline;
+    ul{
+      display: inline-block;
+      .sell_upload_item{
+        margin-left: 0;
+        position: relative;
+        width: 116px;
+        margin-bottom: 10px;
+        display: inline-block;
+        &__image{
+          overflow: hidden;
+          margin: 0;
+          position: relative;
+          padding: 0;
+          height: 116px;
+          background-color: $base-color;
+          text-align: center;
+          &__pic{
+            position: static;
+            width: 105px;
+            height: 140px;
+          }
+        }
+        &__buttons{
+          font-size: 14px;
+          &__btn{
+            display: inline-block;
+            width: 50%;
+            background-color: $base-color;
+            line-height: 44px;
+            text-align: center;
+          }
+        }
+      }
+    }
   }
 }

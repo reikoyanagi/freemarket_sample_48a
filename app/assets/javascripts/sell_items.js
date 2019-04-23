@@ -1,4 +1,65 @@
 
+// $(function(){
+//   $('.item_image1').change(function(){
+//     if ( $(this).val().length !=0 ){
+//       console.log($(this).val())
+//       var html = build_item_image_form()
+//       $('.input_area').append(html);
+//     }
+//   })
+// })
+
+// Dropzone.autoDiscover = false
+
+// new Dropzone '#upload-dropzone'
+//   paramName: 'item[images_attributes][0][item_image][]'
+
+
+
+
+$(function(){
+
+  count = 2
+
+  function build_item_image_form(){
+    var item_image_form = `<input class = "item_image + count" multiple="multiple" type="file" name="item[images_attributes][0][item_image][]" id="item_images_attributes_0_item_image" />`
+
+    return item_image_form;
+  }
+
+
+  $(function(){
+     $(".input_area:last-child").change(function(){
+      if ( $('.item_image').val().length !=0 ){
+        var html = build_item_image_form();
+        $('.input_area').append(html);
+      }
+    })
+  })
+
+  $(function(){
+
+   $(".item_image").change(function(){
+    if ( $(this).val().length !=0 ){
+      console.log($(this).val())
+      var html = build_item_image_form()
+      $('.input_area').append(html);
+    }
+  })
+
+
+
+
+
+
+
+
+
+  })
+
+})
+
+
 // 配送料が入力されると配送方法を表示させる
 $(function(){
   $('#item_delivery_attributes_postage').change(function(){
@@ -16,6 +77,7 @@ $(function(){
 $(function(){
   $('#item_price').keyup(function(){
     var price = $(this).val();
+
     if ( price >= 300 ){
       var commission = Math.ceil(price * 0.1) ;
       var profit = price - commission
