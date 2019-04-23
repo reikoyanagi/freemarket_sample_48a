@@ -73,6 +73,7 @@ group :development, :test do
   gem 'capistrano3-unicorn'
 
   gem 'rspec-rails'
+  gem 'factory_bot_rails'
 end
 
 gem 'haml-rails'
