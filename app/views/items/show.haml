@@ -19,8 +19,8 @@
             %th 出品者
             %td
               = link_to '' do
-                @item.user_id.nickname
-                -# ユーザーの表示ができるようになったら＝つける
+                = @user.nickname
+
               .review
                 .review__item-user-ratings
                   %i.fa.fa-laugh
