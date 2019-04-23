@@ -5,7 +5,7 @@
 .main
   .main__container
     %h2.main__container__title 購入を確定しますか？
-    = form_for @item, html: {id:'buy_items_form', class: 'buy_content'} do |item|
+    = form_for @item, html: {class: 'buy_content'} do |item|
       %ul.buy_content
         %li
           .buy_content__item
@@ -22,26 +22,19 @@
                 %p 支払い金額
                 %p
                   = "¥#{@item.price}"
-                = link_to ''
-            %button.red_btn 購入する
-
-            #after_buy.modal
-          .modal__inner
-            .inner
-              %h3.modal-head 購入が完了しました
-              .buy-modal-body
-                購入者からの連絡をお待ちください
-                = link_to '続けて購入する', '/items', class: 'red_btn modal-btn'
+                = link_to "購入する", item_transactions_path(@item.id), method: :post, class: "buttun red_btn"
 
         %li
           .buy_content__user_info
             %label 配送先
             %address
-              = @user
+              = @item.user_id.prefecture_id
               %br
-              = @user
+              = @item.user_id.city
               %br
-              = @user
+              = @item.user_id.block
+              %br
+              = @item.user_id.building
             = link_to class: "buy-user-info-fix" do
               変更する
               = fa_icon 'chevron-right'
@@ -57,7 +50,5 @@
               変更する
               = fa_icon 'chevron-right'
 
-              / 商品購入後 show を付け加える
-        .overlay
 
 = render "devise/registrations/footer"
