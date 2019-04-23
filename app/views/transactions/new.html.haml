@@ -5,14 +5,14 @@
 .main
   .main__container
     %h2.main__container__title 購入を確定しますか？
-    = form_for @item, html: {class: 'buy_content'} do |item|
+    = form_for @item, html: {class: 'main-buy'} do |item|
       %ul.buy_content
         %li
           .buy_content__item
             = image_tag @item.images[0].item_image.url, height:"148", width:"148", class:"image"
             %p.buy_content__item__name
               = @item.name
-            %form.buy_content__item__price
+            .buy_content__item__price
               .buy_price
                 %p
                   = "¥#{@item.price}"
@@ -22,19 +22,17 @@
                 %p 支払い金額
                 %p
                   = "¥#{@item.price}"
-                = link_to "購入する", item_transactions_path(@item.id), method: :post, class: "buttun red_btn"
+              .red_btn
+                = link_to item_transactions_path(@item.id), method: :post, class: 'confirm_btn' do
+                  購入する
 
         %li
           .buy_content__user_info
             %label 配送先
             %address
-              = @item.user_id.prefecture_id
+              item.user_id.prefecture_id item.user_id.city item.user_id.block item.user_id.building
               %br
-              = @item.user_id.city
-              %br
-              = @item.user_id.block
-              %br
-              = @item.user_id.building
+              item.user_id.name
             = link_to class: "buy-user-info-fix" do
               変更する
               = fa_icon 'chevron-right'
