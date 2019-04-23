@@ -24,12 +24,11 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(1)
   end
 
   def destroy
-    item = Item.find(params[:id])
-    if item.user_id == current_user.id
+    item = Item.find((params[:id]))
+    if item.user_id== current_user.id
       item.destroy
     redirect_to controller: :items, action: :index
     end
