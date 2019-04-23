@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
   def index
-    @items = Item.order('id ASC').limit(4)
+    @items = Item.order('created_at DESC').limit(4)
   end
 
   def new
@@ -24,6 +24,8 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
+    @user = User.find_by(id: @item.user_id)
   end
 
   def destroy
@@ -43,4 +45,5 @@ class ItemsController < ApplicationController
                    images_attributes: [:item_id, :item_image],
                    delivery_attributes: [:postage, :shipping, :region, :shipping_date]).merge(status_id: 1)
   end
+
 end

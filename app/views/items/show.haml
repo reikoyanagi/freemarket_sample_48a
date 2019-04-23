@@ -8,22 +8,19 @@
     .item-main-content
       .item-main-content__item-photo
         .item-main-content__top-item
-          =image_tag @item.images[0].item_image.url,height: "300px",class: "top-item"
-        .item-main-content__items__cell
-          =image_tag("top-item.jpg",alt: "top-item", height: "50%",width:"20%",class: "items-mini")
-          =image_tag("top-item.jpg",alt: "top-item", height: "50%",width:"20%",class: "items-mini")
-          =image_tag("top-item.jpg",alt: "top-item", height: "50%",width:"20%",class: "items-mini")
-          =image_tag("top-item.jpg",alt: "top-item", height: "50%",width:"20%",class: "items-mini")
-          =image_tag("top-item.jpg",alt: "top-item", height: "50%",width:"20%",class: "items-mini")
-          =image_tag("top-item.jpg",alt: "top-item", height: "50%",width:"20%",class: "items-mini")
+          %ul.slick
+            - @item.images.each do |image|
+              %li
+                =image_tag image.item_image.url,class: "top-item"
+
       %table.item-detail-table
         %tbody
           %tr
             %th 出品者
             %td
               = link_to '' do
-                @item.user_id.nickname
-                -# ユーザーの表示ができるようになったら＝つける
+                = @user.nickname
+
               .review
                 .review__item-user-ratings
                   %i.fa.fa-laugh
@@ -84,7 +81,7 @@
         = "¥#{@item.price}"
       %span.item-tax (税込)
       %span.item-shipping-fee 送料込み
-    =link_to "/transactions/new",class: "item-buy-btn" do
+    =link_to '#', class: "item-buy-btn" do
       購入画面に進む
 
     .item-description

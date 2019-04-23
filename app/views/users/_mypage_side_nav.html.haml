@@ -10,7 +10,7 @@
           お知らせ
           %i.fa.fa-angle-right.fa-lg
       %li
-        = link_to '#', class: 'contents-link' do
+        = link_to '/listings/list', class: 'contents-link' do
           やることリスト
           %i.fa.fa-angle-right.fa-lg
       %li
@@ -22,15 +22,15 @@
           出品する
           %i.fa.fa-angle-right.fa-lg
       %li
-        = link_to '#', class: 'contents-link' do
+        = link_to '/listings/list', class: 'contents-link' do
           出品した商品-出品中
           %i.fa.fa-angle-right.fa-lg
       %li
-        = link_to '#', class: 'contents-link' do
+        = link_to '/listings/in_progress', class: 'contents-link' do
           出品した商品-取引中
           %i.fa.fa-angle-right.fa-lg
       %li
-        = link_to '#', class: 'contents-link' do
+        = link_to '/listings/completed', class: 'contents-link' do
           出品した商品-売却済み
           %i.fa.fa-angle-right.fa-lg
       %li
@@ -98,6 +98,6 @@
           電話番号の確認
           %i.fa.fa-angle-right.fa-lg
       %li
-        = link_to '#', class: 'contents-link' do
+        = link_to destroy_user_session_path, method: :delete , class: 'contents-link' do
           ログアウト
           %i.fa.fa-angle-right.fa-lg

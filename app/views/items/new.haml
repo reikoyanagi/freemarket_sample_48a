@@ -86,7 +86,7 @@
               %ul.postage-fail.hide.add-fail
                 %li 選択してください
 
-              .form-group
+              .form-group.hide.how_shipping
                 //配送方法は配送料の負担を決めた後に出てくるように設定
                 %label
                   配送の方法
@@ -139,7 +139,8 @@
               .sell_content__price__form__commission.clearfix
                 %p
                   販売手数料 (10%)
-                .fee -
+                %ul.fee
+                  %li.default-fee -
               %hr
               //金額から手数料を引いた値段
               .sell_content__price__form__profit.clearfix
