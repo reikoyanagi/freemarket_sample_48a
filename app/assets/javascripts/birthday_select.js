@@ -7,7 +7,7 @@ $(function() {
   // プルダウン生成
   //年
   $('#year_pulldown').html('<select required name="session[birth_year]" required ><option value="">---</opution>');
-  for (var i = year_val ; i > 1989 ;  i--) {
+  for (var i = year_val ; i > 1899 ;  i--) {
     $('#year_pulldown select').append('<option value="' + i + '">' + i + '</option>');
   }
 

@@ -41,26 +41,26 @@
 
 
       .list-right
-        / - if user_signed_in?
-        %ul.header-user-nav
-          %li
-            %a.tag1
-              %i.fa.fa-bell
-              %span お知らせ
-          %li
-            %a.tag1
-              %i.fa.fa-check
-              %span やることリスト
-          .mypage
-            =link_to "/users",class: "tag" do
-              =image_tag("avatar.png",alt: "logo", height: "30", )
-              .my マイページ
-        / - else
-        %ul.header-login-nav
-          %li
-            = link_to "", class: "login" do
-              ログイン
-          %li
-            = link_to "/sign_up/registration", class: "sign-up" do
-              新規会員登録
+        - if user_signed_in?
+          %ul.header-user-nav
+            %li
+              %a.tag1
+                %i.fa.fa-bell
+                %span お知らせ
+            %li
+              %a.tag1
+                %i.fa.fa-check
+                %span やることリスト
+            .mypage
+              =link_to "/users",class: "tag" do
+                =image_tag("avatar.png",alt: "logo", height: "30", )
+                .my マイページ
+        - else
+          %ul.header-login-nav
+            %li
+              = link_to new_user_session_path, class: "login" do
+                ログイン
+            %li
+              = link_to sign_up_registration_path, class: "sign-up" do
+                新規会員登録
 

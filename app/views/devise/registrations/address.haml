@@ -1,6 +1,7 @@
 .single_header
   %h1.single_header__logo
-    = link_to image_tag("/assets/mercarilogo-f4c823301da0441f633837b7b207f4711269ff5c49e8d82f66df3324031a30cc.svg")
+    = link_to root_path do
+      = image_tag("/assets/mercarilogo-f4c823301da0441f633837b7b207f4711269ff5c49e8d82f66df3324031a30cc.svg")
   %ol.single_header__nav-bar.signup-bar
     %li.through
       会員登録
