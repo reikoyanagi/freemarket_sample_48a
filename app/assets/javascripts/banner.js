@@ -7,5 +7,4 @@ $(function() {
       autoplaySpeed: 4000,
       speed: 800,
   });
-
 });
