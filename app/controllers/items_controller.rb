@@ -27,6 +27,21 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
+  def pay
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    @item[:status_id] = 2
+    @item.save
+    Payjp.api_key = 'sk_test_0ed9e660871befcb2421e447'
+      amount = @item.price
+      charge = Payjp::Charge.create(amount: amount,
+      card: params['payjp-token'],
+      currency: 'jpy',
+      )
+  end
+
   private
 
   def item_params
