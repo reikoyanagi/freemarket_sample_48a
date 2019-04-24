@@ -88,7 +88,7 @@
       %p.item-description-inner
         = @item.detail
   .item-change-box
-    =link_to "/",class: "item-edit-btn" do
+    =link_to "/items/#{@item.id}/edit",class: "item-edit-btn" do
       商品の編集
     %p or
     =link_to "/items/#{@item.id}",class: "item-destroy-btn",method: :delete do

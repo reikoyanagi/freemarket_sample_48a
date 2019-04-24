@@ -30,6 +30,10 @@ class ItemsController < ApplicationController
     @user = User.find_by(id: @item.user_id)
   end
 
+  def edit
+    @item = Item.find(params[:id])
+  end
+
   def destroy
     item = Item.find((params[:id]))
     if item.user_id== current_user.id
@@ -54,6 +58,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
+    # 画像を複数にするときは {item_image: []} に変更
     params.require(:item)
           .permit(:name, :user_id, :condition, :price, :detail, :status_id, :brand, :size,
                    images_attributes: [:item_id, :item_image],
