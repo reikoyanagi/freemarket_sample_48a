@@ -71,6 +71,10 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'rspec-rails'
+  gem 'rails-controller-testing'
+  gem 'factory_bot_rails'
+  gem 'faker'
 end
 
 gem 'haml-rails'
@@ -84,6 +88,8 @@ gem 'devise'
 gem 'carrierwave'
 gem 'fog-aws'
 gem 'payjp'
+
+gem 'jp_prefecture'
+
 gem 'dropzonejs-rails'
 gem 'gon'
-

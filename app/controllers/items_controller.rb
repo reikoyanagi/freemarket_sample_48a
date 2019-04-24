@@ -25,6 +25,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @user = User.find_by(id: @item.user_id)
   end
 
   def edit
@@ -39,4 +40,5 @@ class ItemsController < ApplicationController
                    images_attributes: [:item_id, {item_image: []}],
                    delivery_attributes: [:postage, :shipping, :region, :shipping_date]).merge(status_id: 1)
   end
+
 end
