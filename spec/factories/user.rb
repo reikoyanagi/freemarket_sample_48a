@@ -10,7 +10,7 @@ FactoryBot.define do
     last_name_kana        {"タナカ"}
     first_name_kana       {"タロウ"}
     birth_date            {"2000-12-30"}
-    avator                {"test.jpg"}
+    avator                {""}
   end
 
 end

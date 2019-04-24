@@ -7,7 +7,7 @@ FactoryBot.define do
     city                        {"渋谷区"}
     block                       {"道玄坂２丁目２３−１２"}
     building                    {"フォンティスビル7F"}
-    user
+    user_id                     {"1"}
   end
 
 end
