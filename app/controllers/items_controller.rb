@@ -26,21 +26,13 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @items = Item.order('created_at DESC').limit(1)
     @item = Item.find(params[:id])
     @user = User.find_by(id: @item.user_id)
   end
 
   def edit
     @item = Item.find(params[:id])
-  end
-
-  def destroy
-    item = Item.find((params[:id]))
-    if item.user_id== current_user.id
-      item.destroy
-    redirect_to root_path
-    end
-
   end
 
   def update
@@ -54,6 +46,16 @@ class ItemsController < ApplicationController
       currency: 'jpy',
       )
   end
+
+  def destroy
+    item = Item.find((params[:id]))
+    if item.user_id == current_user.id
+      item.destroy
+    redirect_to root_path
+    end
+  end
+
+
 
   private
 

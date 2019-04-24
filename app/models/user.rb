@@ -15,7 +15,7 @@ class User < ApplicationRecord
   validates :birth_date, presence: true
 
 
-
+  has_many :items, dependent: :destroy
   has_one  :address, dependent: :destroy
   accepts_nested_attributes_for :address
 

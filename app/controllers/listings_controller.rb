@@ -1,7 +1,7 @@
 class ListingsController < ApplicationController
 
   def list
-    @items = Item.order('created_at DESC').limit(4)
+    @items = current_user.items.order("created_at DESC")
   end
 
   def in_progress
@@ -11,5 +11,4 @@ class ListingsController < ApplicationController
   def completed
     @item = Item.find(2)
   end
-
 end

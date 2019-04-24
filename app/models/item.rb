@@ -6,6 +6,7 @@ class Item < ApplicationRecord
   accepts_nested_attributes_for :images
   accepts_nested_attributes_for :delivery
 
+  belongs_to :user
     # 購入機能
   has_many :transactions, dependent: :destroy
 
