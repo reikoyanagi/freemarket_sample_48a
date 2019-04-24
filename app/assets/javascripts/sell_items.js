@@ -145,7 +145,7 @@ $(function(){
     })
 
     .done(function(){
-      $('#after_sell').addClass('show');
+      $('#after_sell').css('display', 'block');
       $('.overlay').addClass('show');
       $('html').addClass('modal-open');
     })
