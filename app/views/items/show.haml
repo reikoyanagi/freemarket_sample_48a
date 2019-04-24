@@ -81,7 +81,7 @@
         %p.item-description-inner
           = @item.detail
     .item-change-box
-      =link_to "/",class: "item-edit-btn" do
+      =link_to "/items/#{@item.id}/edit",class: "item-edit-btn" do
         商品の編集
       %p or
       =link_to "/items/#{@item.id}",class: "item-destroy-btn",method: :delete do
@@ -117,7 +117,6 @@
               %td
                 = link_to '' do
                   = @user.nickname
-
                 .review
                   .review__item-user-ratings
                     %i.fa.fa-laugh
@@ -176,7 +175,7 @@
           = "¥#{@item.price}"
         %span.item-tax (税込)
         %span.item-shipping-fee 送料込み
-      =link_to "/transaction/buy",class: "item-buy-btn" do
+      =link_to new_item_transaction_path(@item.id), class: "item-buy-btn" do
         購入画面に進む
       .item-description
         %p.item-description-inner
@@ -230,4 +229,3 @@
     .over-margin
     .footer
       = render "footer"
-

@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
 
+  require 'payjp'
+
   def index
     @items = Item.order('created_at DESC').limit(4)
   end
@@ -29,18 +31,34 @@ class ItemsController < ApplicationController
     @user = User.find_by(id: @item.user_id)
   end
 
+  def edit
+    @item = Item.find(params[:id])
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    @item[:status_id] = 2
+    @item.save
+    Payjp.api_key = 'sk_test_0ed9e660871befcb2421e447'
+      amount = @item.price
+      charge = Payjp::Charge.create(amount: amount,
+      card: params['payjp-token'],
+      currency: 'jpy',
+      )
+  end
+
   def destroy
     item = Item.find((params[:id]))
-    if item.user_id== current_user.id
+    if item.user_id == current_user.id
       item.destroy
     redirect_to root_path
     end
   end
 
-
   private
 
   def item_params
+    # 画像を複数にするときは {item_image: []} に変更
     params.require(:item)
           .permit(:name, :user_id, :condition, :price, :detail, :status_id, :brand, :size,
                    images_attributes: [:item_id, :item_image],
