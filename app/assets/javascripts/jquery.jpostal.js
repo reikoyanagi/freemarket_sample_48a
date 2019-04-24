@@ -385,7 +385,7 @@ Jpostal.Jpostal.prototype.mb_convert_kana = function (i_str, i_option) {
 
     funcs = {
         A: function (i_str) {
-            var reg = /[A-Za-z0-9!#\$%&\(\)\*\+,\-\.\/:;<=>\?@\[\]\^_`\{\|\}]/g,
+            var reg = /[A-Za-z0-9!#\$%&\(\)\*\+,\-\.\/:;<=>\?@\[\]\^_\{\|\}]/g,
                 s;
 
             s = i_str.replace(reg, function (s) {
