@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
 
+  require 'payjp'
+
   def index
     @items = Item.order('created_at DESC').limit(4)
   end
@@ -35,6 +37,18 @@ class ItemsController < ApplicationController
     redirect_to root_path
     end
 
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    @item[:status_id] = 2
+    @item.save
+    Payjp.api_key = 'sk_test_0ed9e660871befcb2421e447'
+      amount = @item.price
+      charge = Payjp::Charge.create(amount: amount,
+      card: params['payjp-token'],
+      currency: 'jpy',
+      )
   end
 
   private
