@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
 
+  require 'payjp'
+
   def index
     @items = Item.order('created_at DESC').limit(4)
   end
@@ -25,9 +27,6 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-  end
-
-  def pay
   end
 
   def update

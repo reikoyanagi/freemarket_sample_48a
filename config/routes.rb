@@ -18,12 +18,11 @@ Rails.application.routes.draw do
 
   resources :items do
     resources :transactions
-    post 'pay/:id' => 'transactions#pay', as: 'pay'
   end
   get 'listings/list' => 'listings#list'
   get 'listings/in_progress' => 'listings#in_progress'
   get 'listings/completed' => 'listings#completed'
-  post 'pay/:id' => 'items#pay', as: 'pay'
+
   resources :users do
     resources :credit_cards
   end
