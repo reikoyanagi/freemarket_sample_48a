@@ -22,19 +22,20 @@
             .sell_upload.clearfix
               .sell_upload_items_container
                 .form-group__sell_upload_items
-                  %ul
-                    %li.sell_upload_item
-                      %figure.sell_upload_item__image
-                        = image_tag('/assets/member_photo_noimage_thumb.png', class: 'sell_upload_item__image__pic')
-                      .sell_upload_item__buttons
-                        = link_to '#', class: 'sell_upload_item__buttons__btn' do
-                          編集
-                        = link_to '#', class: 'sell_upload_item__buttons__btn' do
-                          削除
+                  %ul.uploaded_images
+                    / %li.sell_upload_item
+                    /   %figure.sell_upload_item__image
+                    /     = image_tag('/assets/member_photo_noimage_thumb.png', class: 'sell_upload_item__image__pic')
+                    /   .sell_upload_item__buttons
+                    /     = link_to '#', class: 'sell_upload_item__buttons__btn' do
+                    /       編集
+                    /     = link_to '#', class: 'sell_upload_item__buttons__btn' do
+                    /       削除
 
-              = item.fields_for :images, id: 'upload-dropzone' do |img|
-                = img.label :item_image, class: 'input_area' do
-                  = img.file_field :item_image,class: 'item_image', multiple: 'true'
+              = item.fields_for :images, id: 'upload-dropzone', class: 'dropzone' do |img|
+                = img.label :item_image, class: 'input_area dropzone' do
+                  = img.file_field :item_image,class: 'item_image dropzone', style: 'display :none;'
+                  / 複数にするときは multiple: 'true' を追加
                   %p
                     ドラックアンドドロップ
                     %br またはクリックしてファイルをアップロード

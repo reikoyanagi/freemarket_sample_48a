@@ -1,7 +1,8 @@
 class Image < ApplicationRecord
   validates :item_image, presence: true
-  mount_uploaders :item_image, ItemImageUploader
-  serialize :item_image, JSON
+  # 複数にするときは mount_uploaders にして serialize を表示
+  # serialize :item_image, JSON
+  mount_uploader :item_image, ItemImageUploader
   belongs_to :item, optional: true
 
 end

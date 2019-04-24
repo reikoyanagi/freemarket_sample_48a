@@ -36,7 +36,7 @@
       .input_area {
         margin-left: 10px;
         float: right;
-        width: 491px;
+        width: 100%;
         display: block;
         position: relative;
         min-height: 162px;
@@ -249,7 +249,7 @@
           font-size: 14px;
           &__btn{
             display: inline-block;
-            width: 50%;
+            width: 48%;
             background-color: $base-color;
             line-height: 44px;
             text-align: center;
