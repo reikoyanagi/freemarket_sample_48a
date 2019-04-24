@@ -9,13 +9,6 @@ describe User do
       expect(user.errors[:nickname]).to include("can't be blank")
     end
 
-    #email が空である場合登録できないか
-    it "is invalid without a email" do
-      user = build(:user, email: nil)
-      user.valid?
-      expect(user.errors[:email]).to include("can't be blank")
-    end
-
     #passwordが空である場合登録できないか
     it "is invalid without a password" do
       user = build(:user, password: nil)
@@ -65,14 +58,6 @@ describe User do
       expect(user.errors[:birth_date]).to include("can't be blank")
     end
 
-    #emailが同じ値が保存できない様になっているか
-    it "is invalid with a duplicate email address" do
-      user = create(:user)
-      another_user = build(:user)
-      another_user.valid?
-      expect(another_user.errors[:email]).to include("has already been taken")
-    end
-
     #passwordが5文字以下だと登録できないか
     it "is invalid with a password that has less than 5 characters " do
       user = build(:user, password: "00000", password_confirmation: "00000")
@@ -81,7 +66,7 @@ describe User do
     end
 
     #DBに保存されたかどうか
-    it "is valid with a nickname, email, password, password_confirmation, last_name, first_name, last_name_kana, first_name_kana, birth_date" do
+    it "is valid with a nickname, password, password_confirmation, last_name, first_name, last_name_kana, first_name_kana, birth_date" do
       user = build(:user)
       expect(user).to be_valid
     end

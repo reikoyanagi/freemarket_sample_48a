@@ -1,16 +1,16 @@
 FactoryBot.define do
 
   factory :user do
-    nickname              {"abe"}
-    email                 { Faker::Internet.email }
-    password              { Faker::Internet.password }
-    password_confirmation { Faker::Internet.password }
+    nickname              {Faker::Name.name}
+    password = Faker::Internet.password(6)
+    password {password}
+    password_confirmation {password}
     last_name             { Faker::Name.last_name }
     first_name            { Faker::Name.first_name }
     last_name_kana        {"タナカ"}
     first_name_kana       {"タロウ"}
-    birth_date            {"2000-12-30"}
-    avator                {""}
+    email                 { Faker::Internet.free_email }
+    birth_date            {Faker::Time.between(DateTime.now - 1, DateTime.now).strftime("%D")}
+    avator                { Faker::Avatar.image }
   end
-
 end
