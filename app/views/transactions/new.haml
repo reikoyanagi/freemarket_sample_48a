@@ -29,9 +29,9 @@
           .buy_content__user_info
             %label 配送先
             %address
-              item.user_id.prefecture_id item.user_id.city item.user_id.block item.user_id.building
+              東京（仮置き）
               %br
-              item.user_id.name
+              = @user.nickname
             = link_to class: "buy-user-info-fix" do
               変更する
               = fa_icon 'chevron-right'
