@@ -69,9 +69,9 @@
           %tr
             %th 配送元地域
             %td
-              = @item.delivery.region
-              -# =link_to "" do
-              -# ここは都道府県毎の商品のリンクに飛ぶように設定  東京都
+              = link_to "/" do
+                = @item.delivery.region
+
           %tr
             %th 発送日の目安
             %td
@@ -91,7 +91,7 @@
     =link_to "/",class: "item-edit-btn" do
       商品の編集
     %p or
-    =link_to "/",class: "item-destroy-btn" do
+    =link_to "/items/#{@item.id}",class: "item-destroy-btn",method: :delete do
       この商品を削除する
   .item-comment-margin
     .item-comment-margin__container
