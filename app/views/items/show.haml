@@ -21,7 +21,7 @@
                   = @user.nickname
                 .review
                   .review__item-user-ratings
-                    %i.fa.fa-laugh
+                    %i.fa.fa-smile-o
                     %span 573
                   .review__item-user-ratings
                     %i.fa.fa-meh
@@ -119,13 +119,13 @@
                   = @user.nickname
                 .review
                   .review__item-user-ratings
-                    %i.fa.fa-laugh
+                    %i.fa.fa-smile-o
                     %span 573
                   .review__item-user-ratings
-                    %i.fa.fa-meh
+                    %i.fa.fa-meh-o
                     %span 1
                   .review__item-user-ratings
-                    %i.fa.fa-frown
+                    %i.fa.fa-frown-o
                     %span 0
             %tr
               %th カテゴリー
@@ -183,9 +183,9 @@
       .item-button-container
         .item-button-container__item-button-left
           %button.item-button-like{name: "like", type: "button", value:  "like"}
-            %i.far.fa-heart
+            %i.fa.fa-heart-o
             %span.item-like いいね！
-            %span.item-like-num 3
+            %span.item-like-num
           =link_to "", class: "item-button-report" do
             %i.fa.fa-flag
             %span.item-report 不適切な商品の報告
@@ -219,13 +219,13 @@
           =link_to "" do
             = "#{@user.nickname}さんのその他の出品"
         .items-box-content
-          = render "itembox"
+          = render "useritembox"
       .items-in-user-profile__box-container
         %h2
           =link_to "" do
             = "#{@item.brand}その他の商品"
         .items-box-content
-          = render "itembox"
+          = render "useritembox"
     .over-margin
     .footer
       = render "footer"

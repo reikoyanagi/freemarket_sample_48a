@@ -1,6 +1,5 @@
 - @items.each do|item|
   -if item.status_id == 1
-    -# && current_user_id =! item.user_id 自分の出品したものが表示されないようにする条件。必要であれば繋げて使用。
     .items-box-content__box
       = link_to "/items/#{item.id}", class: "content-box" do
         .items-box-content__box__photo
