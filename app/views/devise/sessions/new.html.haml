@@ -8,7 +8,7 @@
     .main__sign_in
       .main__sign_in__title
         %p アカウントをお持ちでない方はこちら
-        = link_to "新規会員登録", sign_up_registration_path(resource_name),class: "sign_up_btn"
+        = link_to "新規会員登録", new_user_path(resource_name),class: "sign_up_btn"
       .main__sign_in__button
         %ul
           %li

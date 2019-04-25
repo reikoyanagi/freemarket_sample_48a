@@ -1,0 +1,21 @@
+.overall
+
+  = render 'items/header'
+  = render 'items/pankuzu'
+
+  .container.clearfix
+
+    = render "users/mypage_side_nav"
+    .credit-main
+      .profile
+        %section.profile__container
+          %h2.profile-name
+            プロフィール
+          = form_for @user, url: update_user_profile_path do |f|
+            .setting-profile
+              %figure
+                %img{height: "60", src: "//static-mercari-jp-imgtr2.akamaized.net/images/member_photo_noimage_thumb.png", width:"60"}
+              = f.text_field :nickname ,class: "input-default",placeholder: "メルカリ"
+            .setting-profile-content
+              %textarea.textarea-default{name: "introduction", placeholder: "例）こんにちわ！ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に９号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問ありましたらお気軽にどうぞ♪"}
+              = f.submit '変更する', class: "btn-red"

@@ -2,7 +2,7 @@
   %nav.mypage-nav
     %ul.mypage-nav__list
       %li
-        = link_to '/users' , class: 'contents-link' do
+        = link_to user_path(current_user.id) , class: 'contents-link' do
           マイページ
           %i.fa.fa-angle-right.fa-lg
       %li
@@ -74,7 +74,7 @@
       設定
     %ul.mypage-nav__list
       %li
-        = link_to '#', class: 'contents-link' do
+        = link_to user_profile_path, class: 'contents-link' do
           プロフィール
           %i.fa.fa-angle-right.fa-lg
       %li
@@ -82,7 +82,7 @@
           発送元・お届け先住所
           %i.fa.fa-angle-right.fa-lg
       %li
-        = link_to '/credit_cards/show', class: 'contents-link' do
+        = link_to user_credit_card_path(current_user.id), class: 'contents-link' do
           支払い方法
           %i.fa.fa-angle-right.fa-lg
       %li
@@ -90,7 +90,7 @@
           メール/パスワード
           %i.fa.fa-angle-right.fa-lg
       %li
-        = link_to '/users/new', class: 'contents-link' do
+        = link_to edit_user_path, class: 'contents-link' do
           本人情報
           %i.fa.fa-angle-right.fa-lg
       %li
