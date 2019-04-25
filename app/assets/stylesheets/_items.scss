@@ -600,13 +600,13 @@ html, body {
             top:300px;
             text-align: left;
             li{
-              width:60px;
-              height: 60px;
+              width:75px;
+              height: 75px;
               margin: 0;
             }
             img{
-              width:60px;
-              height: 60px;
+              width:75px;
+              height: 75px;
               border: none;
               object-fit: cover;
             }
@@ -631,7 +631,7 @@ html, body {
           font-size: 14px;
           float:right;
           width:300px;
-          height:420px;
+          height:375px;
           border: solid 1px $base-color;
         }
         tbody{
@@ -731,7 +731,6 @@ html, body {
     .item-description{
       width:620px;
       height:auto;
-      padding-top: 32px;
       word-break : break-all;
       p.item-description-inner{
         font-size: 20px;
@@ -858,8 +857,10 @@ html, body {
           line-height: 1.5;
         }
         button.comment-submit{
-          width:650px;
+          margin-top: 8px;
+          width:652px;
           height:48px;
+          padding: 0;
           background-color:#aaaaaa;
           span{
             font-family: "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
@@ -963,7 +964,7 @@ html, body {
             img.tops{
               width: 213px;
               height: 213px;
-            object-fit: cover;
+              object-fit: cover;
               position: absolute;
               bottom: 0;
             }
@@ -974,6 +975,7 @@ html, body {
             padding:16px;
             background-color: white;
             h3.items-name{
+              color:#333;
               text-align: left;
               font-size: 16px;
               display: block;
@@ -1039,12 +1041,15 @@ html, body {
             padding:16px;
             background-color: white;
             h3.items-name{
+              height: 48px;
+              color:#333;
               text-align: left;
               font-size: 16px;
               display: block;
               margin: 0;
             }
             .items-num{
+              color:#333;
               float:left;
               width:181px;
               height: 30px;
@@ -1060,12 +1065,12 @@ html, body {
                 height: auto;
                 float: right;
                 .fa-heart{
-                  padding-top: 3px;
                   padding-right:3px;
                   display: inline-block;
-                  float: right;
+                  float: left;
                   }
                 span.like{
+                  color:#333;
                   display: inline-block;
                   float:right;
                 }

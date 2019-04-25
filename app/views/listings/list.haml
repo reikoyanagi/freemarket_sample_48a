@@ -35,7 +35,7 @@
 
 
               %li.mypage-item-list
-                = link_to '#' ,class: 'mypage-item-link' do
+                = link_to item_path(item.id) ,class: 'mypage-item-link' do
                   %figure
                     =image_tag item.images[0].item_image.url
                   .mypage-item-link__body

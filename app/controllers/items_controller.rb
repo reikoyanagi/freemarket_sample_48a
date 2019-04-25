@@ -26,17 +26,13 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @items = Item.order('created_at DESC').limit(1)
     @item = Item.find(params[:id])
     @user = User.find_by(id: @item.user_id)
   end
 
-  def destroy
-    item = Item.find((params[:id]))
-    if item.user_id== current_user.id
-      item.destroy
-    redirect_to root_path
-    end
-
+  def edit
+    @item = Item.find(params[:id])
   end
 
   def update
@@ -51,9 +47,20 @@ class ItemsController < ApplicationController
       )
   end
 
+  def destroy
+    item = Item.find((params[:id]))
+    if item.user_id == current_user.id
+      item.destroy
+    redirect_to root_path
+    end
+  end
+
+
+
   private
 
   def item_params
+    # 画像を複数にするときは {item_image: []} に変更
     params.require(:item)
           .permit(:name, :user_id, :condition, :price, :detail, :status_id, :brand, :size,
                    images_attributes: [:item_id, :item_image],

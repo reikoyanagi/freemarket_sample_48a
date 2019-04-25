@@ -1,110 +1,231 @@
-/ 仮置きでマイページの商品詳細にしています。
-.overall
-  = render 'header'
-  = render 'pankuzu'
-  .item-box-margin
-    %h1
-      = @item.name
-    .item-main-content
-      .item-main-content__item-photo
-        .item-main-content__top-item
-          %ul.slick
-            - @item.images.each do |image|
-              %li
-                =image_tag image.item_image.url,class: "top-item"
-
-      %table.item-detail-table
-        %tbody
-          %tr
-            %th 出品者
-            %td
-              = link_to '' do
-                = @user.nickname
-
-              .review
-                .review__item-user-ratings
-                  %i.fa.fa-laugh
-                  %span 573
-                .review__item-user-ratings
-                  %i.fa.fa-meh
-                  %span 1
-                .review__item-user-ratings
-                  %i.fa.fa-frown
-                  %span 0
-          %tr
-            %th カテゴリー
-            %td
-              = link_to '' do
-                %p レディース
-              = link_to '' do
-                .item-detail-table-sub-category
-                  %i.fa.fa-chevron-right
-                    %p スカート
-              = link_to '' do
-                .item-detail-table-sub-sub-category
-                  %i.fa.fa-chevron-right
-                    %p ロング丈
-          %tr
-            %th ブランド
-            %td
-              = link_to '',class: "brand" do
-                = @item.brand
-
-          %tr
-            %th 商品のサイズ
-            %td
-              = @item.size
-          %tr
-            %th 商品の状態
-            %td
-              = @item.condition
-          %tr
-            %th 配送料の負担
-            %td
-              = @item.delivery.postage
-          %tr
-            %th 配送の方法
-            %td
-              = @item.delivery.shipping
-          %tr
-            %th 配送元地域
-            %td
-              = link_to "/" do
-                = @item.delivery.region
-
-          %tr
-            %th 発送日の目安
-            %td
-              = @item.delivery.shipping_date
-    .item-price-box.clearfix
-      %span.item-price
-        = "¥#{@item.price}"
-      %span.item-tax (税込)
-      %span.item-shipping-fee 送料込み
-    =link_to new_item_transaction_path(@item.id), class: "item-buy-btn" do
-      購入画面に進む
-
-    .item-description
-      %p.item-description-inner
-        = @item.detail
-  .item-change-box
-    =link_to "/",class: "item-edit-btn" do
-      商品の編集
-    %p or
-    =link_to "/items/#{@item.id}",class: "item-destroy-btn",method: :delete do
-      この商品を削除する
-  .item-comment-margin
-    .item-comment-margin__container
-      %form
-        %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-        %textarea.text-margin
-        %button.comment-submit
-          %span コメントする
-
-
-  .over-margin
-
-
-
-  .footer
-    = render "footer"
+-if user_signed_in? && current_user.id == @item.user_id
+  .overall
+    = render 'items/header'
+    = render 'items/pankuzu'
+    .item-box-margin
+      %h1
+        = @item.name
+      .item-main-content
+        .item-main-content__item-photo
+          .item-main-content__top-item
+            %ul.slick
+              - @item.images.each do |image|
+                %li
+                  =image_tag image.item_image.url,class: "top-item"
+        %table.item-detail-table
+          %tbody
+            %tr
+              %th 出品者
+              %td
+                = link_to '' do
+                  = @user.nickname
+                .review
+                  .review__item-user-ratings
+                    %i.fa.fa-laugh
+                    %span 573
+                  .review__item-user-ratings
+                    %i.fa.fa-meh
+                    %span 1
+                  .review__item-user-ratings
+                    %i.fa.fa-frown
+                    %span 0
+            %tr
+              %th カテゴリー
+              %td
+                = link_to '' do
+                  %p レディース
+                = link_to '' do
+                  .item-detail-table-sub-category
+                    %i.fa.fa-chevron-right
+                      %p スカート
+                = link_to '' do
+                  .item-detail-table-sub-sub-category
+                    %i.fa.fa-chevron-right
+                      %p ロング丈
+            %tr
+              %th ブランド
+              %td
+                = link_to '',class: "brand" do
+                  = @item.brand
+            %tr
+              %th 商品のサイズ
+              %td
+                = @item.size
+            %tr
+              %th 商品の状態
+              %td
+                = @item.condition
+            %tr
+              %th 配送料の負担
+              %td
+                = @item.delivery.postage
+            %tr
+              %th 配送の方法
+              %td
+                = @item.delivery.shipping
+            %tr
+              %th 配送元地域
+              %td
+                = link_to "/" do
+                  = @item.delivery.region
+            %tr
+              %th 発送日の目安
+              %td
+                = @item.delivery.shipping_date
+      .item-price-box.clearfix
+        %span.item-price
+          = "¥#{@item.price}"
+        %span.item-tax (税込)
+        %span.item-shipping-fee 送料込み
+      .item-description
+        %p.item-description-inner
+          = @item.detail
+    .item-change-box
+      =link_to "/items/#{@item.id}/edit",class: "item-edit-btn" do
+        商品の編集
+      %p or
+      =link_to "/items/#{@item.id}",class: "item-destroy-btn",method: :delete do
+        この商品を削除する
+    .item-comment-margin
+      .item-comment-margin__container
+        %form
+          %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+          %textarea.text-margin
+          %button.comment-submit
+            %span コメントする
+    .over-margin
+    .footer
+      = render "items/footer"
+-else
+  .overall
+    = render 'header'
+    = render 'pankuzu'
+    .item-box-margin
+      %h1
+        = @item.name
+      .item-main-content
+        .item-main-content__item-photo
+          .item-main-content__top-item
+            %ul.slick
+              - @item.images.each do |image|
+                %li
+                  =image_tag image.item_image.url,class: "top-item"
+        %table.item-detail-table
+          %tbody
+            %tr
+              %th 出品者
+              %td
+                = link_to '' do
+                  = @user.nickname
+                .review
+                  .review__item-user-ratings
+                    %i.fa.fa-laugh
+                    %span 573
+                  .review__item-user-ratings
+                    %i.fa.fa-meh
+                    %span 1
+                  .review__item-user-ratings
+                    %i.fa.fa-frown
+                    %span 0
+            %tr
+              %th カテゴリー
+              %td
+                = link_to '' do
+                  %p レディース
+                = link_to '' do
+                  .item-detail-table-sub-category
+                    %i.fa.fa-chevron-right
+                      %p スカート
+                = link_to '' do
+                  .item-detail-table-sub-sub-category
+                    %i.fa.fa-chevron-right
+                      %p ロング丈
+            %tr
+              %th ブランド
+              %td
+                = link_to '',class: "brand" do
+                  = @item.brand
+            %tr
+              %th 商品のサイズ
+              %td
+                = @item.size
+            %tr
+              %th 商品の状態
+              %td
+                = @item.condition
+            %tr
+              %th 配送料の負担
+              %td
+                = @item.delivery.postage
+            %tr
+              %th 配送の方法
+              %td
+                = @item.delivery.shipping
+            %tr
+              %th 配送元地域
+              %td
+                = link_to "/" do
+                  = @item.delivery.region
+            %tr
+              %th 発送日の目安
+              %td
+                = @item.delivery.shipping_date
+      .item-price-box.clearfix
+        %span.item-price
+          = "¥#{@item.price}"
+        %span.item-tax (税込)
+        %span.item-shipping-fee 送料込み
+      =link_to new_item_transaction_path(@item.id), class: "item-buy-btn" do
+        購入画面に進む
+      .item-description
+        %p.item-description-inner
+          = @item.detail
+      .item-button-container
+        .item-button-container__item-button-left
+          %button.item-button-like{name: "like", type: "button", value:  "like"}
+            %i.far.fa-heart
+            %span.item-like いいね！
+            %span.item-like-num 3
+          =link_to "", class: "item-button-report" do
+            %i.fa.fa-flag
+            %span.item-report 不適切な商品の報告
+        .item-button-container__item-button-right
+          =link_to "" do
+            %i.fa.fa-lock
+            %span あんしん・あんぜんへの取り組み
+    .item-comment-margin
+      .item-comment-margin__container
+        %form
+          %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+          %textarea.text-margin
+          %button.comment-submit
+            %span コメントする
+    .page-move
+      .page-move__back
+        =link_to "" do
+          %i.fa.fa-chevron-left
+            %p ニット セーター、ショコラフィネローブ
+      .page-move__next
+        =link_to "" do
+          嵐Tシャツ ARASHI AROUND ASIA 2008 in TOKYO
+          %i.fa.fa-chevron-right
+    .item-social-media-box
+      = image_tag("facebook-icon.png",height: "44",class: "facebook-icon")
+      =image_tag("twitter-icon.png",height: "44",class: "twitter-icon")
+      =image_tag("pinterest-icon.png",height: "44",class: "pinterest-icon")
+    .items-in-user-profile
+      .items-in-user-profile__box-container
+        %h2
+          =link_to "" do
+            = "#{@user.nickname}さんのその他の出品"
+        .items-box-content
+          = render "itembox"
+      .items-in-user-profile__box-container
+        %h2
+          =link_to "" do
+            = "#{@item.brand}その他の商品"
+        .items-box-content
+          = render "itembox"
+    .over-margin
+    .footer
+      = render "footer"
