@@ -1,4 +1,4 @@
-/ 商品編集ページ
+/ 商品購入ページ
 .single_header
   %h1.single_header__logo
     = link_to image_tag("/assets/mercarilogo-f4c823301da0441f633837b7b207f4711269ff5c49e8d82f66df3324031a30cc.svg")
@@ -14,19 +14,35 @@
 
       .contents
         .sell_content__image_input
-          .form-group
+          .form-group.clearfix
             %label
               出品画像
               %span.required_form 必須
             %p 最大10枚までアップロードできます
-            = item.fields_for :images do |img|
-              = img.label :item_image, class: 'input_area' do
-                = img.file_field :item_image, style: 'display: none;'
-                %p
-                  ドラックアンドドロップ
-                  %br またはクリックしてファイルをアップロード
-          %ul.item_image-fail.hide.add-fail
-            %li 画像を入力してください
+
+            .sell_upload.clearfix
+              .sell_upload_items_container
+                .form-group__sell_upload_items
+                  %ul.uploaded_images
+                    %li.sell_upload_item
+                      %figure.sell_upload_item__image
+                        = image_tag('/assets/member_photo_noimage_thumb.png', class: 'sell_upload_item__image__pic')
+                      .sell_upload_item__buttons
+                        = link_to '#', class: 'sell_upload_item__buttons__btn' do
+                          編集
+                        = link_to '#', class: 'sell_upload_item__buttons__btn' do
+                          削除
+
+              = item.fields_for :images, id: '', class: 'dropzone' do |img|
+                = img.label :item_image, class: '' do
+                  = img.file_field :item_image,class: 'item_image', style: 'display :none;'
+                  / 複数にするときは multiple: 'true' を追加
+                  %p
+                    ドラックアンドドロップ
+                    %br またはクリックしてファイルをアップロード
+            %ul.item_image-fail.hide.add-fail
+              %li 画像を入力してください
+
       .contents
         .sell_content__item_contents
 
