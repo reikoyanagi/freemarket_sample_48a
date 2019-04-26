@@ -28,7 +28,7 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @user = User.find_by(id: @item.user_id)
-    @items = @user.items.order('created_at DESC').limit(6)
+    @items = @user.items.order('created_at DESC').limit(6).where.not(id: @item.id)
   end
 
   def edit
