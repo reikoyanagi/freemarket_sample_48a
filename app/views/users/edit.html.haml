@@ -21,43 +21,51 @@
               = link_to '#', class: 'upload_link' do
                 本人確認書類のアップロードについて
                 %i.fa.fa-angle-right
-          .mypage-identification__form__form-group
-            %label.inner-label お名前
-            %p.inner-ptag 新本 修平
-          .mypage-identification__form__form-group
-            %label.inner-label お名前カナ
-            %p.inner-ptag シンモト シュウヘイ
-          .mypage-identification__form__form-group
-            %label.inner-label 生年月日
-            %p.inner-ptag 1993/11/16
-          .mypage-identification__form__form-group
-            %label.inner-label 郵便番号
-            .free-input 任意
-            %input.input-default{placeholder: "例）123456"}
-          .mypage-identification__form__form-group
-            %label.inner-label 都道府県
-            .free-input 任意
-            .select-prefecture
-              %select.sel-pref
-              %i.fa.fa-angle-down.fa-2x
-          .mypage-identification__form__form-group
-            %label.inner-label 市区町村
-            .free-input 任意
-            %input.input-default{placeholder: ""}
-          .mypage-identification__form__form-group
-            %label.inner-label 番地
-            .free-input 任意
-            %input.input-default{placeholder: ""}
-          .mypage-identification__form__form-group
-            %label.inner-label 建物名
-            .free-input 任意
-            %input.input-default{placeholder: ""}
-          %button.mypage-identification__form__register-button 登録する
-          .mypage-identification__form__form-group.text-right
-            %p.inner-ptag
-              = link_to '#', class: 'upload_link' do
-                本人確認の登録について
-                %i.fa.fa-angle-right
+          = form_for @user do |f|
+            = f.fields_for :address, @user.address || Address.new do |p|
+              .mypage-identification__form__form-group
+                %label.inner-label お名前
+                .inner-ptag
+                  = @user.last_name
+                  = @user.first_name
+              .mypage-identification__form__form-group
+                %label.inner-label お名前カナ
+                .inner-ptag
+                  = @user.last_name_kana
+                  = @user.first_name_kana
+              .mypage-identification__form__form-group
+                %label.inner-label 生年月日
+                .inner-ptag
+                  = @user.birth_date
+              .mypage-identification__form__form-group
+                %label.inner-label 郵便番号
+                .free-input 任意
+                .input
+                  = p.text_field :post_code , class: "input-default",placeholder: "例）123456"
+              .mypage-identification__form__form-group
+                %label.inner-label 都道府県
+                .free-input 任意
+                .select-prefecture
+                  = p.collection_select :prefecture_id, JpPrefecture::Prefecture.all, :code, :name,required:""
+                  %i.fa.fa-angle-down.fa-2x
+              .mypage-identification__form__form-group
+                %label.inner-label 市区町村
+                .free-input 任意
+                = p.text_field :city, class: "input-default"
+              .mypage-identification__form__form-group
+                %label.inner-label 番地
+                .free-input 任意
+                = p.text_field :block, class: "input-default"
+              .mypage-identification__form__form-group
+                %label.inner-label 建物名
+                .free-input 任意
+                = p.text_field :building, class: "input-default"
+              = f.submit '登録する', class: 'mypage-identification__form__register-button'
+              .mypage-identification__form__form-group.text-right
+                %p.inner-ptag
+                  = link_to '#', class: 'upload_link' do
+                    本人確認の登録について
+                    %i.fa.fa-angle-right
 
   .footer
 

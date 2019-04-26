@@ -52,7 +52,7 @@ html, body {
         line-height: 44px;
         margin-top: 8px;
         width:1020px;
-        height:44px;
+        height:43px;
         float:left;
         nav.list-left{
           height: 44px;
@@ -173,6 +173,7 @@ html, body {
               border: solid 1px $red;
               cursor: pointer;
               a.login{
+                text-decoration: none;
                 padding:0 10px;
                 color:white;
               }
@@ -192,6 +193,7 @@ html, body {
               border: solid 1px $blue;
               cursor: pointer;
               a.sign-up{
+                text-decoration: none;
                 padding:0 10px;
                 color:$blue;
               }
@@ -263,6 +265,7 @@ html, body {
         height:70px;
         text-align: center;
         a.index{
+          text-decoration: none;
           font-size: 22px;
           color:$blue;
           font-weight: bold;
@@ -280,6 +283,9 @@ html, body {
           width:213px;
           height:330px;
           margin-left: 20px;
+          .content-box {
+            text-decoration: none;
+          }
           &__photo{
             width:213px;
             height:220px;
@@ -503,6 +509,7 @@ html, body {
   a.item-btn{
     opacity: 1;
     button.fixed-btn{
+      z-index: 100;
       background-color: $red;
       width:160px;
       height:160px;
@@ -654,6 +661,7 @@ html, body {
         }
         a{
           color:$blue;
+          text-decoration: none;
           p:hover{
             border-bottom: 1px solid;
             display: inline;
@@ -687,13 +695,13 @@ html, body {
             float:left;
           }
         }
-        .fa-laugh{
+        .fa-smile-o{
           color: #e64595;
         }
-        .fa-meh{
+        .fa-meh-o{
           color: #f4a460;
         }
-        .fa-frown{
+        .fa-frown-o{
           color: skyblue;
         }
       }
@@ -717,6 +725,7 @@ html, body {
       }
     }
     a.item-buy-btn{
+      text-decoration: none;
       display: inline-block;
       background-color: $red;
       width:620px;
@@ -746,6 +755,7 @@ html, body {
       margin:24px auto;
       padding:8px 16px;
       a.item-edit-btn{
+        text-decoration: none;
         display: inline-block;
         background-color: $red;
         width:666px;
@@ -760,6 +770,7 @@ html, body {
         text-align: center;
       }
       a.item-destroy-btn{
+        text-decoration: none;
         display: inline-block;
         background-color: #AAAAAA;
         width:666px;
@@ -1094,9 +1105,9 @@ html, body {
     color: #ea352d;
     font-size: 15px;
   }
-  .fa-bell,.fa-check{
+  .fa-bell-o,.fa-check{
     color:#ccc;
-    font-size: 20px;
+    font-size: 17px;
   }
   .top-info{
     height:390px;
@@ -1116,14 +1127,14 @@ html, body {
 .twitter-icon{
   padding-right:5px;
 }
-.fa-laugh{
+.fa-smile-o{
   margin-top: 8px;
 }
-.fa-meh{
+.fa-meh-o{
   margin-top: 8px;
   margin-left: 16px;
 }
-.fa-frown{
+.fa-frown-o{
   margin-top: 8px;
   margin-left: 16px;
 }
