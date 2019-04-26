@@ -29,7 +29,7 @@
           .buy_content__user_info
             %label 配送先
             %address
-              = @user.address.prefecture.name
+              = @user.address.prefecture_id
               = @user.address.city
               = @user.address.block
               = @user.address.building

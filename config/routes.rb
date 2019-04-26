@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     post "/sign_up/credit" => 'users/registrations#credit'#クレジットカード
     post "/sign_up/create" => 'users/registrations#create'#DBに保存
     get "/sign_up/done" => 'users/registrations#done'#完了ページ
+    get "/users/:id/profile" => 'users#profile', as: :user_profile
+    patch "/users/:id/profile" => 'users#profile_update' , as: :update_user_profile
   end
 
   resources :items do
