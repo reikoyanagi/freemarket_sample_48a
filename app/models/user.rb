@@ -20,7 +20,7 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :address
 
   # 出品後の購入機能
-
+  has_one :credit_card, dependent: :destroy
   has_many :transactions, dependent: :destroy
 
 end
