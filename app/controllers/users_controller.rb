@@ -12,7 +12,7 @@ class UsersController < ApplicationController
 
   def profile_update
     if current_user.update(user_profile_params)
-      redirect_to edit_user_path
+      redirect_to user_path
     else
       redirect_to user_profile_path
     end

@@ -11,9 +11,10 @@
     = form_for @user do |f|
       .main-content
         .main-content__user-icon-topbox
+          = image_tag("mypage_main-content-top-bg.jpg")
           = link_to '#', class: 'detail-link' do
             .detail-link__avatar
-              =image_tag("/assets/member_photo_noimage_thumb.png")
+              = image_tag("member_photo_noimage_thumb.png")
             .detail-link__nickname
               = @user.nickname
             .detail-link__numbers

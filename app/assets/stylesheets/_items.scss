@@ -263,6 +263,7 @@ html, body {
         height:70px;
         text-align: center;
         a.index{
+          text-decoration: none;
           font-size: 22px;
           color:$blue;
           font-weight: bold;
@@ -503,6 +504,7 @@ html, body {
   a.item-btn{
     opacity: 1;
     button.fixed-btn{
+      z-index: 100;
       background-color: $red;
       width:160px;
       height:160px;
