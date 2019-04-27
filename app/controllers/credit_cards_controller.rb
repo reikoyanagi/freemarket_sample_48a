@@ -11,7 +11,7 @@ class CreditCardsController < ApplicationController
   end
 
   def new
-    @credit = CreditCard.where(user_id: current_user.id)
+    credit = CreditCard.where(user_id: current_user.id)
   end
 
 
@@ -20,7 +20,8 @@ class CreditCardsController < ApplicationController
     customer = Payjp::Customer.create(
       card: params['payjp-token'],
       )
-    @credit = CreditCard.new(user_id: current_user.id, token_id: customer.default_card)
+    @credit = CreditCard.new(user_id: current_user.id, token_id: customer.id)
+    binding.pry
     if @credit.save
       redirect_to action: "show"
     else

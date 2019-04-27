@@ -7,14 +7,15 @@
     %section.credit-content
       %h2.credit-content__header
         支払い方法
-      = form_tag(controller: :credit_cards, action: :create, method: :post, id: 'charge-form', name: 'inputForm') do
+      = form_tag({action: :create, method: :post}, name:"inputForm") do
         .credit-content__form
           .card-form
             .card-form__box
               %label.card-form__box-label カード番号
               %span.card-form__box-require 必須
               %br
-              %input#payment_card_no.card-form__box-input{"data-input-type":"card", maxlength: "19", placeholder: "半角数字のみ", type: "text"}
+              = text_field_tag "number", "", class: "card-form__box-input", placeholder: "半角数字のみ", id: "card_number", type: "text", maxlength: "19", "data-input-type":"card"
+              -# %input#card_number.card-form__box-input{"data-input-type":"card", maxlength: "19", placeholder: "", type: "text", name: "card_number"}
               %ul#card-no-error-wrapper.card-form__box-error
               %ul.card-form__box-card
                 .card-display
@@ -58,17 +59,17 @@
             %ul#expire-mm-error-wrapper.card-form__box-error
             .card-form__box-wrap
               %select#exp_year.payment_card_expire{name: "exp_year", type: "text"}
-                %option{value: "19"} 19
-                %option{value: "20"} 20
-                %option{value: "21"} 21
-                %option{value: "22"} 22
-                %option{value: "23"} 23
-                %option{value: "24"} 24
-                %option{value: "25"} 25
-                %option{value: "26"} 26
-                %option{value: "27"} 27
-                %option{value: "28"} 28
-                %option{value: "29"} 29
+                %option{value: "2019"} 19
+                %option{value: "2020"} 20
+                %option{value: "2021"} 21
+                %option{value: "2022"} 22
+                %option{value: "2023"} 23
+                %option{value: "2024"} 24
+                %option{value: "2025"} 25
+                %option{value: "2026"} 26
+                %option{value: "2027"} 27
+                %option{value: "2028"} 28
+                %option{value: "2029"} 29
               %i.fas.fa-icon-arrow-bottom
             %span
               年
@@ -78,13 +79,14 @@
               セキュリティーコード
             %span.card-form__box-require
               必須
-            %input#cvc.card-form__box-input{placeholder: "カード背面４桁もしくは３桁の番号", type: "number", value: ""}
+            = text_field_tag "cvc", "", placeholder: "カード背面４桁もしくは３桁の番号", class:"card-form__box-input", maxlength: "4", id: "cvc"
+            -# %input#cvc.{placeholder: "", type: "number", value: "", name: "cvc"}
             %ul#security-code-error-wrapper.card-form__box-error
             .card-form__box-seqcode
               .signup-seqcode-text
                 %span.question? カード裏面の番号とは？
-          %p#primary-error.has-error-text
-            = submit_tag "追加する", class: "btn-red"
+            %button#card_token
+              = submit_tag "追加する", "id": "token_submit"
 
 
     = render 'credit-footer'
