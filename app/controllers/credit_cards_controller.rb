@@ -26,6 +26,7 @@ class CreditCardsController < ApplicationController
     else
       redirect_to action: "create"
     end
+
   end
 
   private
