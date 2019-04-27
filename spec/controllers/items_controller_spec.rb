@@ -1,9 +1,6 @@
 require 'rails_helper'
 
 describe ItemsController, type: :controller do
-
-
-
   describe 'GET #new' do
   let(:user) { create(:user) }
     context 'log in' do
@@ -22,9 +19,6 @@ describe ItemsController, type: :controller do
       end
     end
   end
-
-
-
   describe 'GET #edit' do
     it "assigns the requested item to @item" do
       item = create(:item)
@@ -38,9 +32,6 @@ describe ItemsController, type: :controller do
       expect(response).to render_template :edit
     end
   end
-
-
-
   describe 'GET #index' do
     it "populates an array of items ordered by created_at DESC" do
       items = create_list(:item, 3)
