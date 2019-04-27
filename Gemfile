@@ -94,3 +94,6 @@ gem 'jp_prefecture'
 
 gem 'dropzonejs-rails'
 gem 'gon'
+
+gem "omniauth"
+gem "omniauth-facebook"
