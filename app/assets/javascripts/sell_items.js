@@ -1,45 +1,45 @@
 
-// $(function(){
-//   $('.item_image1').change(function(){
-//     if ( $(this).val().length !=0 ){
-//       console.log($(this).val())
-//       var html = build_item_image_form()
-//       $('.input_area').append(html);
-//     }
-//   })
-// })
-
-// Dropzone.autoDiscover = false
-
-// new Dropzone '#upload-dropzone'
-//   paramName: 'item[images_attributes][0][item_image][]'
-
-
-
-
-// プレビューの表示
 $(function(){
 
-  // フォームのhtml
-  function build_item_image_form(){
-    var item_image_form = `<input class = "item_image" multiple="multiple" type="file" name="item[images_attributes][0][item_image][]" id="item_images_attributes_0_item_image" />`
+  send_file_obj = {}
+  var stock_index = []
+  // プレビューの表示、表示、送信ファイル作成
+  function make_preview(send_img_cnt,filelist){
 
-    return item_image_form;
-  }
+    var num = stock_index.length
+    $.each(filelist, function(i,file){
+      stock_index.push(i)
+      if (send_img_cnt > 0){
+        var i = i + num
+      }
+      send_file_obj[i] = file
+      // ファイルリーダーのインスタンスを作成する
+      var reader = new FileReader();
+      // ファイルの読み込みが成功した時の記述
+      reader.onload =function(e){
+        var url = e.target.result;
+        // imageをデータとして取得する
+        var preview = `<li id='preview' data-id='${i}' class="sell_upload_item">
+                         <figure class='sell_upload_item__image'>
+                           <img class="sell_upload_item__image__pic" src="${url}" />
+                         </figure>
+                         <div id = '#btns' class='sell_upload_item__buttons'>
+                           <a class="sell_upload_item__buttons__btn">編集</a>
+                           <a id = 'remove_btn' class="sell_upload_item__buttons__btn">削除</a>
+                         </div>
+                       </li>`
 
-  // プレビューのhtml
-  function build_preview(i,url){
-    var preview = `<li id='preview${i}' data-id='${i}' class="sell_upload_item">
-                     <figure class='sell_upload_item__image'>
-                       <img class="sell_upload_item__image__pic" src="${url}" />
-                     </figure>
-                     <div id = '#btns' class='sell_upload_item__buttons' index='${i}'>
-                       <a class="sell_upload_item__buttons__btn">編集</a>
-                       <a id = 'remove_btn' class="sell_upload_item__buttons__btn">削除</a>
-                     </div>
-                   </li>`
+        $('.uploaded_images').append(preview);
+        if ($('.uploaded_images').children().length == 5){
+          $('.input_area ').css('width','100%')
+        } else {
+          var width = $('.input_area').width()-128;
+          $('.input_area ').css('width',width)
+        }
+      }
+      reader.readAsDataURL(file);
+    })
 
-    return preview;
   }
 
   // プレビューの削除
@@ -48,75 +48,43 @@ $(function(){
       var preview_box = $(this).parent().parent()
       var i = preview_box.attr('data-id');
       preview_box.remove();
-
+      delete send_file_obj[i]
     });
   });
+// -------------------------------------------------------------------
+  // 発火（ドラッグ）
+  $('.input_area').on('dragover',function(e){
+    e.preventDefault();
+  })
 
+  $('.input_area').on('drop',function(e){
+    e.preventDefault();
+    var image_filelist = e.originalEvent.dataTransfer.files;
+    var file_count = image_filelist.length
+    var send_img_cnt = Object.keys(send_file_obj).length
 
-
-
-
-
-
-
-  // プレビューの追加
-  function add_preview(i,url){
-    var preview = build_preview(i,url);
-    $('.input_area').css('width','')
-    $('.uploaded_images').append(preview);
-  }
-
-  // ファイルデータを格納
-  images_file = [];
-  // urlを格納
-  images_stock = [];
-  function get_images(){
-
-    if ( $('.item_image').val().length != 0 ){
-        // 投稿された画像をfileオブジェクトで取得する
-        var images = $('.item_image').prop('files');
-
-        if ( (index.length + images.length) <= 10){
-          $.each(images, function(index,image){
-            images_file.push(image)
-            // ファイルリーダーのインスタンスを作成する
-            var reader = new FileReader();
-            // ファイルの読み込みが成功した時の記述
-            reader.onload =function(e){
-              var url = e.target.result;
-              // imageをデータとして取得する
-              images_stock.push(url);
-            }
-
-            reader.readAsDataURL(image);
-          })
-        }
+    if ( file_count != 0 && file_count + send_img_cnt <= 10){
+      make_preview(send_img_cnt,image_filelist);
+      $('.item_image').val('');
     }
-  }
+  })
 
+// --------------------------------------------------------
   // 発火（画像投稿）
-  var index = []
   $('.item_image').change(function(){
-    $.when(
-      get_images()
-    )
-    .done(
-      setTimeout(function(){
-        $.each(images_stock,function(i,url){
-          if (($.inArray(i,index)) === -1 ){
-            index.push(i)
-            add_preview(i,url);
-          }
-        })
-      },1000)
-    )
-    $(this).val('');
-    console.log(images_file)
+    // 投稿された画像をfileオブジェクトで取得する
+    var image_filelist = $('.item_image').prop('files');
+    var file_count = image_filelist.length;
+    var send_img_cnt = Object.keys(send_file_obj).length;
 
+    if ( file_count != 0 && file_count + send_img_cnt <= 10){
+      make_preview(send_img_cnt,image_filelist);
+      $('.item_image').val('');
+    }
   })
 
 })
-
+// -----------------------------------------------------------
 
 // 配送料が入力されると配送方法を表示させる
 $(function(){
@@ -153,8 +121,8 @@ $(function(){
   $('#sell_items_form').on('submit',function(e){
     e.preventDefault();
     var formdata = new FormData(this);
-    $.each(images_file,function(index,image){
-      formdata.append('item[images_attributes][0][item_image][]',image)
+    $.each(send_file_obj,function(index,file){
+      formdata.append('item[images_attributes][0][item_image][]',file)
     })
 
     $.ajax({
