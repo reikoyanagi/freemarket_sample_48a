@@ -4,39 +4,33 @@ class CreditCardsController < ApplicationController
   require "payjp"
 
   def index
-    @credit_card = Credit_card.new
   end
 
   def show
-    @credit_card = Credit_card_where(user_id: current_user.id).first
-    if @credit_card.blank?
-      redirect_to action: "new"
-    end
+    credit = CreditCard.where(user_id: current_user.id).first
   end
 
   def new
-    Payjp.api_key = 'sk_test_0ed9e660871befcb2421e447'
-    Payjp::Token.create({
-      :card => {
-        :number => '4242424242424242',
-        :exp_month => '2',
-        :exp_year => '2020',
-        :cvc => '123'
-      }},
-      {
-        'X-Payjp-Direct-Token-Generate': 'true'
-      })
+    @credit = CreditCard.where(user_id: current_user.id)
   end
 
 
   def create
-    @credit_card = Credit_card.new(credit_params)
-    @credit_card.save
+    Payjp.api_key = 'sk_test_0ed9e660871befcb2421e447'
+    customer = Payjp::Customer.create(
+      card: params['payjp-token'],
+      )
+    @credit = CreditCard.new(user_id: current_user.id, token_id: customer.default_card)
+    if @credit.save
+      redirect_to action: "show"
+    else
+      redirect_to action: "create"
+    end
   end
 
   private
   def credit_params
-    params.require(:credit_card).permit(:token_id)
+    params.permit(:token_id).merge(id: current_user.id)
   end
 
 end

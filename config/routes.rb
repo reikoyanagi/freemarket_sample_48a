@@ -25,6 +25,9 @@ Rails.application.routes.draw do
   get 'listings/in_progress' => 'listings#in_progress'
   get 'listings/completed' => 'listings#completed'
 
-  resources :users
-    resources :credit_cards
+  resources :users do
+  get "/credit_cards/new" => 'credit_cards#new', as: :new_credit_card #新規クレジット画面
+    post "/credit_cards/create" => 'credit_cards#create', as: :credit_card#クレジット情報登録
+    get "/credit_cards/show" => 'credit_cards#show', as: :show_credit_card#クレジット情報画面
+  end
 end
