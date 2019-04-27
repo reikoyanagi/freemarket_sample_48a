@@ -3,13 +3,17 @@ class ItemsController < ApplicationController
   require 'payjp'
 
   def index
-    @items = Item.order('created_at DESC').limit(4)
+    @items = Item.includes(:user).order('created_at DESC').limit(4)
   end
 
   def new
-    @item = Item.new
-    @item.images.build
-    @item.build_delivery
+    if user_signed_in?
+      @item = Item.new
+      @item.images.build
+      @item.build_delivery
+    else
+      redirect_to user_session_path
+    end
   end
 
   def create
