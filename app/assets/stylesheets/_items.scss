@@ -52,7 +52,7 @@ html, body {
         line-height: 44px;
         margin-top: 8px;
         width:1020px;
-        height:44px;
+        height:43px;
         float:left;
         nav.list-left{
           height: 44px;
@@ -173,6 +173,7 @@ html, body {
               border: solid 1px $red;
               cursor: pointer;
               a.login{
+                text-decoration: none;
                 padding:0 10px;
                 color:white;
               }
@@ -192,6 +193,7 @@ html, body {
               border: solid 1px $blue;
               cursor: pointer;
               a.sign-up{
+                text-decoration: none;
                 padding:0 10px;
                 color:$blue;
               }
@@ -281,6 +283,9 @@ html, body {
           width:213px;
           height:330px;
           margin-left: 20px;
+          .content-box {
+            text-decoration: none;
+          }
           &__photo{
             width:213px;
             height:220px;
@@ -656,6 +661,7 @@ html, body {
         }
         a{
           color:$blue;
+          text-decoration: none;
           p:hover{
             border-bottom: 1px solid;
             display: inline;
@@ -719,6 +725,7 @@ html, body {
       }
     }
     a.item-buy-btn{
+      text-decoration: none;
       display: inline-block;
       background-color: $red;
       width:620px;
@@ -748,6 +755,7 @@ html, body {
       margin:24px auto;
       padding:8px 16px;
       a.item-edit-btn{
+        text-decoration: none;
         display: inline-block;
         background-color: $red;
         width:666px;
@@ -762,6 +770,7 @@ html, body {
         text-align: center;
       }
       a.item-destroy-btn{
+        text-decoration: none;
         display: inline-block;
         background-color: #AAAAAA;
         width:666px;

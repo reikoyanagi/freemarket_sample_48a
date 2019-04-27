@@ -37,13 +37,6 @@ describe Address do
       expect(address.errors[:block]).to include("can't be blank")
     end
 
-    #user_idが空である場合登録できないか
-    it "is invalid without a user_id" do
-      address = build(:address, user_id: nil)
-      address.valid?
-      expect(address.errors[:user_id]).to include("can't be blank")
-    end
-
     #DBに保存されたかどうか
     it "is valid with a phone_number, post_code, prefecture_id, city, block, building, user_id" do
       user = build(:user)

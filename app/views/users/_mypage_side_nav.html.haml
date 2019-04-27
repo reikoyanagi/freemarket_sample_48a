@@ -74,7 +74,7 @@
       設定
     %ul.mypage-nav__list
       %li
-        = link_to user_profile_path, class: 'contents-link' do
+        = link_to user_profile_path(current_user.id), class: 'contents-link' do
           プロフィール
           %i.fa.fa-angle-right.fa-lg
       %li
@@ -85,12 +85,14 @@
         = link_to credit_card_path(current_user.id), class: 'contents-link' do
           支払い方法
           %i.fa.fa-angle-right.fa-lg
+
+     
       %li
         = link_to '#', class: 'contents-link' do
           メール/パスワード
           %i.fa.fa-angle-right.fa-lg
       %li
-        = link_to edit_user_path, class: 'contents-link' do
+        = link_to edit_user_path(current_user.id), class: 'contents-link' do
           本人情報
           %i.fa.fa-angle-right.fa-lg
       %li

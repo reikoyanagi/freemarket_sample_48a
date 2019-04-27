@@ -17,7 +17,7 @@
         %ul.tabs
           %li
             %h3
-              = link_to '/listings/list', class: 'active' do
+              = link_to listings_list_path(current_user.id), class: 'active' do
                 出品中
           %li
             %h3
