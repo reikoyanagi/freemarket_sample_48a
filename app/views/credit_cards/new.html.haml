@@ -21,20 +21,20 @@
                 -# %input#card_number.card-form__box-input{"data-input-type":"card", maxlength: "19", placeholder: "", type: "text", name: "card_number"}
                 %ul#card-no-error-wrapper.card-form__box-error
                 %ul.card-form__box-card
-                  .card-display
-                    = image_tag("visa.svg", class: "card-display", width:"49", height:"20")
-                  .card-display
-                    = image_tag("master-card.svg", class: "card-display", width:"34", height:"20")
-                  .card-display
-                    = image_tag("saison-card.svg", class: "card-display", width:"30", height:"20px")
-                  .card-display
-                    = image_tag("jcb.svg", class: "card-display", width:"32", height:"20")
-                  .card-display
-                    = image_tag("american_express.svg", class: "card-display", width:"21", height:"20")
-                  .card-display
-                    = image_tag("dinersclub.svg", class: "card-display", width:"32", height:"20")
-                  .card-display
-                    = image_tag("discover.svg", class: "card-display", width:"32", height: "20")
+                  %li.card-display
+                    = image_tag("visa.svg", class: "visa")
+                  %li.card-display
+                    = image_tag("master-card.svg", class: "master")
+                  %li.card-display
+                    = image_tag("saison-card.svg", class: "saison")
+                  %li.card-display
+                    = image_tag("jcb.svg", class: "jcb")
+                  %li.card-display
+                    = image_tag("american_express.svg", class: "amex")
+                  %li.card-display
+                    = image_tag("dinersclub.svg", class: "diner")
+                  %li.card-display
+                    = image_tag("discover.svg", class: "discover")
 
             .card-form__term
               %label.card-form__box-label

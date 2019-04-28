@@ -6,30 +6,42 @@ class TransactionsController < ApplicationController
 
   def new
     @item = Item.find(params[:item_id])
-    @transaction = Transaction.new
     @user = current_user
     credit = CreditCard.where(user_id: current_user.id).first
+    if credit.blank?
+      move_to_credit
+    else
       Payjp.api_key = 'sk_test_0ed9e660871befcb2421e447'
-      customer = Payjp::Customer.retrieve('cus_96980e7d41efd5207b29bde0eec9')
-    @default_card_infomation = customer.cards.retrieve('car_29c1583628bbff7d080e98ca8e78')
+    customer = Payjp::Customer.retrieve(credit.customer_id)
+    @default_card_infomation = customer.cards.retrieve(credit.card_id)
+  end
   end
 
   def create
     @item = Item.find(params[:item_id])
     @user = current_user
+    @transaction = Transaction.create(user_id: current_user.id, item_id: transaction_params[:item_id])
+    @transaction.save
+    @item[:status_id] = 2
+    @item.save
     credit = CreditCard.where(user_id: current_user.id).first
-    customer = Payjp::Customer.retrieve('cus_96980e7d41efd5207b29bde0eec9')
-    @default_card_infomation = customer.cards.retrieve('car_29c1583628bbff7d080e98ca8e78')
+    customer = Payjp::Customer.retrieve(credit.customer_id)
+    @default_card_infomation = customer.cards.retrieve(credit.card_id)
     Payjp.api_key = 'sk_test_0ed9e660871befcb2421e447'
       amount = @item.price
       charge = Payjp::Charge.create(amount: amount,
       customer: credit.customer_id,
       currency: 'jpy',
       )
-    @transaction = Transaction.new
-    @transaction.save
-    @item[:status_id] = 2
-    @item.save
+  end
+
+  private
+  def transaction_params
+    params.permit(:user_id, :item_id)
+  end
+
+  def move_to_credit
+    redirect_to user_new_credit_card_path(user_id: current_user.id)
   end
 
 end

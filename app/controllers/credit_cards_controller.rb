@@ -5,6 +5,9 @@ class CreditCardsController < ApplicationController
 
   def index
     credit = CreditCard.where(user_id: current_user.id).first
+    if credit.present?
+      redirect_to action: "show"
+    end
   end
 
   def show
@@ -37,6 +40,7 @@ class CreditCardsController < ApplicationController
     credit = CreditCard.where(user_id: current_user.id).first
     Payjp.api_key = 'sk_test_0ed9e660871befcb2421e447'
     customer = Payjp::Customer.retrieve(credit.customer_id)
+    @default_card_infomation = customer.cards.retrieve(credit.card_id)
     customer.delete
     credit.delete
   end
