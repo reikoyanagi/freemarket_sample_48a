@@ -1,11 +1,37 @@
-crumb :root do
-  link "Home", root_path
+crumb :items do
+  link "メルカリ", items_path
+end
+
+crumb :item do |item|
+  link "#{item.name}", item_path(item)
+  parent :items
 end
 
 crumb :users do
-  link 'Users', users_path
-  parent :root
+  link "メルカリ", users_path
 end
+
+crumb :user do |user|
+  link "マイページ", users_path(user)
+  parent :users
+end
+
+crumb :profile_user do |user|
+  link "プロフィール", users_path(user)
+  parent :users
+end
+
+crumb :credit_card do |credit|
+  link "支払い方法", users_path(credit)
+  parent :user
+end
+
+crumb :new_credit do |credit|
+  link "クレジットカード情報入力", users_path(credit)
+  parent :credit_card
+end
+
+
 # crumb :projects do
 #   link "Projects", projects_path
 # end
