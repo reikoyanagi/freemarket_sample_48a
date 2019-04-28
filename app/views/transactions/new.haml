@@ -1,0 +1,56 @@
+.single_header
+  %h1.single_header__logo
+    = link_to image_tag("/assets/mercarilogo-f4c823301da0441f633837b7b207f4711269ff5c49e8d82f66df3324031a30cc.svg")
+
+.main
+  .main__container
+    %h2.main__container__title 購入を確定しますか？
+    = form_tag({controller: :transactions, action: :create, method: :post},class:"main-buy") do
+      %ul.buy_content
+        %li
+          .buy_content__item
+            = image_tag @item.images[0].item_image.url, height:"148", width:"148", class:"image"
+            %p.buy_content__item__name
+              = @item.name
+            .buy_content__item__price
+              .buy_price
+                %p
+                  = "¥#{@item.price}"
+                  %span
+                    = @item.delivery.postage
+              .buy_price_check.clearfix
+                %p 支払い金額
+                %p
+                  = "¥#{@item.price}"
+              .red-btn
+                = submit_tag "購入する", class: "red-btn"
+
+        %li
+          .buy_content__user_info
+            %label 配送先
+            %address
+              = @user.address.prefecture_id
+              = @user.address.city
+              = @user.address.block
+              = @user.address.building
+              %br
+              = @user.nickname
+            = link_to class: "buy-user-info-fix" do
+              変更する
+              = fa_icon 'chevron-right'
+        %li
+          .buy_content__credit_info
+            %label 支払方法
+            %br
+            = " **** **** **** " + @default_card_infomation.last4
+            %br
+            = brand = @default_card_infomation.brand.to_s
+            - exp_month = @default_card_infomation.exp_month.to_s
+            - exp_year = @default_card_infomation.exp_year.to_s
+            = exp_month + "/" + exp_year
+            %p
+              = link_to class: "buy-user-info-fix" do
+                変更する
+                = fa_icon 'chevron-right'
+
+= render "devise/registrations/footer"

@@ -30,31 +30,37 @@
       margin-top: 8px;
       line-height: 1.5;
     }
-    .input_area {
-      display: block;
-      position: relative;
-      min-height: 162px;
-      background: #f5f5f5;
-      border: 1px dashed #ccc;
-      font-size: 0;
-      text-align: center;
+    .sell_upload{
       margin-top: 16px;
-      &__file-upload{
-        border: 0;
-        outline: 0;
-        font-family: inherit;
-        -webkit-appearance: none;
-      }
-      p {
-        font-weight: bold;
-        position: absolute;
-        top: 50%;
-        left: 16px;
-        right: 16px;
+      width: 620px;
+      .input_area {
+        margin-left: 10px;
+        float: right;
+        width: 100%;
+        display: block;
+        position: relative;
+        min-height: 162px;
+        background: #f5f5f5;
+        border: 1px dashed #ccc;
+        font-size: 0;
         text-align: center;
-        font-size: 14px;
-        line-height: 1.5;
-        transform: translate(0, -50%);
+        &__file-upload{
+          border: 0;
+          outline: 0;
+          font-family: inherit;
+          -webkit-appearance: none;
+        }
+        p {
+          font-weight: bold;
+          position: absolute;
+          top: 50%;
+          left: 16px;
+          right: 16px;
+          text-align: center;
+          font-size: 14px;
+          line-height: 1.5;
+          transform: translate(0, -50%);
+        }
       }
     }
   }
@@ -126,13 +132,131 @@
         }
       }
     }
-    .red_btn {
-      @include button;
-      @include red_btn;
-      margin-top: 40px;
-    }
     .return_btn {
       @include return_btn;
+    }
+  }
+}
+.red_btn {
+  @include button;
+  @include red_btn;
+  margin-top: 40px;
+}
+
+
+// 出品完了後のcss
+// 表示をするには show を付け加える。
+.modal{
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 3000;
+  overflow-x: hidden;
+  overflow-y: auto;
+  &__inner{
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    width: 95%;
+    max-width: 600px;
+    margin: 20px auto;
+    background: #fff;
+    .modal-head{
+      font-weight: bold;
+      text-align: center;
+      line-height: 80px;
+      font-size: 16px;
+    }
+    .sell-modal-body{
+      border-top: 1px solid #eee;
+      padding: 40px;
+      p{
+        margin-top: 8px;
+        a{
+          text-decoration: none;
+          color: $blue;
+        }
+      }
+    }
+  }
+}
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left:0;
+  z-index: 2999;
+  background: #000;
+  opacity: 0.64
+}
+.animation{
+  opacity: 1;
+}
+.modal-open{
+  overflow: hidden;
+}
+.show{
+  display: block;
+}
+
+// バリデーションに引っかかった時のcss
+.hide {
+  display: none;
+}
+.add-fail{
+  list-style: none;
+  color: $red;
+  line-height: 1.5;
+  font-size: 14px;
+  li{
+    margin-top: 8px;
+  }
+}
+
+// 画像が追加された時のcss
+.sell_upload_items_container{
+  display: inline;
+  .form-group__sell_upload_items{
+    float: left;
+    display: inline;
+    ul{
+      display: inline-block;
+      .sell_upload_item{
+        margin-left: 0;
+        position: relative;
+        width: 116px;
+        margin-bottom: 10px;
+        display: inline-block;
+        &__image{
+          overflow: hidden;
+          margin: 0;
+          position: relative;
+          padding: 0;
+          height: 116px;
+          background-color: $base-color;
+          text-align: center;
+          &__pic{
+            position: static;
+            width: 105px;
+            height: 140px;
+          }
+        }
+        &__buttons{
+          font-size: 14px;
+          &__btn{
+            display: inline-block;
+            width: 48%;
+            background-color: $base-color;
+            line-height: 44px;
+            text-align: center;
+          }
+        }
+      }
     }
   }
 }

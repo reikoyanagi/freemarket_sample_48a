@@ -9,9 +9,14 @@
       margin: 40px 0 8px 0;
     }
     &__list
+      li:first-child{
+        border-top: none;
+      }
       li{
+        display: block;
         border-top: 1px solid #eee;
         box-sizing: border-box;
+        width:280px;
         i{
           position: absolute;
           top: 50%;
@@ -21,6 +26,7 @@
           font-size: 25px;
         }
         .contents-link{
+          text-decoration: none;
           position: relative;
           display: block;
           min-height: 48px;

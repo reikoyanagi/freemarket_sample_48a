@@ -6,39 +6,65 @@
   .main__container
     %h2.main__container__title 商品の情報入力
     / 出品機能 form
-    = form_for @item, html: {class: 'sell_content'}do |item|
+    = form_for @item, html: {id: 'sell_items_form', class: 'sell_content'} do |item|
       //new_item がクラスとして付与されている
       //inputは入れているが枠全体に適応していない
       //参考サイト[https://qiita.com/QUANON/items/882b88b6b9bf3c509af8]
 
       .contents
         .sell_content__image_input
-          .form-group
+          .form-group.clearfix
             %label
               出品画像
               %span.required_form 必須
             %p 最大10枚までアップロードできます
-            = item.fields_for :images do |img|
-              = img.label :item_image, class: 'input_area' do
-                = img.file_field :item_image, style: 'display: none;'
-                %p
-                  ドラックアンドドロップ
-                  %br またはクリックしてファイルをアップロード
+
+            .sell_upload.clearfix
+              .sell_upload_items_container
+                .form-group__sell_upload_items
+                  %ul.uploaded_images
+                    / %li.sell_upload_item
+                    /   %figure.sell_upload_item__image
+                    /     = image_tag('/assets/member_photo_noimage_thumb.png', class: 'sell_upload_item__image__pic')
+                    /   .sell_upload_item__buttons
+                    /     = link_to '#', class: 'sell_upload_item__buttons__btn' do
+                    /       編集
+                    /     = link_to '#', class: 'sell_upload_item__buttons__btn' do
+                    /       削除
+
+              = item.fields_for :images, id: 'upload-dropzone', class: 'dropzone' do |img|
+                = img.label :item_image, class: 'input_area dropzone' do
+                  = img.file_field :item_image,class: 'item_image dropzone', style: 'display :none;'
+                  / 複数にするときは multiple: 'true' を追加
+                  %p
+                    ドラックアンドドロップ
+                    %br またはクリックしてファイルをアップロード
+            %ul.item_image-fail.hide.add-fail
+              %li 画像を入力してください
+
       .contents
         .sell_content__item_contents
+
           .form-group
             %label 商品名
             %span.required_form 必須
             = item.text_field :name, placeholder: "商品名（必須40文字まで）"
+          %ul.item_name-fail.hide.add-fail
+            %li 入力してください
+
           .form-group
             %label 商品の説明
             %span.required_form 必須
             = item.text_area :detail, placeholder: "商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に１万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "5"
+          %ul.detail-fail.hide.add-fail
+            %li 入力してください
+
       .contents.clearfix
         .sell_content__item_type
           %h3.head
             商品詳細
           .sell_form
+
             .form-group
               %label
                 カテゴリー
@@ -47,13 +73,17 @@
                 %select
                   %option{value: ""} --
                 / # = icon 'fa', "chevron-down"
+
             .form-group
               %label
                 商品状態
               %span.required_form 必須
               .select-wrap.select-default
-                = item.select :condition, [['新品、未使用', "1" ],['未使用に近い', "2"],['目立った傷や汚れなし', "3" ],['やや傷や汚れあり', "4" ],['傷や汚れあり', "5" ],['全体的に状態が悪い', "6" ] ] , prompt: '--'
+                = item.select :condition, [['新品、未使用'],['未使用に近い'],['目立った傷や汚れなし'],['やや傷や汚れあり'],['傷や汚れあり'],['全体的に状態が悪い'] ] , prompt: '--'
                 / = icon 'fa', "chevron-down"
+            %ul.condition-fail.hide.add-fail
+              %li 選択してください
+
       .contents.clearfix
         .sell_content__delivery
           %h3.head
@@ -61,6 +91,7 @@
           / 出品機能 form
           = item.fields_for :delivery do |del|
             .sell_form
+
               .form-group
                 %label
                   配送料の負担
@@ -68,7 +99,10 @@
                 .select-wrap.select-default
                   = del.select :postage, [['送料込み（出品者負担）'],['着払い（購入者負担）']], prompt: '--'
                   / = icon 'fa', "chevron-down"
-              .form-group
+              %ul.postage-fail.hide.add-fail
+                %li 選択してください
+
+              .form-group.hide.how_shipping
                 //配送方法は配送料の負担を決めた後に出てくるように設定
                 %label
                   配送の方法
@@ -76,6 +110,9 @@
                 .select-wrap.select-default
                   = del.select :shipping, [['未定'],['らくらくメルカリ便'],['ゆうメール'],['レターパック'],['普通郵便(定形、定形外)'],['クロネコヤマト'],['ゆうパック'],['クリックポスト'],['ゆうパケット']], prompt: '--'
                   / = icon 'fa', "chevron-down"
+              %ul.shipping-fail.hide.add-fail
+                %li 選択してください
+
               .form-group
                 %label
                   発送元の地域
@@ -83,6 +120,8 @@
                 .select-wrap.select-default
                   = del.select :region, [['北海道'],['青森県'],['岩手県'],['宮城県'],['秋田県'],['山形県'],['福島県'],['茨城県'],['栃木県'],['群馬県'],['埼玉県'],['千葉県'],['東京都'],['神奈川県'],['新潟県'],['富山県'],['石川県'],['福井県'],['山梨県'],['長野県'],['岐阜県'],['静岡県'],['愛知県'],['三重県'],['滋賀県'],['京都府'],['大阪府'],['兵庫県'],['奈良県'],['和歌山県'],['鳥取県'],['島根県'],['岡山県'],['広島県'],['山口県'],['徳島県'],['香川県'],['愛媛県'],['高知県'],['福岡県'],['佐賀県'],['長崎県'],['熊本県'],['大分県'],['宮崎県'],['鹿児島県'],['沖縄県'],['未定']], prompt: '--'
                   / = icon 'fa', "chevron-down"
+              %ul.region-fail.hide.add-fail
+                %li 選択してください
               .form-group
                 %label
                   発送までの日数
@@ -90,6 +129,9 @@
                 .select-wrap.select-default
                   = del.select :shipping_date, [['1~2日で発送'],['2~3日で発送'],['4~7日で発送']], prompt: '--'
                   / = icon 'fa', "chevron-down"
+              %ul.shipping_date-fail.hide.add-fail
+                %li 選択してください
+
       .contents.clearfix
         .contents__price
           .form-group
@@ -97,25 +139,41 @@
               販売価格(300〜9,999,999)
             .sell_content__price__form
               .sell_content__price__form__input_area.clearfix
-                .input_label
-                  %label
-                    価格
-                  %span.required_form 必須
-                .price_input
-                  ¥
-                  = item.text_field :price, placeholder: "例）300"
+                .clearfix
+                  .input_label
+                    %label
+                      価格
+                    %span.required_form 必須
+                  .price_input
+                    ¥
+                    = item.text_field :price, placeholder: "例）300"
+                %ul.price-fail.hide.add-fail
+                  %li 300以上9999999以下で入力してください
+
               %hr
               //手数料を自動計算
               .sell_content__price__form__commission.clearfix
                 %p
                   販売手数料 (10%)
-                .fee -
+                %ul.fee
+                  %li.default-fee -
               %hr
               //金額から手数料を引いた値段
               .sell_content__price__form__profit.clearfix
                 %p
                   販売利益
                 .profit_price -
+
+      / 商品購入後
+      #after_sell.modal
+        .modal__inner
+          .inner
+            %h3.modal-head 出品が完了しました
+            .sell-modal-body
+              あなたが出品した商品は「出品した商品一覧」からいつでも見ることができます。
+              = link_to '続けて出品する', '/items/new', class: 'red_btn modal-btn'
+              %p.share-link
+                = link_to '商品ページに行ってシェアをする', '#'
       .contents.clearfix
         .sell_content__consent
           %p
@@ -131,8 +189,11 @@
             また、出品をもちまして
             =link_to "加盟店規約"
             に同意したことになります。
-          = item.submit '出品する',class: 'red_btn'
+          = item.submit '出品する', class: 'red_btn sell_item_submit'
           //マイページに戻る
           %button.return_btn もどる
+
+      / 商品購入後 show を付け加える
+      .overlay
 
 = render "devise/registrations/footer"

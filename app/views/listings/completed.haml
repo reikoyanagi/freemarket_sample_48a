@@ -1,0 +1,41 @@
+/ 売却済一覧
+
+.overall
+
+  = render "items/header"
+
+  .container.clearfix
+
+    = render "/users/mypage_side_nav"
+
+    .main-content
+
+      .main-content__listing-items
+        .tab-head
+          出品した商品
+        %ul.tabs
+          %li
+            %h3
+              = link_to '/listings/list', class: 'non-active' do
+                出品中
+          %li
+            %h3
+              = link_to '/listings/in_progress', class: 'non-active' do
+                取引中
+          %li
+            %h3
+              = link_to '/listings/completed', class: 'active' do
+                売却済
+
+        .tab-content
+          %ul.tab-transaction-now
+            %li.item
+              売却済みの商品がありません
+          %ul.tab-transaction-old.mypage-item-list.tab-pane
+            %li.item-transaction
+
+  .footer
+    = render "/items/footer"
+
+  .red-button
+    = render '/items/button'

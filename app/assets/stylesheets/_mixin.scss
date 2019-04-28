@@ -2,7 +2,7 @@
 @mixin button {
   border-radius: 0;
   -webkit-box-sizing: content-box;
-  -webkit-appearance: button;
+  // -webkit-appearance: button;
   appearance: button;
   box-sizing: border-box;
   padding: 0;
@@ -79,6 +79,7 @@
   border: 1px solid $red;
   color: #fff;
   cursor: pointer;
+  text-decoration: none;
 }
 
 //新規登録ボタン
@@ -101,7 +102,8 @@
   background-color: #fff;
   color: #333;
   border: #979797 solid 1px;
-  .google_logo{
+  text-decoration: none;
+  .google-logo{
     img {
       position: absolute;
       top: 50%;
@@ -126,6 +128,7 @@
 
 //facebookのボタン
 @mixin facebook_btn{
+  text-decoration: none;
   position: relative;
   background-color: #385185;
   color: #fff;
@@ -140,6 +143,7 @@
 
 //メールアドレスのボタン
 @mixin email_btn {
+  text-decoration: none;
   background-color: #eee;
   color: #000;
   position: relative;

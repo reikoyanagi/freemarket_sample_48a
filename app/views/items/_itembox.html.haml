@@ -1,14 +1,17 @@
 - @items.each do|item|
-  .items-box-content__box
-    .items-box-content__box__photo
-      = image_tag item.images[0].item_image.url, height: "220",class: "tops"
-    .items-box-content__box__body
-      %h3.items-name
-        = item.name
-      .items-num
-        .items-num__price
-          = "¥#{item.price}"
-        .items-num__likes
-          %i.fa.fa-heart
-          %span.like 12
-        %p (税込)
+  -if item.status_id == 1
+    -# && current_user_id =! item.user_id 自分の出品したものが表示されないようにする条件。必要であれば繋げて使用。
+    .items-box-content__box
+      = link_to "/items/#{item.id}", class: "content-box" do
+        .items-box-content__box__photo
+          = image_tag item.images[0].item_image.url, height: "220",class: "tops"
+        .items-box-content__box__body
+          %h3.items-name
+            = item.name
+          .items-num
+            .items-num__price
+              = "¥#{item.price}"
+            .items-num__likes
+              / %i.fa.fa-heart
+              / %span.like 12
+            %p (税込)

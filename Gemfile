@@ -50,7 +50,6 @@ end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
@@ -71,6 +70,12 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'rspec-rails'
+  gem 'rails-controller-testing'
+  gem 'factory_bot_rails'
+  gem 'faker'
+
+  gem 'capybara'
 end
 
 gem 'haml-rails'
@@ -84,6 +89,13 @@ gem 'devise'
 gem 'carrierwave'
 gem 'fog-aws'
 gem 'payjp'
+<<<<<<< HEAD
 gem 'dropzonejs-rails'
 gem 'gretel'
+=======
+>>>>>>> master
 
+gem 'jp_prefecture'
+
+gem 'dropzonejs-rails'
+gem 'gon'

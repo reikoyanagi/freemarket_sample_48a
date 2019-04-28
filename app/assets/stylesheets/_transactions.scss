@@ -1,0 +1,126 @@
+// Place all the styles related to the transactions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.buy_content {
+  li {
+    padding: 24px 88px 0;
+    border-top: 1px solid #eee;
+    margin-top: 40px;
+    display: block;
+    &:first-child{
+      border: none;
+      margin-top: 0;
+    }
+    &:last-child {
+      padding: 40px 88px;
+    }
+  }
+  &__item {
+    width: 320px;
+    margin: 0 auto;
+    text-align: center;
+    img {
+      width: auto;
+      max-height: 148px;
+    }
+    &__name {
+      margin: 8px 0 0;
+      font-size: 16px;
+      line-height: 1.5;
+      font-weight: 600;
+    }
+    &__price {
+      .buy_price {
+        margin: 8px 0 0;
+        line-height: 1.5;
+        font-size: 28px;
+        font-weight: 600;
+        span {
+          margin: 0 0 0 8px;
+          font-size: 14px;
+          font-weight: 300;
+        }
+      }
+      .buy_price_check {
+        font-size: 28px;
+        font-weight: 600;
+        p {
+          padding: 16px 0;
+          float: right;
+          &:first-child {
+            float: left;
+          }
+        }
+      }
+    }
+    .red-btn{
+      @include button;
+      @include red_btn;
+    }
+  }
+  &__user_info ,&__credit_info{
+    max-width: 320px;
+    margin: 0 auto;
+    label {
+      font-weight: bold;
+      font-size: 14px;
+    }
+    address,p {
+      margin: 8px 0 0;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+    img {
+      width: 49px;
+      height: 15px;
+    }
+    a {
+      margin-top: 8px;
+      color: #0099e8;
+      text-decoration: none;
+      display: block;
+      text-align: right;
+      &:hover {
+        opacity: 0.8;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.modal{
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 3000;
+  overflow-x: hidden;
+  overflow-y: auto;
+  &__inner{
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    width: 95%;
+    max-width: 600px;
+    margin: 20px auto;
+    background: #fff;
+    .modal-head{
+      font-weight: bold;
+      text-align: center;
+      line-height: 80px;
+      font-size: 16px;
+    }
+    .buy-modal-body{
+      border-top: 1px solid #eee;
+      padding: 40px;
+      p.buy-modal-body{
+        margin-top: 8px;
+        a{
+          color: $blue;
+        }
+      }
+    }
+  }
+}

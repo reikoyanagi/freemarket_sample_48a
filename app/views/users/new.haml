@@ -1,0 +1,23 @@
+.single_header
+  %h1.single_header__logo
+    = link_to root_path do
+      = image_tag("/assets/mercarilogo-f4c823301da0441f633837b7b207f4711269ff5c49e8d82f66df3324031a30cc.svg")
+
+.main
+  .main__container
+    %h2.main__container__title 新規会員登録
+    .main__container__form
+      %ul.default_list
+        %li.btn_list
+          = button_to "メールアドレスで登録" , sign_up_registration_path, { method: :get, class: "email_btn" }
+        %li.btn_list
+          %button.facebook_btn
+            -# = icon 'fab','facebook-square'
+            Facebookで登録
+        %li.btn_list
+          %button.google_btn
+            .google-logo
+              = image_tag("/assets/google-logo.svg")
+            Googleで登録
+
+= render "/devise/registrations/footer"
