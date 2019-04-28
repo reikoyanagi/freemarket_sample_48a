@@ -5,7 +5,7 @@
 .main
   .main__container
     %h2.main__container__title 購入を確定しますか？
-    = form_tag @item, html: {class: 'main-buy'} do |f|
+    = form_tag({controller: :transactions, action: :create, method: :post},class:"main-buy") do
       %ul.buy_content
         %li
           .buy_content__item
@@ -22,8 +22,9 @@
                 %p 支払い金額
                 %p
                   = "¥#{@item.price}"
-                  = form_tag(action: :create, method: :post, class: "red_btn") do
-                    -# %script.payjp-button{:src => "https://checkout.pay.jp", :type => "text/javascript" ,"data-text" => "購入する" ,"data-key" => "pk_test_38a0bb351935345ed2755495"}
+                %br
+                  = submit_tag "購入する"
+                  %script.payjp-button{:src => "https://checkout.pay.jp", :type => "text/javascript" ,"data-text" => "購入する" ,"data-key" => "pk_test_38a0bb351935345ed2755495"}
 
         %li
           .buy_content__user_info

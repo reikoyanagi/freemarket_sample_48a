@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   resources :items do
     get "/transactions/new" => 'transactions#new', as: :new_transaction
-    post "/transactions/create" => 'transactions#create', as: :create_transaction
+    post "/transactions/create" => 'transactions#create', as: :transaction
   end
   get 'listings/list' => 'listings#list'
   get 'listings/in_progress' => 'listings#in_progress'
