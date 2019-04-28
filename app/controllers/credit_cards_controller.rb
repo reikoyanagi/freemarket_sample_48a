@@ -10,8 +10,8 @@ class CreditCardsController < ApplicationController
   def show
     credit = CreditCard.where(user_id: current_user.id).first
       Payjp.api_key = 'sk_test_0ed9e660871befcb2421e447'
-      customer = Payjp::Customer.retrieve('cus_96980e7d41efd5207b29bde0eec9')
-      @default_card_infomation = customer.cards.retrieve('car_29c1583628bbff7d080e98ca8e78')
+      customer = Payjp::Customer.retrieve(credit.customer_id)
+      @default_card_infomation = customer.cards.retrieve(credit.card_id)
   end
 
   def new

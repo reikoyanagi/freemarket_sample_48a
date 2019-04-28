@@ -99,12 +99,12 @@ ul.card-form__box-card{
   color: #0099e8;
 }
 
-.btn-red{
-  margin: 40px auto;
-  background-color: #ea352d;
-  border: 1px solid #ea352d;
-  color: #fff;
-}
+
+ .red-btn{
+  @include button;
+  @include red_btn;
+  }
+
 
 .btn-default{
   display: block;

@@ -22,9 +22,8 @@
                 %p 支払い金額
                 %p
                   = "¥#{@item.price}"
-                %br
-                  = submit_tag "購入する"
-                  %script.payjp-button{:src => "https://checkout.pay.jp", :type => "text/javascript" ,"data-text" => "購入する" ,"data-key" => "pk_test_38a0bb351935345ed2755495"}
+              .red-btn
+                = submit_tag "購入する", class: "red-btn"
 
         %li
           .buy_content__user_info

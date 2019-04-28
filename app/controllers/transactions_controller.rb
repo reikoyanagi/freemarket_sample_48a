@@ -26,6 +26,8 @@ class TransactionsController < ApplicationController
       customer: credit.customer_id,
       currency: 'jpy',
       )
+    @transaction = Transaction.new
+    @transaction.save
     @item[:status_id] = 2
     @item.save
   end
