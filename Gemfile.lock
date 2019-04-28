@@ -376,11 +376,8 @@ DEPENDENCIES
   faker
   fog-aws
   font-awesome-rails
-<<<<<<< HEAD
   gretel
-=======
   gon
->>>>>>> master
   haml-rails
   jbuilder (~> 2.5)
   jp_prefecture
