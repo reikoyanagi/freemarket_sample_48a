@@ -10,17 +10,24 @@
       %section.credit__main
         %h2.credit__main-header
           支払い方法
-        .credit__main-inner
-          %section
-            .credit__content
-              %h3.credit__content-header
-                クレジットカード一覧
-            %ul.credit__list
-          %section.credit__add
-            = link_to user_new_credit_card_path, class: 'credit__add-main' do
-              = fa_icon 'credit-card', text: "クレジットカードを追加する", class: 'fa-fw card'
-          .credit__info
-            = fa_icon 'chevron-right', text: "支払い方法について", class: 'fa-fw', right: true
+        = form_tag({action: :delete, method: :delete}, name: "inputForm") do
+          .credit__main-inner
+            %section
+              .credit__content
+                %h3.credit__content-header
+                  クレジットカード一覧
+              %ul.credit__list
+              %br
+              = " **** **** **** " + @default_card_infomation.last4
+              %br
+              = brand = @default_card_infomation.brand.to_s
+              - exp_month = @default_card_infomation.exp_month.to_s
+              - exp_year = @default_card_infomation.exp_year.to_s
+              = exp_month + "/" + exp_year
+              %section.credit__add
+                = submit_tag "削除する", id: "token_submit"
+              .credit__info
+                = fa_icon 'chevron-right', text: "支払い方法について", class: 'fa-fw', right: true
 
   .footer
     = render "items/footer"

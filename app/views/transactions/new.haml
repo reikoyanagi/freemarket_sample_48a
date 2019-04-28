@@ -5,7 +5,7 @@
 .main
   .main__container
     %h2.main__container__title 購入を確定しますか？
-    = form_for @item, html: {class: 'main-buy'} do |f|
+    = form_tag @item, html: {class: 'main-buy'} do |f|
       %ul.buy_content
         %li
           .buy_content__item
@@ -22,8 +22,8 @@
                 %p 支払い金額
                 %p
                   = "¥#{@item.price}"
-                  = form_tag(action: :new, method: :post, class: "red_btn") do
-                    %script.payjp-button{:src => "https://checkout.pay.jp", :type => "text/javascript" ,"data-text" => "購入する" ,"data-key" => "pk_test_38a0bb351935345ed2755495"}
+                  = form_tag(action: :create, method: :post, class: "red_btn") do
+                    -# %script.payjp-button{:src => "https://checkout.pay.jp", :type => "text/javascript" ,"data-text" => "購入する" ,"data-key" => "pk_test_38a0bb351935345ed2755495"}
 
         %li
           .buy_content__user_info
@@ -41,14 +41,16 @@
         %li
           .buy_content__credit_info
             %label 支払方法
+            %br
+            = " **** **** **** " + @default_card_infomation.last4
+            %br
+            = brand = @default_card_infomation.brand.to_s
+            - exp_month = @default_card_infomation.exp_month.to_s
+            - exp_year = @default_card_infomation.exp_year.to_s
+            = exp_month + "/" + exp_year
             %p
-              ************1234
-              %br
-              11 / 21
-            = image_tag("//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?3801675580")
-            = link_to class: "buy-user-info-fix" do
-              変更する
-              = fa_icon 'chevron-right'
-
+              = link_to class: "buy-user-info-fix" do
+                変更する
+                = fa_icon 'chevron-right'
 
 = render "devise/registrations/footer"

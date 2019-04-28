@@ -4,10 +4,14 @@ class CreditCardsController < ApplicationController
   require "payjp"
 
   def index
+    credit = CreditCard.where(user_id: current_user.id).first
   end
 
   def show
     credit = CreditCard.where(user_id: current_user.id).first
+      Payjp.api_key = 'sk_test_0ed9e660871befcb2421e447'
+      customer = Payjp::Customer.retrieve('cus_96980e7d41efd5207b29bde0eec9')
+      @default_card_infomation = customer.cards.retrieve('car_29c1583628bbff7d080e98ca8e78')
   end
 
   def new
@@ -20,8 +24,7 @@ class CreditCardsController < ApplicationController
     customer = Payjp::Customer.create(
       card: params['payjp-token'],
       )
-    @credit = CreditCard.new(user_id: current_user.id, token_id: customer.id)
-    binding.pry
+    @credit = CreditCard.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
     if @credit.save
       redirect_to action: "show"
     else
@@ -30,9 +33,12 @@ class CreditCardsController < ApplicationController
 
   end
 
-  private
-  def credit_params
-    params.permit(:token_id).merge(id: current_user.id)
+  def delete
+    credit = CreditCard.where(user_id: current_user.id).first
+    Payjp.api_key = 'sk_test_0ed9e660871befcb2421e447'
+    customer = Payjp::Customer.retrieve(credit.customer_id)
+    customer.delete
+    credit.delete
   end
 
 end
