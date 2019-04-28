@@ -12,6 +12,7 @@ $(function(){
       if (send_img_cnt > 0){
         var i = i + num
       }
+      // キー、ハッシュでファイルを追加
       send_file_obj[i] = file
       // ファイルリーダーのインスタンスを作成する
       var reader = new FileReader();
@@ -142,7 +143,7 @@ $(function(){
 
     .fail(function(){
       $(function(){
-        if ( $('#item_images_attributes_0_item_image').val().length == 0){
+        if ( !send_file_obj[0]){
           $('.item_image-fail').removeClass('hide');
         } else  {
           $('.item_image-fail').addClass('hide');
