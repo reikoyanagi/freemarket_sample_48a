@@ -38,4 +38,7 @@ class UsersController < ApplicationController
     params.require(:user).permit(:nickname, :profile)
   end
 
+  def credit_card_new
+  end
+
 end
