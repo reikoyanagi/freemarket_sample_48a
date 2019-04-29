@@ -50,6 +50,12 @@ $(function(){
       var i = preview_box.attr('data-id');
       preview_box.remove();
       delete send_file_obj[i]
+      if ($('.uploaded_images').children().length == 4){
+        $('.input_area ').css('width','108px')
+      } else {
+        var width = $('.input_area').width()+128;
+        $('.input_area ').css('width',width)
+      }
     });
   });
 // -------------------------------------------------------------------
