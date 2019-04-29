@@ -28,11 +28,11 @@
           %li
             %label ニックネーム
             %span.required_form 必須
-            = f.text_field :nickname ,placeholder: "例) メルカリ太郎",required: ""
+            = f.text_field :nickname ,placeholder: "例) メルカリ太郎",required: "", value: "#{@nickname}"
           %li
             %label メールアドレス
             %span.required_form 必須
-            = f.email_field :email , placeholder: "PC・携帯どちらでも可", required:""
+            = f.email_field :email , placeholder: "PC・携帯どちらでも可", required:"" , value: "#{@email}"
           %li
             %label パスワード
             %span.required_form 必須

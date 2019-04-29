@@ -12,9 +12,8 @@
       .main__sign_in__button
         %ul
           %li
-            %button.facebook_btn
-              -# = icon 'fab', 'facebook-square'
-              Facebookでログイン
+            = link_to "Facebookでログイン", user_facebook_omniauth_authorize_path, class: "facebook_btn"
+            -# = fa_icon 'facebook-square'
           %li
             %button.google_btn
               .google-logo

@@ -8,6 +8,28 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # def twitter
   # end
 
+  def facebook
+    callback_from(:facebook)
+  end
+
+  private
+
+  def callback_from(provider)
+    provider = provider.to_s
+    @user = User.find_oauth(request.env["omniauth.auth"])
+    session[:uid] = request.env["omniauth.auth"][:uid]
+    session[:provider] = request.env["omniauth.auth"][:provider]
+    session[:user] = @user
+    if @user.persisted?
+      binding.pry
+      sign_in_and_redirect @user, :event => :authentication
+      flash[:notice] = I18n.t('devise.omniauth_callbacks.success', kind: provider.capitalize)
+    else
+      session["devise.#{provider}_data"] = request.env['omniauth.auth']
+      redirect_to sign_up_registration_path
+    end
+  end
+
   # More info at:
   # https://github.com/plataformatec/devise#omniauth
 

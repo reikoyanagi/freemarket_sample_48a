@@ -5,7 +5,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 
   def registration
-
+    unless session[:user] == nil
+      user = User.new(session[:user])
+      @nickname = user.nickname
+      @email = user.email
+    end
   end
 
   def tel
@@ -50,6 +54,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
+
     @user = User.new(
       nickname: session[:nickname],
       email: session[:email],
@@ -72,8 +77,20 @@ class Users::RegistrationsController < Devise::RegistrationsController
       building: session[:building]
       )
 
+
     @user.save
     @user.address.save
+
+
+
+    SnsCredential.create(
+      uid: session[:uid],
+      provider: session[:provider],
+      user_id: @user.id
+      )
+
+
+
 
     #deviseで新規登録を行うと自動でアカウントが切り替わる問題解決
     yield resource if block_given?
@@ -130,6 +147,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def configure_account_update_params
   #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
   # end
+
 
   # The path used after sign up.
   def after_sign_up_path_for(resource)
