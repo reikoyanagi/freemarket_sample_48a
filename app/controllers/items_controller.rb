@@ -17,11 +17,19 @@ class ItemsController < ApplicationController
   end
 
   def create
+    # 画像以外のファイルを格納
     @item = Item.new(item_params)
-    if @item.save
-      respond_to do |format|
-        format.html { redirect_to :root }
-        format.json
+
+    if image_judge != 0
+      if @item.save &&
+        # 画像ファイルは @item.id が必要なので @itemが保存された後に引っ張る
+        @image = Image.save_image(image_params[:images_attributes],@item.id)
+        respond_to do |format|
+          format.html { redirect_to :root }
+          format.json
+        end
+      else
+        render :new
       end
     else
       render :new
@@ -58,8 +66,16 @@ class ItemsController < ApplicationController
     # 画像を複数にするときは {item_image: []} に変更
     params.require(:item)
           .permit(:name, :user_id, :condition, :price, :detail, :status_id, :brand, :size,
-                   images_attributes: [:item_id, :item_image],
                    delivery_attributes: [:postage, :shipping, :region, :shipping_date]).merge(status_id: 1, user_id: current_user.id)
   end
+
+  def image_params
+    params.require(:item).permit(images_attributes: [:item_id, {item_image: []}])
+  end
+
+  def image_judge
+    params.require(:item).require(:images_attributes).require(:'0').require(:item_image).length
+  end
+
 
 end

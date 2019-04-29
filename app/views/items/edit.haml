@@ -1,4 +1,3 @@
-/ 商品編集ページ
 .single_header
   %h1.single_header__logo
     = link_to image_tag("/assets/mercarilogo-f4c823301da0441f633837b7b207f4711269ff5c49e8d82f66df3324031a30cc.svg")
@@ -9,24 +8,30 @@
     / 出品機能 form
     = form_for @item, html: {id: 'sell_items_form', class: 'sell_content'} do |item|
       //new_item がクラスとして付与されている
-      //inputは入れているが枠全体に適応していない
-      //参考サイト[https://qiita.com/QUANON/items/882b88b6b9bf3c509af8]
 
       .contents
         .sell_content__image_input
-          .form-group
+          .form-group.clearfix
             %label
               出品画像
               %span.required_form 必須
             %p 最大10枚までアップロードできます
-            = item.fields_for :images do |img|
-              = img.label :item_image, class: 'input_area' do
-                = img.file_field :item_image, style: 'display: none;'
-                %p
-                  ドラックアンドドロップ
-                  %br またはクリックしてファイルをアップロード
-          %ul.item_image-fail.hide.add-fail
-            %li 画像を入力してください
+
+            .sell_upload.clearfix
+              .sell_upload_items_container
+                .form-group__sell_upload_items
+                  %ul.uploaded_images
+
+              複数にするときは multiple: 'true' を追加
+              = item.fields_for :images, id: '', class: '' do |img|
+                = img.label :item_image, class: 'input_area ' do
+                  = img.file_field :item_image,class: 'item_image', style: 'display :none;', multiple: true
+                  %p
+                    ドラックアンドドロップ
+                    %br またはクリックしてファイルをアップロード
+            %ul.item_image-fail.hide.add-fail
+              %li 画像を入力してください
+
       .contents
         .sell_content__item_contents
 
