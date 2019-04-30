@@ -82,9 +82,9 @@
           発送元・お届け先住所
           %i.fa.fa-angle-right.fa-lg
       %li
-        / = link_to user_credit_card_path, class: 'contents-link' do
-        /   支払い方法
-        /   %i.fa.fa-angle-right.fa-lg
+        = link_to user_index_credit_card_path(current_user.id), class: 'contents-link' do
+          支払い方法
+          %i.fa.fa-angle-right.fa-lg
       %li
         = link_to '#', class: 'contents-link' do
           メール/パスワード

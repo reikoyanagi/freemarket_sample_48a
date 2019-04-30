@@ -83,12 +83,21 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
 
 
+
     SnsCredential.create(
       uid: session[:uid],
       provider: session[:provider],
       user_id: @user.id
       )
 
+
+
+    Payjp.api_key = 'sk_test_0ed9e660871befcb2421e447'
+    customer = Payjp::Customer.create(
+      card: params['payjp-token'],
+      )
+    @credit = CreditCard.new(user_id: @user.id, customer_id: customer.id, card_id: customer.default_card)
+    @credit.save
 
 
 

@@ -89,6 +89,9 @@ gem 'devise'
 gem 'carrierwave'
 gem 'fog-aws'
 gem 'payjp'
+gem 'dropzonejs-rails'
+gem 'gretel'
+
 
 gem 'jp_prefecture'
 
