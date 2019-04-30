@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {
-    :registrations      => "users/registrations"
+    :registrations      => "users/registrations",
+    :omniauth_callbacks => "users/omniauth_callbacks",
+    :sessions           => "users/sessions"
   }
-
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'items#index'
 
@@ -16,6 +17,7 @@ Rails.application.routes.draw do
     get "/sign_up/done" => 'users/registrations#done'#完了ページ
     get "/users/:id/profile" => 'users#profile', as: :user_profile
     patch "/users/:id/profile" => 'users#profile_update' , as: :update_user_profile
+    get "/users/:id/logout" => "users#logout", as: :user_logout
   end
 
   resources :items do
