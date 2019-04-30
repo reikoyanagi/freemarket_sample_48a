@@ -12,6 +12,10 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     callback_from(:facebook)
   end
 
+  def google_oauth2
+    callback_from(:google)
+  end
+
   private
 
   def callback_from(provider)
@@ -21,11 +25,10 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     session[:provider] = request.env["omniauth.auth"][:provider]
     session[:user] = @user
     if @user.persisted?
-      binding.pry
       sign_in_and_redirect @user, :event => :authentication
       flash[:notice] = I18n.t('devise.omniauth_callbacks.success', kind: provider.capitalize)
     else
-      session["devise.#{provider}_data"] = request.env['omniauth.auth']
+      session["devise.#{provider}_data"] = request.env['omniauth.auth'].except("extra")
       redirect_to sign_up_registration_path
     end
   end
