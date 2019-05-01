@@ -216,4 +216,8 @@ $(function(){
     $('html').removeClass('modal-open');
     window.location.href = "/items/new";
   });
+  $('.modal-btn').on('click', function(){
+    window.location.href = "/items/new";
+  });
+
 });

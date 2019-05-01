@@ -18,7 +18,8 @@
             .detail-link__avatar
               = image_tag("member_photo_noimage_thumb.png")
             .detail-link__nickname
-              = @user.nickname
+              %span
+                = @user.nickname
             .detail-link__numbers
               .value
                 評価
