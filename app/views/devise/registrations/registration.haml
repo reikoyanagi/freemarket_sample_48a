@@ -25,6 +25,7 @@
     .main__container__form
       %ul.default_list
         = form_for(:session, url: sign_up_tel_path) do |f|
+          = devise_error_messages!
           %li
             %label ニックネーム
             %span.required_form 必須
@@ -84,7 +85,7 @@
             //年・月までは入力できるが日が年数と月を入力する事で表示できるように定義が必要
           %li.sample
             .reCAPTCHA
-              %input{type: "checkbox",required:""} 私はロボットではありません
+              = recaptcha_tags callback: 'recaptchaCallbackFunction'
               //Google APIを使って認証設定を埋め込む必要あり
           %li
             %p.consent

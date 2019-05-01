@@ -6,6 +6,7 @@
 = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
   .main
     .main__sign_in
+      = devise_error_messages!
       .main__sign_in__title
         %p アカウントをお持ちでない方はこちら
         = link_to "新規会員登録", new_user_path(resource_name),class: "sign_up_btn"
@@ -27,8 +28,7 @@
             = f.password_field :password, autocomplete: "current-password" ,placeholder: "パスワード"
           %li.sample
             .reCAPTCHA
-              %input{type: "checkbox"} 私はロボットではありません
-              //Google APIを使って認証設定を埋め込む必要あり
+              = recaptcha_tags
           %li
             = f.button "ログイン",class: 'red_btn'
           %li
