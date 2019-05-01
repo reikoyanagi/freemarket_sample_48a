@@ -3,16 +3,18 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
+  prepend_before_action :check_captcha, only: [:tel]
+  prepend_before_action :customize_sign_up_params, only: [:tel]
 
   def registration
-    unless session[:user] == nil
-      @user = User.new(session[:user])
-      nickname = user.nickname
-      email = user.email
-    end
+    @user = User.new(session[:user])
+    nickname = @user.nickname
+    email = @user.email
+
   end
 
   def tel
+
     session[:nickname] = params[:session][:nickname]
     session[:email] = params[:session][:email]
     session[:password] = params[:session][:password]
@@ -83,7 +85,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
 
 
-
+    #Snsログインのデータを保存
     SnsCredential.create(
       uid: session[:uid],
       provider: session[:provider],
@@ -91,7 +93,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       )
 
 
-
+    #Payjp保存
     Payjp.api_key = 'sk_test_0ed9e660871befcb2421e447'
     customer = Payjp::Customer.create(
       card: params['payjp-token'],
@@ -119,6 +121,20 @@ class Users::RegistrationsController < Devise::RegistrationsController
       set_minimum_password_length
     end
 
+  end
+
+  private
+
+  def customize_sign_up_params
+    devise_parameter_sanitizer.permit :sign_up, keys: [:username, :email, :password, :password_confirmation, :remember_me]
+  end
+
+  def check_captcha
+    self.resource = resource_class.new sign_up_params
+    resource.validate
+    unless verify_recaptcha(model: resource)
+      respond_with_navigational(resource) { render :registration }
+    end
   end
 
   # GET /resource/edit
