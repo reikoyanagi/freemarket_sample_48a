@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   get "/credit_cards/new" => 'credit_cards#new', as: :new_credit_card #新規クレジット画面
   post "/credit_cards/create" => 'credit_cards#create', as: :credit_card#クレジット情報登録
   get "/credit_cards/show" => 'credit_cards#show', as: :show_credit_card#クレジット情報画面
-  delete "/credit_cars/delete" => 'credit_cards#delete', as: :delete_credit_card #クレジット削除画面
+  post "/credit_cars/destroy" => 'credit_cards#destroy', as: :destroy_credit_card #クレジット削除画面
   get "/credit_cards/index" => 'credit_cards#index', as: :index_credit_card #クレジットトップページ
   end
 end
