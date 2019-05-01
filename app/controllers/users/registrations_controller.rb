@@ -7,8 +7,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def registration
     unless session[:user] == nil
       @user = User.new(session[:user])
-      nickname = @user.nickname
-      email = @user.email
+      nickname = user.nickname
+      email = user.email
     end
   end
 
