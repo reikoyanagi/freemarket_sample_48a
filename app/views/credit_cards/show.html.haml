@@ -10,22 +10,25 @@
       %section.credit__main
         %h2.credit__main-header
           支払い方法
-        = form_tag({action: :delete, method: :delete}, name: "inputForm") do
+        = form_tag({action: :destroy, method: :delete}, name: "deleteForm") do
           .credit__main-inner
             %section
               .credit__content
                 %h3.credit__content-header
                   クレジットカード一覧
               %ul.credit__list
-              %br
+              %br#card_number
               = " **** **** **** " + @default_card_infomation.last4
-              %br
+              %br#cvc{type: "hidden"}
+              = cvc_check = @default_card_infomation.cvc_check
+              %br#exp_month
               = brand = @default_card_infomation.brand.to_s
               - exp_month = @default_card_infomation.exp_month.to_s
+              %br#exp_year
               - exp_year = @default_card_infomation.exp_year.to_s
               = exp_month + "/" + exp_year
-              %section.credit__add
-                = submit_tag "削除する", id: "token_submit"
+              .red-btn#card_token
+                = submit_tag "削除する", id: "token_submit", class: "red-btn"
               .credit__info
                 = fa_icon 'chevron-right', text: "支払い方法について", class: 'fa-fw', right: true
 
