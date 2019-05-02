@@ -1,13 +1,12 @@
-.single_header#edit
+.single_header
   %h1.single_header__logo
-    = link_to image_tag("/assets/mercarilogo-f4c823301da0441f633837b7b207f4711269ff5c49e8d82f66df3324031a30cc.svg"), "/"
+    = link_to image_tag("/assets/mercarilogo-f4c823301da0441f633837b7b207f4711269ff5c49e8d82f66df3324031a30cc.svg")
 
 .main
   .main__container
     %h2.main__container__title 商品の情報入力
-    = content_tag :div, "", id: "default_images", data: { itemid: @item.id}
     / 出品機能 form
-    = form_for @item, html: {id: 'edit_item_form', class: 'sell_content' } do |item|
+    = form_for @item, html: {id: 'sell_items_form', class: 'sell_content'} do |item|
       //new_item がクラスとして付与されている
 
       .contents
@@ -22,30 +21,23 @@
               .sell_upload_items_container
                 .form-group__sell_upload_items
                   %ul.uploaded_images
-                    - @item.images[0..4].each_with_index do |img,i|
-                      %li#edit_preview.sell_upload_item{"data-id" => img.id, "index" => i}
+                    - @item.images.each do |img|
+                      %li#preview.sell_upload_item{"data-id" => img.id}
                         %figure.sell_upload_item__image
                           = image_tag img.item_image.url, class: 'sell_upload_item__image__pic'
                         .sell_upload_item__buttons{:id => "#btns"}
                           %a.sell_upload_item__buttons__btn 編集
                           %a#remove_btn.sell_upload_item__buttons__btn 削除
-                    - unless @item.images[5..9].nil?
-                      - @item.images[5..9].each_with_index do |img,i|
-                        %li#edit_preview.sell_upload_item{"data-id" => img.id, "index" => i}
-                          %figure.sell_upload_item__image
-                            = image_tag img.item_image.url, class: 'sell_upload_item__image__pic'
-                          .sell_upload_item__buttons{:id => "#btns"}
-                            %a.sell_upload_item__buttons__btn 編集
-                            %a#remove_btn.sell_upload_item__buttons__btn 削除
 
-            /   = item.fields_for :images do |img|
-            /     = img.label :item_image, class: 'input_area ' do
-            /       = img.file_field :item_image,class: 'item_image file_field_edit', style: 'display :none;', multiple: true
-            /       %p
-            /         ドラックアンドドロップ
-            /         %br またはクリックしてファイルをアップロード
-            / %ul.item_image-fail.hide.add-fail
-            /   %li 画像を入力してください
+              / 複数にするときは multiple: 'true' を追加
+              = item.fields_for :images, id: '', class: '' do |img|
+                = img.label :item_image, class: 'input_area ' do
+                  = img.file_field :item_image,class: 'item_image', style: 'display :none;', multiple: true
+                  %p
+                    ドラックアンドドロップ
+                    %br またはクリックしてファイルをアップロード
+            %ul.item_image-fail.hide.add-fail
+              %li 画像を入力してください
 
       .contents
         .sell_content__item_contents
@@ -53,14 +45,14 @@
           .form-group
             %label 商品名
             %span.required_form 必須
-            = item.text_field :name,id: 'item_name', placeholder: "商品名（必須40文字まで）", value: @item.name
+            = item.text_field :name, placeholder: "商品名（必須40文字まで）"
           %ul.item_name-fail.hide.add-fail
             %li 入力してください
 
           .form-group
             %label 商品の説明
             %span.required_form 必須
-            = item.text_area :detail, placeholder: "商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に１万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "5",value: @item.detail
+            = item.text_area :detail, placeholder: "商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に１万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "5"
           %ul.detail-fail.hide.add-fail
             %li 入力してください
 
@@ -84,7 +76,7 @@
                 商品状態
               %span.required_form 必須
               .select-wrap.select-default
-                = item.select :condition,[['新品、未使用'],['未使用に近い'],['目立った傷や汚れなし'],['やや傷や汚れあり'],['傷や汚れあり'],['全体的に状態が悪い'] ] , prompt: '--',selected: @item.condition
+                = item.select :condition, [['新品、未使用', "1" ],['未使用に近い', "2"],['目立った傷や汚れなし', "3" ],['やや傷や汚れあり', "4" ],['傷や汚れあり', "5" ],['全体的に状態が悪い', "6" ] ] , prompt: '--'
                 / = icon 'fa', "chevron-down"
             %ul.condition-fail.hide.add-fail
               %li 選択してください
@@ -102,18 +94,18 @@
                   配送料の負担
                 %span.required_form 必須
                 .select-wrap.select-default
-                  = del.select :postage, [['送料込み（出品者負担）'],['着払い（購入者負担）']], prompt: '--', selected: @item.delivery.postage
+                  = del.select :postage, [['送料込み（出品者負担）'],['着払い（購入者負担）']], prompt: '--'
                   / = icon 'fa', "chevron-down"
               %ul.postage-fail.hide.add-fail
                 %li 選択してください
 
-              .form-group.how_shipping
+              .form-group.hide.how_shipping
                 //配送方法は配送料の負担を決めた後に出てくるように設定
                 %label
                   配送の方法
                 %span.required_form 必須
                 .select-wrap.select-default
-                  = del.select :shipping, [['未定'],['らくらくメルカリ便'],['ゆうメール'],['レターパック'],['普通郵便(定形、定形外)'],['クロネコヤマト'],['ゆうパック'],['クリックポスト'],['ゆうパケット']], prompt: '--', selected: @item.delivery.shipping
+                  = del.select :shipping, [['未定'],['らくらくメルカリ便'],['ゆうメール'],['レターパック'],['普通郵便(定形、定形外)'],['クロネコヤマト'],['ゆうパック'],['クリックポスト'],['ゆうパケット']], prompt: '--'
                   / = icon 'fa', "chevron-down"
               %ul.shipping-fail.hide.add-fail
                 %li 選択してください
@@ -123,7 +115,7 @@
                   発送元の地域
                 %span.required_form 必須
                 .select-wrap.select-default
-                  = del.select :region, [['北海道'],['青森県'],['岩手県'],['宮城県'],['秋田県'],['山形県'],['福島県'],['茨城県'],['栃木県'],['群馬県'],['埼玉県'],['千葉県'],['東京都'],['神奈川県'],['新潟県'],['富山県'],['石川県'],['福井県'],['山梨県'],['長野県'],['岐阜県'],['静岡県'],['愛知県'],['三重県'],['滋賀県'],['京都府'],['大阪府'],['兵庫県'],['奈良県'],['和歌山県'],['鳥取県'],['島根県'],['岡山県'],['広島県'],['山口県'],['徳島県'],['香川県'],['愛媛県'],['高知県'],['福岡県'],['佐賀県'],['長崎県'],['熊本県'],['大分県'],['宮崎県'],['鹿児島県'],['沖縄県'],['未定']], prompt: '--', selected: @item.delivery.region
+                  = del.select :region, [['北海道'],['青森県'],['岩手県'],['宮城県'],['秋田県'],['山形県'],['福島県'],['茨城県'],['栃木県'],['群馬県'],['埼玉県'],['千葉県'],['東京都'],['神奈川県'],['新潟県'],['富山県'],['石川県'],['福井県'],['山梨県'],['長野県'],['岐阜県'],['静岡県'],['愛知県'],['三重県'],['滋賀県'],['京都府'],['大阪府'],['兵庫県'],['奈良県'],['和歌山県'],['鳥取県'],['島根県'],['岡山県'],['広島県'],['山口県'],['徳島県'],['香川県'],['愛媛県'],['高知県'],['福岡県'],['佐賀県'],['長崎県'],['熊本県'],['大分県'],['宮崎県'],['鹿児島県'],['沖縄県'],['未定']], prompt: '--'
                   / = icon 'fa', "chevron-down"
               %ul.region-fail.hide.add-fail
                 %li 選択してください
@@ -132,7 +124,7 @@
                   発送までの日数
                 %span.required_form 必須
                 .select-wrap.select-default
-                  = del.select :shipping_date, [['1~2日で発送'],['2~3日で発送'],['4~7日で発送']], prompt: '--', selected: @item.delivery.shipping_date
+                  = del.select :shipping_date, [['1~2日で発送'],['2~3日で発送'],['4~7日で発送']], prompt: '--'
                   / = icon 'fa', "chevron-down"
               %ul.shipping_date-fail.hide.add-fail
                 %li 選択してください
@@ -151,7 +143,7 @@
                     %span.required_form 必須
                   .price_input
                     ¥
-                    = item.text_field :price, placeholder: "例）300", value: @item.price
+                    = item.text_field :price, placeholder: "例）300"
                 %ul.price-fail.hide.add-fail
                   %li 300以上9999999以下で入力してください
 
@@ -194,7 +186,7 @@
             また、出品をもちまして
             =link_to "加盟店規約"
             に同意したことになります。
-          = item.submit '出品する', id: 'edit_item_btn', class: 'red_btn sell_item_submit'
+          = item.submit '出品する', class: 'red_btn sell_item_submit'
           //マイページに戻る
           %button.return_btn もどる
 

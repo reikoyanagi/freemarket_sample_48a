@@ -1,102 +1,137 @@
 
-// $(function(){
-//   $('.item_image1').change(function(){
-//     if ( $(this).val().length !=0 ){
-//       console.log($(this).val())
-//       var html = build_item_image_form()
-//       $('.input_area').append(html);
-//     }
-//   })
-// })
-
-// Dropzone.autoDiscover = false
-
-// new Dropzone '#upload-dropzone'
-//   paramName: 'item[images_attributes][0][item_image][]'
-
-
-
-
-// プレビューの表示
 $(function(){
 
-  // フォームのhtml
-  function build_item_image_form(){
-    var item_image_form = `<input class = "item_image + count" multiple="multiple" type="file" name="item[images_attributes][0][item_image][]" id="item_images_attributes_0_item_image" />`
+  send_file_obj = {}
+  var stock_index = []
+  // プレビューの表示、表示、送信ファイル作成
+  function make_preview(send_img_cnt,filelist){
 
-    return item_image_form;
+    var num = stock_index.length
+    $.each(filelist, function(i,file){
+      stock_index.push(i)
+      if (send_img_cnt > 0){
+        var i = i + num
+      }
+      // キー、ハッシュでファイルを追加
+      send_file_obj[i] = file
+      // ファイルリーダーのインスタンスを作成する
+      var reader = new FileReader();
+      // ファイルの読み込みが成功した時の記述
+      reader.onload =function(e){
+        var url = e.target.result;
+        // imageをデータとして取得する
+        var preview = `<li id='preview' data-id='${i}' class="sell_upload_item">
+                         <figure class='sell_upload_item__image'>
+                           <img class="sell_upload_item__image__pic" src="${url}" />
+                         </figure>
+                         <div id = '#btns' class='sell_upload_item__buttons'>
+                           <a class="sell_upload_item__buttons__btn edit-btn">編集</a>
+                           <a id = 'remove_btn' class="sell_upload_item__buttons__btn remove-btn">削除</a>
+                         </div>
+                       </li>`
+
+        var over_five = `<div id = "second_preview_div" class="form-group__sell_upload_items ">
+                          <ul id = "second_preview_ul" class="uploaded_images"></ul>
+                         </div>`
+
+        var count_preview1 = $('#first_preview_ul').children().length
+        var count_preview2 = $('#second_preview_ul').children().length
+        var count_all = count_preview1 + count_preview2
+        var less_width = $('#image_file_filed ').css('width',$('#image_file_filed').width()-128)
+
+        if (count_all == 9){
+          $('#second_preview_ul').append(preview);
+          $('#image_file_filed ').css('display','none');
+        }
+        else if ( count_preview1 == 4){
+          $('#first_preview_ul').append(preview);
+          $('.sell_upload_items_container').append(over_five)
+          $('#image_file_filed ').css('width','100%')
+        }
+        else if ( count_preview1 == 5){
+          $('#second_preview_ul').append(preview);
+          less_width
+        }
+        else{
+          $('#first_preview_ul').append(preview);
+          less_width
+        }
+
+      }
+      reader.readAsDataURL(file);
+    })
+
   }
 
-  // プレビューのhtml
-  function build_preview(url){
-    var preview = `<li class='sell_upload_item'>
-                     <figure class='sell_upload_item__image'>
-                       <img class="sell_upload_item__image__pic" src="${url}" />
-                     </figure>
-                     <div class='sell_upload_item__buttons'>
-                       <a class="sell_upload_item__buttons__btn" href="#">編集</a>
-                       <a class="sell_upload_item__buttons__btn" href="#">削除</a>
-                     </div>
-                   </li>`
+  // プレビューの削除
+  $(function(){
+    $('.sell_upload_items_container').on('click','#remove_btn',function(){
+      var preview = $(this).parent().parent()
+      var i = preview.attr('data-id');
+      preview.remove();
+      delete send_file_obj[i]
 
-    return preview;
-  }
+      var count_preview1 = $('#first_preview_ul').children().length;
+      var count_preview2 = $('#second_preview_ul').children().length;
+      var count_all = count_preview1 + count_preview2
+      var add_width =  $('#image_file_filed ').css('width',$('#image_file_filed').width()+128)
 
-  // プレビューを追加する
-  $('.item_image').change(function(){
-  if ( $(this).val().length != 0 ){
+      if (count_preview1 == 4 && count_preview2 > 0){
+        move_to_first_preview_ul = $('#second_preview_ul li:first').appendTo("#first_preview_ul")
+      }
 
-    // 投稿された画像をfileオブジェクトで取得する
-    var image = $(this).prop('files')[0];
+      console.log(send_file_obj)
 
-    // ファイルリーダーのインスタンスを作成する
-    var reader = new FileReader();
+      if (count_all == 9){
+        $('#image_file_filed ').css('width',108);
+        $('#image_file_filed ').css('display','block');
+      }
+      else if (count_preview1 == 4 && count_preview2 == 0){
+        $('#image_file_filed ').css('width',108);
+      }
+      else if (count_preview1 == 4 && count_preview2 != 0){
+        add_width
+      }
+      else {
+        add_width
+      }
+    });
 
-    // ファイルの読み込みが成功した時の記述
-    reader.onload =function(e){
-      var url = e.target.result;
+  });
+// -------------------------------------------------------------------
+  // 発火（ドラッグ）
+  $('#image_file_filed').on('dragover',function(e){
+    e.preventDefault();
+  })
 
-      // プレビューを表示する
-      var preview = build_preview(url);
-      $('.uploaded_images').append(preview)
+  $('#image_file_filed').on('drop',function(e){
+    e.preventDefault();
+    var image_filelist = e.originalEvent.dataTransfer.files;
+    var file_count = image_filelist.length
+    var send_img_cnt = Object.keys(send_file_obj).length
+
+    if ( file_count != 0 && file_count + send_img_cnt <= 10){
+      make_preview(send_img_cnt,image_filelist);
+      $('.item_image').val('');
     }
+  })
 
-    // imageをデータとして取得する
-    reader.readAsDataURL(image);
+// --------------------------------------------------------
+  // 発火（画像投稿）
+  $('.item_image').change(function(){
+    // 投稿された画像をfileオブジェクトで取得する
+    var image_filelist = $('.item_image').prop('files');
+    var file_count = image_filelist.length;
+    var send_img_cnt = Object.keys(send_file_obj).length;
 
-    $('.input_area').css('width','491px')
+    if ( file_count != 0 && file_count + send_img_cnt <= 10){
+      make_preview(send_img_cnt,image_filelist);
+      $('.item_image').val('');
     }
   })
 
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// -----------------------------------------------------------
 
 // 配送料が入力されると配送方法を表示させる
 $(function(){
@@ -128,13 +163,17 @@ $(function(){
 });
 
 
-// 商品購入後のモーダルアップ
+// 商品出品ボタン押す
 $(function(){
   $('#sell_items_form').on('submit',function(e){
     e.preventDefault();
     var formdata = new FormData(this);
+    $.each(send_file_obj,function(index,file){
+      formdata.append('item[images_attributes][0][item_image][]',file)
+    })
 
-    console.log(formdata)
+    console.log(...formdata.entries())
+
     $.ajax({
       url: '/items',
       type: 'POST',
@@ -152,7 +191,7 @@ $(function(){
 
     .fail(function(){
       $(function(){
-        if ( $('#item_images_attributes_0_item_image').val().length == 0){
+        if ( !send_file_obj[0]){
           $('.item_image-fail').removeClass('hide');
         } else  {
           $('.item_image-fail').addClass('hide');
@@ -214,6 +253,12 @@ $(function(){
 // 商品購入後の後に遷移するときにモーダルで追加した要素を消す
 $(function(){
   $('.modal-btn').on('click', function(){
+    $('#after_sell').removeClass('show');
+    $('.overlay').removeClass('show');
+    $('html').removeClass('modal-open');
+    window.location.href = "/items/new";
+  });
+  $('.go_to_show').on('click', function(){
     $('#after_sell').removeClass('show');
     $('.overlay').removeClass('show');
     $('html').removeClass('modal-open');
