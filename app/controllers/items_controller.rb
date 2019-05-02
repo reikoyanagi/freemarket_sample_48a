@@ -45,9 +45,19 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
+    @image = Image.new
   end
 
   def update
+    item = Item.find(params[:id])
+    if item.update(update_item)
+      respond_to do |format|
+        format.html { redirect_to :root }
+        format.json
+      end
+    else
+      render :new
+    end
   end
 
   def destroy
@@ -67,6 +77,13 @@ class ItemsController < ApplicationController
     params.require(:item)
           .permit(:name, :user_id, :condition, :price, :detail, :status_id, :brand, :size,
                    delivery_attributes: [:postage, :shipping, :region, :shipping_date]).merge(status_id: 1, user_id: current_user.id)
+  end
+
+  def update_item
+    params.require(:item)
+          .permit(:name, :user_id, :condition, :price, :detail, :status_id, :brand, :size, :status_id, :user_id,
+                  images_attributes: [:id, :item_id, {item_image: []}],
+                  delivery_attributes: [:id, :postage, :shipping, :region, :shipping_date])
   end
 
   def image_params

@@ -89,7 +89,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user.address.save
 
 
-
     #Snsログインのデータを保存
     SnsCredential.create(
       uid: session[:uid],
@@ -105,7 +104,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
       )
     @credit = CreditCard.new(user_id: @user.id, customer_id: customer.id, card_id: customer.default_card)
     @credit.save
-
 
 
     #deviseで新規登録を行うと自動でアカウントが切り替わる問題解決

@@ -22,19 +22,11 @@
             .sell_upload.clearfix
               .sell_upload_items_container
                 .form-group__sell_upload_items
-                  %ul.uploaded_images
-                    / %li.sell_upload_item
-                    /   %figure.sell_upload_item__image
-                    /     = image_tag('/assets/member_photo_noimage_thumb.png', class: 'sell_upload_item__image__pic')
-                    /   .sell_upload_item__buttons
-                    /     = link_to '#', class: 'sell_upload_item__buttons__btn' do
-                    /       編集
-                    /     = link_to '#', class: 'sell_upload_item__buttons__btn' do
-                    /       削除
+                  %ul#first_preview_ul.uploaded_images
 
               / 複数にするときは multiple: 'true' を追加
               = item.fields_for :images, id: '', class: '' do |img|
-                = img.label :item_image, class: 'input_area ' do
+                = img.label :item_image, id: 'image_file_filed',class: 'input_area ' do
                   = img.file_field :item_image,class: 'item_image', style: 'display :none;', multiple: true
                   %p
                     ドラックアンドドロップ
@@ -173,7 +165,7 @@
               あなたが出品した商品は「出品した商品一覧」からいつでも見ることができます。
               = link_to '続けて出品する', '/items/new', class: 'red_btn modal-btn'
               %p.share-link
-                = link_to '商品ページに行ってシェアをする', '#'
+                = link_to '商品ページに行ってシェアをする', '/item/index', class: 'go_to_show'
       .contents.clearfix
         .sell_content__consent
           %p
