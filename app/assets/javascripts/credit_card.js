@@ -25,7 +25,7 @@ document.addEventListener(
           alert("登録が完了しました");
         } else if(status === 402) {
           $("#card_number").removeAttr("name");
-          // $("#cvc").removeAttr("name");
+          $("#cvc").removeAttr("name");
           $("#exp_month").removeAttr("name");
           $("#exp_year").removeAttr("name");
           $("#card_token").append(

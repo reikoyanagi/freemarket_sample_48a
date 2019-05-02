@@ -5,9 +5,9 @@ class CreditCardsController < ApplicationController
 
   def index #クレジットカードの追加画面
     credit = CreditCard.where(user_id: current_user.id).first
-    # if credit.present?
-    #   redirect_to action: "show"
-    # end
+    if credit.present?
+      redirect_to action: "show"
+    end
   end
 
   def show #登録済みクレジットカードの表示画面
