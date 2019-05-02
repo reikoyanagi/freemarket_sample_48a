@@ -3,10 +3,15 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
-  prepend_before_action :check_captcha, only: [:tel]
-  prepend_before_action :customize_sign_up_params, only: [:tel]
+  # prepend_before_action :check_captcha, only: [:tel]
+  # prepend_before_action :customize_sign_up_params, only: [:tel]
 
   def registration
+    # unless session[:user] == nil
+    #   @user = User.new(session[:user])
+    #   nickname = @user.nickname
+    #   email = @user.email
+    # end
     @user = User.new(session[:user])
     nickname = @user.nickname
     email = @user.email
@@ -125,17 +130,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   private
 
-  def customize_sign_up_params
-    devise_parameter_sanitizer.permit :sign_up, keys: [:username, :email, :password, :password_confirmation, :remember_me]
-  end
+  # def customize_sign_up_params
+  #   devise_parameter_sanitizer.permit :sign_up, keys: [:username, :email, :password, :password_confirmation, :remember_me]
+  # end
 
-  def check_captcha
-    self.resource = resource_class.new sign_up_params
-    resource.validate
-    unless verify_recaptcha(model: resource)
-      respond_with_navigational(resource) { render :registration }
-    end
-  end
+  # def check_captcha
+  #   self.resource = resource_class.new sign_up_params
+  #   resource.validate
+  #   unless verify_recaptcha(model: resource)
+  #     respond_with_navigational(resource) { render :registration }
+  #   end
+  # end 133行からここまで発表の都合上コメントアウト
 
   # GET /resource/edit
   # def edit

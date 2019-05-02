@@ -9,14 +9,15 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-  def create
-    if verify_recaptcha
-      super
-    else
-      self.resource = resource_class.new
-      respond_with_navigational(resource) { render :new }
-    end
-  end
+  # 以下発表の都合上コメントアウト
+  # def create
+  #   if verify_recaptcha
+  #     super
+  #   else
+  #     self.resource = resource_class.new
+  #     respond_with_navigational(resource) { render :new }
+  #   end
+  # end
 
   # DELETE /resource/sign_out
   # def destroy
