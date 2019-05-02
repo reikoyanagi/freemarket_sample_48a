@@ -26,6 +26,7 @@ class CreditCardsController < ApplicationController
   end
 
 
+
   def create #クレジットカードの作成処理（view無）
     Payjp.api_key = 'sk_test_0ed9e660871befcb2421e447'
     customer = Payjp::Customer.create(
