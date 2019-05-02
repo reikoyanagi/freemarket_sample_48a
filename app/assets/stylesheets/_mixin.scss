@@ -98,11 +98,22 @@
 
 //Googleボタン
 @mixin google_btn{
+  outline: 0;
   position: relative;
   background-color: #fff;
   color: #333;
   border: #979797 solid 1px;
-  text-decoration: none;
+  a{
+    margin: 0;
+    text-decoration: none;
+    color: #333;
+  }
+  a:hover{
+    opacity: 1;
+    margin: 0;
+    color: #333;
+    text-decoration: none;
+  }
   .google-logo{
     img {
       position: absolute;
@@ -124,6 +135,8 @@
   display: block;
   border: 1px solid #aaa;
   margin: 24px auto 0;
+  text-decoration: none;
+  text-align: center;
 }
 
 //facebookのボタン

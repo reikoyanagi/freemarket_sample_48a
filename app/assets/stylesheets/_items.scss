@@ -143,6 +143,9 @@ html, body {
                 position: relative;
                 padding-right: 75px;
                 padding-left: 20px;
+                img{
+                  border-radius: 50%;
+                }
                 .my{
                   color:#333;
                   display: inline-block;
@@ -552,12 +555,12 @@ html, body {
         font-size: 14px;
         float:left;
         line-height:50px;
-        a.large_cat{
+        a{
           color: #333333;
           cursor: pointer;
           text-decoration: none;
         }
-        a.large_cat:hover{
+        a:hover{
           color: gray;
           border-bottom: 1px solid gray;
 
@@ -809,6 +812,7 @@ html, body {
         }
 
         a.item-button-report{
+          text-decoration: none;
           color:#333;
           margin-left: 16px;
           background-color: $base-color;
@@ -817,6 +821,7 @@ html, body {
           outline:none;
           padding:8px 16px 8px 16px;
           span.item-report{
+            text-decoration: none;
             margin-top: 1px;
             margin-left: 8px;
             font-size: 14px;
@@ -832,6 +837,7 @@ html, body {
           line-height: 33px;
           text-align: left;
           font-size:14px;
+          text-decoration: none;
         }
         a:hover{
           color:$thin-blue;
@@ -914,6 +920,7 @@ html, body {
         color:$blue;
         font-size: 14px;
         color:$blue;
+        text-decoration: none;
       }
       a:hover{
         color:$thin-blue;
@@ -953,6 +960,7 @@ html, body {
           color:$blue;
           font-size:22px;
           font-weight: bold;
+          text-decoration: none;
         }
         a:hover{
           color:$thin-blue;

@@ -1,0 +1,22 @@
+.overall
+
+  = render 'items/header'
+
+  .container.clearfix
+
+    = render "users/mypage_side_nav"
+    .credit-main
+      .logout
+        .logout__container
+          .logout__container-line
+            .logout__container-button
+              = button_to "ログアウト" ,destroy_user_session_path, method: :delete , class: "red_btn"
+
+  .footer
+
+    = render "items/footer"
+
+  .red-button
+
+    = render 'items/button'
+

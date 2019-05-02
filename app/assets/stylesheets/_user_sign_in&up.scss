@@ -92,6 +92,13 @@
       padding: 64px;
       width: 320px;
       margin: 0 auto;
+      #error_explanation{
+        li {
+          color: red;
+          font-size: 13px;
+          margin-top: 3px;
+        }
+      }
     }
     .default_list{
       li {
@@ -326,11 +333,4 @@
       }
     }
   }
-}
-
-//仮置きreCAPTCHA
-.reCAPTCHA {
-  height: 78px;
-  width: 320px;
-  border: 1px solid #000;
 }

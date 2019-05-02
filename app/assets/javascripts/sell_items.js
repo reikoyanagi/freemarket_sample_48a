@@ -56,7 +56,6 @@ $(function(){
           $('#first_preview_ul').append(preview);
           less_width
         }
-
       }
       reader.readAsDataURL(file);
     })
@@ -171,8 +170,6 @@ $(function(){
     $.each(send_file_obj,function(index,file){
       formdata.append('item[images_attributes][0][item_image][]',file)
     })
-
-    console.log(...formdata.entries())
 
     $.ajax({
       url: '/items',

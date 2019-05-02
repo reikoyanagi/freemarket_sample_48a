@@ -6,56 +6,56 @@ describe User do
     it "is invalid without a nickname" do
       user = build(:user, nickname: nil)
       user.valid?
-      expect(user.errors[:nickname]).to include("can't be blank")
+      expect(user.errors[:nickname]).to include("を入力してください")
     end
 
     #passwordが空である場合登録できないか
     it "is invalid without a password" do
       user = build(:user, password: nil)
       user.valid?
-      expect(user.errors[:password]).to include("can't be blank")
+      expect(user.errors[:password]).to include("を入力してください")
     end
 
     #password_confirmationが一致していない場合登録できないか
     it "is invalid without a password_confirmation although with a password" do
       user = build(:user, password_confirmation: "")
       user.valid?
-      expect(user.errors[:password_confirmation]).to include("doesn't match Password")
+      expect(user.errors[:password_confirmation]).to include("が一致しません")
     end
 
     #last_nameが空である場合登録できないか
     it "is invalid without a last_name" do
       user = build(:user, last_name: nil)
       user.valid?
-      expect(user.errors[:last_name]).to include("can't be blank")
+      expect(user.errors[:last_name]).to include("を入力してください")
     end
 
     #first_nameが空である場合登録できないか
     it "is invalid without a first_name" do
       user = build(:user, first_name: nil)
       user.valid?
-      expect(user.errors[:first_name]).to include("can't be blank")
+      expect(user.errors[:first_name]).to include("を入力してください")
     end
 
     #last_name_kanaが空である場合登録できないか
     it "is invalid without a last_name_kana" do
       user = build(:user, last_name_kana: nil)
       user.valid?
-      expect(user.errors[:last_name_kana]).to include("can't be blank")
+      expect(user.errors[:last_name_kana]).to include("を入力してください")
     end
 
     #first_name_kanaが空である場合登録できないか
     it "is invalid without a first_name_kana" do
       user = build(:user, first_name_kana: nil)
       user.valid?
-      expect(user.errors[:first_name_kana]).to include("can't be blank")
+      expect(user.errors[:first_name_kana]).to include("を入力してください")
     end
 
     #birth_dateが空である場合登録できないか
     it "is invalid without a birth_date" do
       user = build(:user, birth_date: nil)
       user.valid?
-      expect(user.errors[:birth_date]).to include("can't be blank")
+      expect(user.errors[:birth_date]).to include("を入力してください")
     end
 
     #passwordが5文字以下だと登録できないか

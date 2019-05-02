@@ -19,7 +19,7 @@ class ItemsController < ApplicationController
   def create
     # 画像以外のファイルを格納
     @item = Item.new(item_params)
-
+    # transaction使うべき
     if image_judge != 0
       if @item.save &&
         # 画像ファイルは @item.id が必要なので @itemが保存された後に引っ張る
