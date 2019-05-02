@@ -98,6 +98,6 @@
           電話番号の確認
           %i.fa.fa-angle-right.fa-lg
       %li
-        = link_to destroy_user_session_path, method: :delete , class: 'contents-link' do
+        = link_to user_logout_path(current_user.id), class: 'contents-link' do
           ログアウト
           %i.fa.fa-angle-right.fa-lg

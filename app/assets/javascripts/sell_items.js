@@ -25,17 +25,36 @@ $(function(){
                            <img class="sell_upload_item__image__pic" src="${url}" />
                          </figure>
                          <div id = '#btns' class='sell_upload_item__buttons'>
-                           <a class="sell_upload_item__buttons__btn">編集</a>
-                           <a id = 'remove_btn' class="sell_upload_item__buttons__btn">削除</a>
+                           <a class="sell_upload_item__buttons__btn edit-btn">編集</a>
+                           <a id = 'remove_btn' class="sell_upload_item__buttons__btn remove-btn">削除</a>
                          </div>
                        </li>`
 
-        $('.uploaded_images').append(preview);
-        if ($('.uploaded_images').children().length == 5){
-          $('.input_area ').css('width','100%')
-        } else {
-          var width = $('.input_area').width()-128;
-          $('.input_area ').css('width',width)
+        var over_five = `<div id = "second_preview_div" class="form-group__sell_upload_items ">
+                          <ul id = "second_preview_ul" class="uploaded_images"></ul>
+                         </div>`
+
+        var count_preview1 = $('#first_preview_ul').children().length
+        var count_preview2 = $('#second_preview_ul').children().length
+        var count_all = count_preview1 + count_preview2
+        var less_width = $('#image_file_filed ').css('width',$('#image_file_filed').width()-128)
+
+        if (count_all == 9){
+          $('#second_preview_ul').append(preview);
+          $('#image_file_filed ').css('display','none');
+        }
+        else if ( count_preview1 == 4){
+          $('#first_preview_ul').append(preview);
+          $('.sell_upload_items_container').append(over_five)
+          $('#image_file_filed ').css('width','100%')
+        }
+        else if ( count_preview1 == 5){
+          $('#second_preview_ul').append(preview);
+          less_width
+        }
+        else{
+          $('#first_preview_ul').append(preview);
+          less_width
         }
       }
       reader.readAsDataURL(file);
@@ -45,26 +64,46 @@ $(function(){
 
   // プレビューの削除
   $(function(){
-    $('.uploaded_images').on('click','#remove_btn',function(){
-      var preview_box = $(this).parent().parent()
-      var i = preview_box.attr('data-id');
-      preview_box.remove();
+    $('.sell_upload_items_container').on('click','#remove_btn',function(){
+      var preview = $(this).parent().parent()
+      var i = preview.attr('data-id');
+      preview.remove();
       delete send_file_obj[i]
-      if ($('.uploaded_images').children().length == 4){
-        $('.input_area ').css('width','108px')
-      } else {
-        var width = $('.input_area').width()+128;
-        $('.input_area ').css('width',width)
+
+      var count_preview1 = $('#first_preview_ul').children().length;
+      var count_preview2 = $('#second_preview_ul').children().length;
+      var count_all = count_preview1 + count_preview2
+      var add_width =  $('#image_file_filed ').css('width',$('#image_file_filed').width()+128)
+
+      if (count_preview1 == 4 && count_preview2 > 0){
+        move_to_first_preview_ul = $('#second_preview_ul li:first').appendTo("#first_preview_ul")
+      }
+
+      console.log(send_file_obj)
+
+      if (count_all == 9){
+        $('#image_file_filed ').css('width',108);
+        $('#image_file_filed ').css('display','block');
+      }
+      else if (count_preview1 == 4 && count_preview2 == 0){
+        $('#image_file_filed ').css('width',108);
+      }
+      else if (count_preview1 == 4 && count_preview2 != 0){
+        add_width
+      }
+      else {
+        add_width
       }
     });
+
   });
 // -------------------------------------------------------------------
   // 発火（ドラッグ）
-  $('.input_area').on('dragover',function(e){
+  $('#image_file_filed').on('dragover',function(e){
     e.preventDefault();
   })
 
-  $('.input_area').on('drop',function(e){
+  $('#image_file_filed').on('drop',function(e){
     e.preventDefault();
     var image_filelist = e.originalEvent.dataTransfer.files;
     var file_count = image_filelist.length
@@ -211,6 +250,12 @@ $(function(){
 // 商品購入後の後に遷移するときにモーダルで追加した要素を消す
 $(function(){
   $('.modal-btn').on('click', function(){
+    $('#after_sell').removeClass('show');
+    $('.overlay').removeClass('show');
+    $('html').removeClass('modal-open');
+    window.location.href = "/items/new";
+  });
+  $('.go_to_show').on('click', function(){
     $('#after_sell').removeClass('show');
     $('.overlay').removeClass('show');
     $('html').removeClass('modal-open');
