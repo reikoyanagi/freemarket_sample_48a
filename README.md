@@ -35,6 +35,7 @@ Things you may want to cover:
 |brand|string|
 |size|string|
 
+
 ## Association
 - belongs_to :user
 - has_many :images, dependent: :destroy
